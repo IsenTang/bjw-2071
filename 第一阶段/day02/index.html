@@ -7,7 +7,7 @@
 </head>
 <body>
     
-    <table border="1" align="center" 
+    <!-- <table border="1" align="center" 
     cellpadding='10px' 
     cellspacing='10px'
 
@@ -27,17 +27,30 @@
 
             <tr>
                 <td>1</td>
-                <!-- <td colspan="2">2</td> -->
+                <td colspan="2">2</td>
                 <td rowspan="2">2</td>
                 <td>3</td>
             </tr>
 
             <tr>
                 <td>1</td>
-                <!-- <td>2</td> -->
+                <td>2</td>
                 <td>3</td>
             </tr>
         </tbody>
-    </table>
+    </table> -->
+
+    <form action="http://192.168.10.73:10001/banyuan/form/action" method="POST">
+
+        <input type="text" name="username"/>
+
+        <input type="password" name="password"/>
+
+        <button type="submit">提交</button>
+
+        <button type="reset">重置</button>
+    </form>
+
+    
 </body>
 </html>
