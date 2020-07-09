@@ -34,4 +34,28 @@ input[type='password']{
     background-color: red;
 } */
 
+/* a:visited{
+    color: red;
+}
 
+a:hover{
+    color:aqua
+}
+
+a:active{
+    color:aquamarine;
+}
+
+a:link{
+    color: chartreuse;
+} */
+
+/* .container{
+    width: 100px;
+    height: 100px;
+    background-color: antiquewhite;
+}
+
+div:hover{
+    background-color: aquamarine;
+} */
