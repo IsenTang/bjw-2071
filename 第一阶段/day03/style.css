@@ -34,7 +34,11 @@ input[type='password']{
     background-color: red;
 } */
 
-/* a:visited{
+/* a:link{
+    color: chartreuse;
+}
+
+a:visited{
     color: red;
 }
 
@@ -43,11 +47,7 @@ a:hover{
 }
 
 a:active{
-    color:aquamarine;
-}
-
-a:link{
-    color: chartreuse;
+    color:slateblue;
 } */
 
 /* .container{
@@ -58,4 +58,15 @@ a:link{
 
 div:hover{
     background-color: aquamarine;
+} */
+
+/* .child{
+    width: 100px;
+    height: 100px;
+    margin-top: 50px;
+    background-color: aqua;
+}
+
+.container>div:first-child{
+    background-color: blueviolet;
 } */
