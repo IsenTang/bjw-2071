@@ -67,6 +67,85 @@ div:hover{
     background-color: aqua;
 }
 
-.container>div:first-child{
+.container>div:nth-child(even){
     background-color: blueviolet;
 } */
+
+
+/* .container::before{
+
+    content:' before'
+}
+
+.container::after{
+
+    content: ' after';
+} */
+
+/* div{
+
+}
+
+#id{
+
+} */
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    height: 200vh;
+}
+/* .container{
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+    position: relative;
+    top:50px;
+    left:50px;
+    margin-top: 50px;
+    margin-left: 50px;
+} */
+
+/* .second-container{
+    width: 200px;
+    height: 200px;
+    background-color: bisque;
+} */
+
+.container{
+    width: 500px;
+    height: 500px;
+    background-color: aqua;
+    /* position: absolute; */
+    /* left:50px; */
+    /* right:50px; */
+    position: relative;
+}
+
+/* .second-container{
+    width: 300px;
+    height: 300px;
+    background-color:;
+} */
+
+/* .child{
+    width: 200px;
+    height: 200px;
+    background-color: bisque;
+    position:absolute;
+    right:50px;
+    bottom:50px;
+} */
+
+.container{
+
+    width: 200px;
+    height: 200px;
+    background-color: bisque;
+    position:fixed;
+    right:0;
+    top:30px;
+}
