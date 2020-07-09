@@ -1,0 +1,24 @@
+.parent{
+    width: 500px;
+    height: 500px;
+}
+
+/* .parent .child{
+    background-color: yellow;
+} */
+
+/* .parent>div>h1{
+    background-color: red;
+} */
+
+/* h1.child{
+    background-color: bisque;
+}
+
+div.parent{
+    background-color: aquamarine;
+} */
+
+/* div,h1{
+    background-color: red;
+} */
