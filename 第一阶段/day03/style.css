@@ -7,7 +7,7 @@
     background-color: yellow;
 } */
 
-/* .parent>div>h1{
+/* .parent>div>div>h1{
     background-color: red;
 } */
 
@@ -22,3 +22,16 @@ div.parent{
 /* div,h1{
     background-color: red;
 } */
+
+/* input */
+
+/* input[type='text']{
+    background-color: aqua;
+    width: 400px;
+}
+
+input[type='password']{
+    background-color: red;
+} */
+
+
