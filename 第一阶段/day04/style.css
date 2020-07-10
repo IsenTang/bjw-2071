@@ -50,28 +50,31 @@ body{
     /* border:1px solid black; */
 }
 
-.div1{
+/* .div1{
     width: 100px;
     height: 100px;
     background-color: aqua;
     float: left;
-}
+    display: inline-block;
+} */
 
-.div2{
+/* .div2{
     width: 200px;
     height: 200px;
     background-color:blueviolet;
     float: left;
-}
+    display: inline-block;
+} */
 
-.div3{
+/* .div3{
     width: 300px;
     height: 300px;
     background-color: aquamarine;
     float: left;
-}
+    display: inline-block;
+} */
 
-.div4{
+/* .div4{
     width: 500px;
     height: 500px;
     background-color:red;
@@ -79,10 +82,92 @@ body{
 
 .clear{
     clear: both;
-}
+} */
 
-.clearFix::after{
+/* .clearFix::after{
     content: '';
     display: block;
     clear:both;
+    height: 0;
+    overflow: hidden;
+} */
+
+/* .container{
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    overflow:visible;
+} */
+
+/* .div1{
+    width: 200px;
+    height: 200px; 
+    background-color: aquamarine; 
+    position: relative;
+    top:100px;
+    z-index: 11;
 }
+
+.div2{
+    width: 200px;
+    height: 200px;
+    background-color: blueviolet;
+    position: relative;
+    z-index: 10;
+} */
+
+/* .container{
+    width: 500px;
+    height: 100px;
+    background-color: aquamarine;
+    text-align: center;
+    line-height: 100px;
+} */
+
+/* .container{
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+    margin: 0 auto;
+} */
+
+/* .container{
+    width: 500px;
+    height: 500px;
+    background-color: aquamarine;
+    position: relative;
+}
+
+.child{
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+} */
+
+
+.container{
+    width: 1000px;
+    height: 500px;
+    background-color: aqua;
+    margin: 0 auto;
+}
+
+.left{
+    width: 300px;
+    height: 500px;
+    float: left;
+    background-color: bisque;
+}
+
+.right{
+    width: 700px;
+    height: 500px;
+    float: left;
+    background-color: red;
+}
+
+
