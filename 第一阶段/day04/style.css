@@ -149,7 +149,7 @@ body{
 } */
 
 
-.container{
+/* .container{
     width: 1000px;
     height: 500px;
     background-color: aqua;
@@ -163,11 +163,51 @@ body{
     background-color: bisque;
 }
 
+.middle{
+    width: 400px;
+    height: 500px;
+    float: left;
+    background-color: brown;
+}
+
 .right{
-    width: 700px;
+    width: 300px;
     height: 500px;
     float: left;
     background-color: red;
+} */
+
+/* .left {
+    width: 300px;
+    height: 500px;
+    background-color: #aadddd;
+    float: left;
+}
+.right {
+    height: 500px;
+    margin-left: 300px;
+    background-color: #f08844;
+} */
+
+.left{
+    width: 200px;
+    height: 500px;
+    background-color: #aadddd;
+    float: left;
+}
+
+.right{
+    width: 200px;
+    height: 500px;
+    background-color: #f08844;
+    float: right;
+}
+
+.middle{
+    height: 500px;
+    margin-left: 200px;
+    margin-right: 200px;
+    background-color: aqua;
 }
 
 
