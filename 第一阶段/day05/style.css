@@ -1,0 +1,19 @@
+.container{
+    width: 200px;
+    height: 200px;
+    background-color: aquamarine;
+    margin:0 auto;
+    margin-top: 50px;
+    transition: 0.5s 1s all ;
+}
+
+.container:hover{
+    
+    width: 400px;
+    height: 400px;
+    background-color: bisque;
+    /* transform: rotate(45deg); */
+    /* transform: scale(1.5); */
+    /* transform: translateX(100px) translateY(100px); */
+
+}
