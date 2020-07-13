@@ -5,7 +5,7 @@
     margin:0 auto;
     margin-top: 50px;
     /* transition: 0.5s all ; */
-    /* animation: rainbow 5s infinite backwards ; */
+    animation: rainbow 5s infinite backwards ;
 }
 
 /* .container:hover{
@@ -28,6 +28,7 @@
 
     50%{
         background-color: azure;
+        transform: translateX(100px)
     }
     100%{
         background-color: brown;
