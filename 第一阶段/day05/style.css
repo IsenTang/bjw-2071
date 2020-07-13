@@ -4,16 +4,32 @@
     background-color: aquamarine;
     margin:0 auto;
     margin-top: 50px;
-    transition: 0.5s 1s all ;
+    /* transition: 0.5s all ; */
+    /* animation: rainbow 5s infinite backwards ; */
 }
 
-.container:hover{
+/* .container:hover{
     
     width: 400px;
     height: 400px;
-    background-color: bisque;
+    background-color: bisque; */
     /* transform: rotate(45deg); */
     /* transform: scale(1.5); */
     /* transform: translateX(100px) translateY(100px); */
+/* } */
 
+
+/* .container:hover{
+    
+} */
+
+@keyframes rainbow{
+    0%{}
+
+    50%{
+        background-color: azure;
+    }
+    100%{
+        background-color: brown;
+    }
 }
