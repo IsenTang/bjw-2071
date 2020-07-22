@@ -212,20 +212,61 @@
     
     // 如果表达式是true则执行循环体，如果为false，则终止循环。
     
-    var j = 0;
-    while(j < 10){
+    // var j = 0;
+    // while(j < 10){
 
-        j+=2;
-        console.log(j);
-    }
+    //     j+=2;
+    //     console.log(j);
+    // }
 
-    console.log(' ======== ');
+    // console.log(' ======== ');
     // for ( 初始化表达式，条件表达式，更新表达式) 
 
-    for(var i = 0; i<10 ; i++){
+    // outer : for(var i = 0; i<10 ; i++){
 
-        console.log(i);
-    }
+    //     console.log('i ===>',i);
+
+    //     for(var j = 0; j<10 ; j++){
+
+    //         console.log('j ====>',j);
+
+    //         if(j === 2){
+    //             break outer;
+    //         }
+    //     }
+
+    //     console.log(' ========== ');
+    // }
+
+    // for(var i = 0; i<10 ; i++){
+
+    //     console.log(i);
+    //     if(i === 2){
+    //         break;
+    //     }
+        
+    // }
+
+var flag = true;
+
+for(var i = 0; i<10 ; i++){
+
+    if(flag){
+        console.log('i ===>',i);
+
+        for(var j = 0; j<10 ; j++){
+
+            console.log('j ====>',j);
+
+            if(j === 2){
+                flag = false;
+                break ;
+                // return;
+            }
+        }
+        console.log(' ========== ');
+    } 
+}
 
 </script>
 </html>
