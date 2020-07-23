@@ -142,6 +142,198 @@
 
 // main();
 
+// function func(a,b,f){
+  
+//   return f(a) + f(b);
+// }
+
+// function call(val){
+  
+//   return val + 1;
+// }
+
+// console.log(func(1,2,call));
+
+    // var a = 1
+    
+    // console.log(a);
+    // console.log(window.a);
+
+    // console.log(window.c) // ==> undefined，在对象中，只会是undefined
+
+    // console.log(c); // ==> 报错，没有定义就会报错
+
+    // var obj = {
+
+    // }
+
+
+    // console.log(obj.a)
+
+    // console.log(a);
+
+    // var a = 1;
+
+    // function main(){
+        
+    //     console.log(a);
+    // }
+
+    // var a = 1;
+
+    // function main(){
+    
+    //     var a = 10;
+    //     console.log(a);
+    // }
+
+    // main();
+
+    
+    // console.log(a);
+
+    // var a = 1;
+
+    // a();
+
+    // var a = function (){
+
+    //     console.log(1);
+    // }
+
+    // a();
+
+    // function a(){
+    
+    //     console.log(123)
+    // }
+
+    // var a = 10;
+    // function main(){
+        
+    //     var a;
+
+    //     console.log(a); // ===> undefined
+        
+    //     a = 1;
+    // }
+
+
+    // var a = 10;
+
+    // function main(){
+    
+    //     console.log('a',a); 
+        
+    //     a = 1;
+    // }
+
+
+    // var a = 10;
+    // function main(){
+        
+    //     console.log(a);
+    //     a = 200;
+    // }
+
+    // main();
+
+    // var a = 123;
+    // function main(){
+
+    //     console.log(a);
+    // }
+    // main()
+
+    // var a = 123;
+    // function main(){
+
+    //     var a;
+
+    //     console.log(a);
+
+    //     a = 1234;
+    // }
+
+    // main()
+    // console.log(a);
+    
+    // var a = 123;
+
+    // function main(){
+
+    //     console.log(a);
+
+    //     a = 1234;
+    // }
+
+    // main()
+    // console.log(a);
+
+
+    // var a = 123;
+    // function main(a){
+
+    //     console.log(a);
+
+    //     a = 1234;
+    // }
+
+    // main();
+    // console.log(a);
+
+    // var a = 123;
+
+    // function main(aa){
+
+    //     console.log(aa);
+
+    //     aa = 1234;
+    // }
+
+    // main(123);
+    // console.log(a);
+
+
+    // (function(a){
+    //     console.log(a);
+    // }(123))
+
+    var array = [];
+    // var a =[1,2,3,4,5,6];
+
+    // console.log(a[4])
+    // 为什么？
+
+    // for(var i=0; i<6; i++){
+
+    //     // var j = i;
+
+    //     array[i] = function(){
+    //         console.log(i) 
+    //     }
+    // }
+
+
+    // array[0](); // ====> 6
+
+    for(var i=0; i<6; i++){
+
+        (function(ii){
+
+            var ii = i;
+
+            array[i] = function(){
+                console.log(ii) // 0、1、2、3、4、5
+            }
+        })(i)
+
+    }
+
+    array[1]();
+
+    array[2]();
+
 
 
 
