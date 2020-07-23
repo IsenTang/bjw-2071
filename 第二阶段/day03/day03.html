@@ -354,28 +354,102 @@
     //     })(i)
     // }
 
-    var i = 0;
-    function a(ii){
+    // var i = 0;
+    // function a(ii){
 
-        var ii;
-        array[ii] = function(){
-            console.log(ii);
-        } 
-    }
+    //     var ii;
+    //     array[ii] = function(){
+    //         console.log(ii);
+    //     } 
+    // }
 
-    a(0); // 0
+    // a(0); // 0
 
-    i++;
+    // i++;
 
-    a(1); // 1
+    // a(1); // 1
 
-    i++;
+    // i++;
 
-    a(2); // 2
+    // a(2); // 2
 
 
-    array[0]()
+    // array[0]()
 
-    array[1]()
+    // array[1]()
+    
+    // var name = 'banyuan';
+
+    // function sayName(){
+  
+    //     console.log(this);
+    //     console.log(this.name);
+    // }
+
+
+    // var obj = {
+    //     name: 'obj-name',
+    //     sayName
+    // }
+
+    // sayName();
+
+    // obj.sayName();
+
+    // function foo() { 
+    //     console.log(this.bar); 
+    // } 
+    // var bar = "bar1"; 
+    // var o2 = {bar: "bar2", foo: foo}; 
+    // var o3 = {bar: "bar3", foo: foo}; 
+
+    // foo();  // 1         
+    // o2.foo();   // 2        
+    // o3.foo();   // 3
+
+
+// var foo = 'foo'
+
+// var myObject = {
+//     foo: "bar",
+//     func: function() {
+//         var self = this;
+//         console.log("outer func:this = " + this.foo);
+//         console.log("outer func:self = " + self.foo);
+//         (function() {
+//             console.log("inner func:this = " + this.foo);
+//             console.log("inner func:self = " + self.foo);
+//         }());
+//     }
+// };
+
+// var func1 = myObject.func;
+// myObject.func();
+
+// console.log(' ================ ');
+// func1();  
+
+// function createPerson(name){
+
+//     var obj = new Object();
+    
+//     obj.name = name
+    
+//     return obj;
+// }
+
+function Person(name,age){
+
+  console.log(this);
+  this.name = name;
+  this.age = age;
+}
+
+var p1 = new Person('lucy','22');
+
+console.log(p1);
+
+console.log(p1 instanceof Person)
+
 </script>
 </html>
