@@ -314,28 +314,68 @@
     //     }
     // }
 
+    // var i = 0;
+
+    // array[i] = function(){
+
+    //     console.log(i);
+    // }
+
+    // i++;
+
+    // array[i] = function(){
+
+    //     console.log(i);
+    // }
+
+    // i++;
+
+    // array[i] = function(){
+
+    //     console.log(i);
+    // }
+
+    // i++;
+
+    // array[i] = function(){
+
+    //     console.log(i);
+    // }
+
 
     // array[0](); // ====> 6
 
-    for(var i=0; i<6; i++){
+    // for(var i=0; i<6; i++){
+    //     (function(ii){
 
-        (function(ii){
+    //         array[i] = function(){
+    //             console.log(ii) // 0、1、2、3、4、5
+    //         }
+    //     })(i)
+    // }
 
-            var ii = i;
+    var i = 0;
+    function a(ii){
 
-            array[i] = function(){
-                console.log(ii) // 0、1、2、3、4、5
-            }
-        })(i)
-
+        var ii;
+        array[ii] = function(){
+            console.log(ii);
+        } 
     }
 
-    array[1]();
+    a(0); // 0
 
-    array[2]();
+    i++;
+
+    a(1); // 1
+
+    i++;
+
+    a(2); // 2
 
 
+    array[0]()
 
-
+    array[1]()
 </script>
 </html>
