@@ -11,5 +11,167 @@
 
 <script>
 
+    // var fruits = ['Apple', 'Banana'];
+
+    // fruits.push('Orange');
+
+    // console.log(fruits);
+
+    // console.log(fruits);
+
+    // fruits.pop();
+
+    // console.log(fruits);
+
+    // fruits.shift();
+
+    // console.log(fruits);
+
+    // fruits.unshift('Strawberry');
+
+    // console.log(fruits);
+
+    // var positon = fruits.indexOf('Banana');
+
+    // console.log(positon);
+
+    // fruits.splice(positon, 1);
+
+    // console.log(fruits);
+
+    // var date = new Date();
+
+
+    // var time = '2020年07月24日  13:39:00';
+
+    // console.log(date.getFullYear());  // ===> 2020
+
+    // console.log(date.getMonth() + 1);   // ====> 6
+
+    // console.log(date.getDate());   // ======> 24
+
+    // console.log(date.getHours());   // =====> 13
+
+    // console.log(date.getMinutes());  // =====> mm
+
+    // console.log(date.getSeconds());  // =======> ss
+
+
+    // var str = date.getFullYear() + '年' + (date.getMonth() + 1) + '月' + ' ...... ';
+
+
+    // var pi_value=Math.PI;
+
+    // console.log(pi_value)
+
+    
+
+    // console.log(Math.max(1,2222));
+
+    // console.log(Math.pow(3,3));
+
+    // console.log(Math.random());
+    
+    // (0.0,1.0)
+    
+
+    // console.log(Math.floor(1.7));
+
+    // // (0.0,1.0)
+    // console.log(Math.random());
+
+    // [1,5]
+    // console.log(Math.floor(Math.random() * 5 + 1));
+
+    // var str = new String('123a');
+
+    // console.log(str);
+
+    // var str1  = '123abcd';
+
+    // console.log(str);
+
+    // console.log(str.big());
+
+    // console.log(str.length);
+
+    // [0,2)
+    // console.log(str.substring(0,4));
+
+    // var str2 = '223abcd';
+
+    // console.log(str1.concat(str2));
+
+    // var array1 = [1,2,3];
+
+    // var array2 = [4,5,6];
+
+    // console.log(array1.concat(array2));
+
+    // var str = '11111-2222-3-4-5';
+
+    // console.log(str.split('-'));
+
+// function bubbleSort (array){
+
+//     if(Array.isArray(array)){
+
+//        /* 如果不是数组，返回 */
+//        if(array.length < 1){
+//           return array;
+//        }
+
+//        for(var i = 0; i < array.length - 1; i++){
+
+//           for(var j = 0; j < array.length - 1 - i; j++){
+
+//              if(array[j] <= array[j + 1]){
+
+//                 var temp = array[j];
+
+//                 array[j] = array[j + 1];
+
+//                 array[j + 1] = temp;
+
+//              }
+//           }
+//        }
+
+//        return array;
+//     }
+// }
+
+    // 匹配 第一位是数字1-9，紧接着4到10位的数字 
+    var pattern = /^[1-9][0-9]{4,10}$/;
+
+    console.log('result ===>',pattern.test('13888888'));
+
+
+    // 国内电话号码
+    // 025-81234567
+    // 数字0 1个，数字0～9 2个， - 1个 ， 1～9 1个 ， 0～9 7个
+    // var pattern = /^0[0-9]{2}-[1-9]{1}[0-9]{7}$/
+
+    // console.log(pattern.test('025-81234567'));
+
+    //匹配16进制颜色
+    // #ffbbad
+    // #ffE
+    // #Fc01DF
+
+    // var pattern = /^(#[0-9a-fA-F]{6})|(#[0-9a-fA-F]{3}) $/
+
+    // console.log(pattern.test('#ffbba'))
+
+    //匹配时间
+    // 23:01
+    // 01:23
+
+    // var pattern = /^([0-1][0-9])|([2][0-3]):[0-5][0-9]$/
+
+    // 日期
+    // 2017-01-01
+    // var pattern = /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/
+    
 </script>
 </html>
