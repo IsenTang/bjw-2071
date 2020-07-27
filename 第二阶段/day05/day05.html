@@ -4,7 +4,7 @@
 
 		<div class='test' id='test-wirte'></div>
 		<!-- 查看节点 -->
-		<input type="text" id="input" value="123222222" class='input-test'>
+		<input type="text" id="input" value="123222222" class='input-test' onfocus="console.log('focus')">
 
 		<div id='main'>
             <!-- 这是一行注释 -->
@@ -193,7 +193,8 @@ function click(){
 
 var ele = document.getElementsByClassName('click')[0];
 
-ele.onclick = click;
+// ele.onclick = click;
 
+ele.addEventListener('click',click)
 
 </script>
