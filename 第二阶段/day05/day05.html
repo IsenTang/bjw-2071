@@ -1,15 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<div>
+
+	<div class="test" id="test">
+
+		<div class='test' id='test-wirte'></div>
+		<!-- 查看节点 -->
+		<input type="text" id="input" value="123" class='input-test'>
+
+		<div id='main'>
+			<div class="content red"></div>
+
+			<div class="content"></div>
+
+			<div class="content red"></div>
+		</div>
+
+		<div id="parent">
+
+		</div>
+	</div>
+</div>
+
+<style>
+
+	.content{
+		width: 100px;
+		height: 20px;
+	}
+
+	.red{
+
+		background-color: red;
+
+	}
+</style>
 
 <script>
 
+// console.log(document);
+
+var ele = document.getElementById('test');
+
+var eles1 = document.getElementsByClassName('test');
+
+var eles2 = document.getElementsByTagName('div');
+
+console.log(eles1);
+
+console.log(eles2);
+
+
 </script>
-</html>
