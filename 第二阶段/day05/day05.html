@@ -16,7 +16,9 @@
 		</div>
 
 		<div id="parent">
-            
+            <p>12312</p>
+
+
         </div>
 	</div>
 </div>
@@ -85,19 +87,35 @@
 
 // console.log(allElementByCssClass)
 
-var mainEle = document.getElementById('main');
-var childrenNodes = mainEle.childNodes;
+// var mainEle = document.getElementById('main');
+// var childrenNodes = mainEle.childNodes;
 
 // console.log(childrenNodes);
 
-for(var i = 0; i< childrenNodes.length;i++){
+// for(var i = 0; i< childrenNodes.length;i++){
 
-    console.log(childrenNodes[i].className);
-    // element
-    if(childrenNodes[i].nodeType === 1 && childrenNodes[i].className.includes('red')){
+//     console.log(childrenNodes[i].className);
+//     // element
+//     if(childrenNodes[i].nodeType === 1 && childrenNodes[i].className.includes('red')){
     
-        childrenNodes[i].style.backgroundColor = 'yellow'
-    }
-}
+//         childrenNodes[i].style.backgroundColor = 'yellow'
+//     }
+// }
+
+// document.getElementById('test-wirte').innerHTML = '123';
+
+var para = document.createElement('p');
+	
+var parent = document.getElementById('parent');
+
+parent.appendChild(para);
+
+para.innerHTML = 'hello';
+
+// var txt = document.createTextNode('hello world');
+	
+// para.appendChild(txt);
+
+
 
 </script>
