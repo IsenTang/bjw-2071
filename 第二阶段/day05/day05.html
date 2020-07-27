@@ -7,6 +7,7 @@
 		<input type="text" id="input" value="123222222" class='input-test'>
 
 		<div id='main'>
+            <!-- 这是一行注释 -->
 			<div class="content red"></div>
 
 			<div class="content"></div>
@@ -15,8 +16,8 @@
 		</div>
 
 		<div id="parent">
-
-		</div>
+            
+        </div>
 	</div>
 </div>
 
@@ -84,6 +85,19 @@
 
 // console.log(allElementByCssClass)
 
+var mainEle = document.getElementById('main');
+var childrenNodes = mainEle.childNodes;
 
+// console.log(childrenNodes);
+
+for(var i = 0; i< childrenNodes.length;i++){
+
+    console.log(childrenNodes[i].className);
+    // element
+    if(childrenNodes[i].nodeType === 1 && childrenNodes[i].className.includes('red')){
+    
+        childrenNodes[i].style.backgroundColor = 'yellow'
+    }
+}
 
 </script>
