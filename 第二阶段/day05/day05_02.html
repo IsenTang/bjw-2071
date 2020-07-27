@@ -15,23 +15,62 @@
             background-color: aqua;
         }
     </style>
-    <script>
-
-        // window.onload = function(){
-
-            console.log(document.getElementsByClassName('main'));
-        // }
-        
-    </script>
+    
 </head>
 <body>
     
     <div class="main"></div>
+
+    <input type="text" onfocus="console.log('focus')" onblur="console.log('blur');"
+        onchange='console.log(this.value);' 
+        oninput='console.log(this.value);'
+    >
     
+    <button class="button">test</button>
 </body>
 
 
 
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script> -->
 
+<script>
+
+    // var ele = document.getElementsByClassName('main')[0];
+
+    // ele.onmouseover = function (){
+
+    //     // console.log('onmouseover');
+    //     ele.style.backgroundColor = 'yellow';
+    // }
+
+
+    // ele.onmouseout = function (){
+
+    //     // console.log('onmouseout')
+    //     ele.style.backgroundColor = 'red';
+    // }
+
+    // document.body.onkeydown = function (e){
+
+    //     console.log(e.key);
+    // }
+
+    // var button = document.getElementsByClassName('button')[0];
+
+    // button.onmousedown = function (){
+
+    //     console.log('onmousedown');
+
+    // }
+
+    // button.onmouseup = function (){
+
+    //     console.log('onmouseup');
+
+    // }
+    // button.onclick = function (){
+
+    //     console.log('click');
+    // }
+</script>
 </html>
