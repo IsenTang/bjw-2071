@@ -35,4 +35,19 @@ function Queue() {
 }
 
 
+var q1 = new Queue();
+
+q1.push(1)
+
+console.log(q1.data);  // ===> [1]
+
+
+function get(){
+
+    return 1;
+}
+
+var a = get();
+
+
 module.exports = Queue;
