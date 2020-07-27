@@ -16,10 +16,17 @@
 		</div>
 
 		<div id="parent">
-            <p>12312</p>
+            <!-- <p>12312</p> -->
 
 
         </div>
+
+        <pre>
+
+            tbody.insertRow(0);
+            tbody.rows[0].insertCell(0);
+            tbody.rows[0].cells[0].appendChild(document.createTextNode("Cell 1, 1"));
+        </pre>
 	</div>
 </div>
 
@@ -104,18 +111,36 @@
 
 // document.getElementById('test-wirte').innerHTML = '123';
 
-var para = document.createElement('p');
+// var para = document.createElement('p');
 	
 var parent = document.getElementById('parent');
 
-parent.appendChild(para);
+// parent.appendChild(para);
 
-para.innerHTML = 'hello';
+// para.innerHTML = 'hello';
 
 // var txt = document.createTextNode('hello world');
 	
 // para.appendChild(txt);
+var table = document.createElement("table");
+table.border = 1;
+var tbody = document.createElement("tbody");
+table.appendChild(tbody);
 
+tbody.insertRow(0);
+tbody.rows[0].insertCell(0);
+tbody.rows[0].cells[0].appendChild(document.createTextNode("Cell 1, 1"));
 
+tbody.rows[0].insertCell(1);
+tbody.rows[0].cells[1].appendChild(document.createTextNode("Cell 2, 1"));
 
+tbody.insertRow(1);
+
+tbody.rows[1].insertCell(0);
+tbody.rows[1].cells[0].appendChild(document.createTextNode("Cell 1, 2"));
+
+tbody.rows[1].insertCell(1);
+tbody.rows[1].cells[1].appendChild(document.createTextNode("Cell 2, 2"));
+
+document.body.appendChild(table);
 </script>
