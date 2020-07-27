@@ -27,7 +27,10 @@
             tbody.rows[0].insertCell(0);
             tbody.rows[0].cells[0].appendChild(document.createTextNode("Cell 1, 1"));
         </pre>
-	</div>
+    </div>
+    
+
+    <div class="click" onclick="onclick()"></div>
 </div>
 
 <style>
@@ -41,7 +44,13 @@
 
 		background-color: red;
 
-	}
+    }
+    
+    .click{
+        width: 200px;
+        height: 200px;
+        background-color: aqua;
+    }
 </style>
 
 <script>
@@ -113,7 +122,7 @@
 
 // var para = document.createElement('p');
 	
-var parent = document.getElementById('parent');
+// var parent = document.getElementById('parent');
 
 // parent.appendChild(para);
 
@@ -122,25 +131,53 @@ var parent = document.getElementById('parent');
 // var txt = document.createTextNode('hello world');
 	
 // para.appendChild(txt);
-var table = document.createElement("table");
-table.border = 1;
-var tbody = document.createElement("tbody");
-table.appendChild(tbody);
+// var table = document.createElement("table");
+// table.border = 1;
+// var tbody = document.createElement("tbody");
+// table.appendChild(tbody);
 
-tbody.insertRow(0);
-tbody.rows[0].insertCell(0);
-tbody.rows[0].cells[0].appendChild(document.createTextNode("Cell 1, 1"));
+// tbody.insertRow(0);
+// tbody.rows[0].insertCell(0);
+// tbody.rows[0].cells[0].appendChild(document.createTextNode("Cell 1, 1"));
 
-tbody.rows[0].insertCell(1);
-tbody.rows[0].cells[1].appendChild(document.createTextNode("Cell 2, 1"));
+// tbody.rows[0].insertCell(1);
+// tbody.rows[0].cells[1].appendChild(document.createTextNode("Cell 2, 1"));
 
-tbody.insertRow(1);
+// tbody.insertRow(1);
 
-tbody.rows[1].insertCell(0);
-tbody.rows[1].cells[0].appendChild(document.createTextNode("Cell 1, 2"));
+// tbody.rows[1].insertCell(0);
+// tbody.rows[1].cells[0].appendChild(document.createTextNode("Cell 1, 2"));
 
-tbody.rows[1].insertCell(1);
-tbody.rows[1].cells[1].appendChild(document.createTextNode("Cell 2, 2"));
+// tbody.rows[1].insertCell(1);
+// tbody.rows[1].cells[1].appendChild(document.createTextNode("Cell 2, 2"));
 
-document.body.appendChild(table);
+// document.body.appendChild(table);
+
+// function test(){
+
+//     console.log('test');
+// }
+
+
+// function mclick(){
+
+//     console.log('click');
+// }
+
+var a = function (){
+
+};
+
+var obj = {
+
+    click : function(){
+        console.log('11');
+    },
+
+    onclick: function(){
+
+        onclick();
+    }
+}
+
 </script>
