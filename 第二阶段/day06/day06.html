@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    
+        .content{
+            width: 100px;
+            height: 20px;
+        }
+    
+        .red{
+    
+            background-color: red;
+    
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+
+        <div class="test" id="test">
+            <div class='test' id='test-wirte'></div>
+            <!-- 查看节点 -->
+            <input type="text" id="input" class='input-test' value="123">
+
+            <input type="text"/>
+    
+            <div id='main'>
+                <div class="content red"></div>
+    
+                <div class="content"></div>
+    
+                <div class="content red"></div>
+            </div>
+    
+            <div id="parent">
+    
+            </div>
+        </div>
+
+        <form action="" id='testForm'>
+
+            <input type="text" value="form"/>
+
+            <button type="submit">提交</button>
+        </form>
+
+        
+    </div>
+    
+    <script src='./static/jquery3.5.js'></script>
+    <script>
+
+
+        // id选择器
+        // console.log($('#test'));
+        // document.getElementById('test');
+
+        // 类选择器
+        // console.log($('.test'));
+
+        // 元素选择器
+        // console.log($('div'));
+
+        // var val = $('#input').val();
+
+        // document.getElementById('input').getAttribute('value');
+
+        // console.log(val);
+
+        // 子元素
+        // console.log($('.test > div'));
+
+        // 后代
+        // console.log($(".test div"));
+
+
+        // console.log($('div:empty'));
+
+        // console.log($("div:contains('123')"));
+
+        // $('#input').attr('value',function(){
+
+        //     return 'after-attr';
+        // });
+
+        // $('#input').removeAttr('value');
+
+    </script>
+</body>
+</html>
