@@ -1,22 +1,27 @@
+/* 值得注意的点：
+    1.img变成block，解决高5px的问题
+    2.单放图片上闪烁的问题，（不使用mark或者不在父类添加的话），在出现的放大镜上添加：pointer-events: none;
+*/
 * {
-    margin: 0;
-    padding: 0
+    margin: 0 0;
+    padding: 0 0;
 }
 
 .demo {
     display: block;
     width: 400px;
-    height: 255px;
+    /* height: 255px; */
     margin: 50px;
     position: relative;
     border: 1px solid #ccc;
-    /* background-color: aqua; */
+    /* vertical-align:top */
 }
 
 .small-box {
     position: relative;
     z-index: 1;
 }
+
 
 .float-box {
     display: none;
@@ -26,23 +31,30 @@
     background: #ffffcc;
     border: 1px solid #ccc;
     opacity: 0.5;
-
-    z-index: 11;
+    pointer-events: none;
 }
 
 .mark {
     position: absolute;
     display: block;
     width: 400px;
-    height: 255px;
+    height: 225px;
     background-color: #fff;
-    /* 透明度 */
-    opacity: 0.5;
+    opacity: 0;
     z-index: 10;
 }
 
+.small-img{
+    width: 400px;
+    display:block;
+}
+
+/* .small-img:hover{
+    cursor: pointer;
+} */
+
 .big-box {
-    display: block;
+    display: none;
     position: absolute;
     top: 0;
     left: 460px;
@@ -51,9 +63,10 @@
     overflow: hidden;
     border: 1px solid #ccc;
     z-index: 1;
+    pointer-events: none;
 }
 
 .big-box img {
     position: absolute;
-    z-index: 5;
+    z-index: 5
 }
