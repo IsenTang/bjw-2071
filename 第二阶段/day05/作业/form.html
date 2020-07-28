@@ -1,0 +1,253 @@
+<!-- 作业要求 -->
+<!--  form发送ajax请求 -->
+<!-- 发送之前，检查name的长度不小于5位，不大于10位，password不小于8位不大于15位 -->
+<!-- 如果不符合，在相对应的input下方显示错误信息，如 name的长度不小于5位，不大于10位 -->
+<!-- 最终发送请求成功后，弹出成框 -->
+<!-- 请求地址 ： http://examples.banyuan.club/banyuan/ajax -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>表单</title>
+
+	<!-- 引入jquery -->
+	<!-- <script src='jquery3.5.js'></script> -->
+	
+	<style>
+
+		.basic-grey {
+			margin-left:auto;
+			margin-right:auto;
+			max-width: 500px;
+			background: #F7F7F7;
+			padding: 25px 15px 25px 10px;
+			font: 12px Georgia, "Times New Roman", Times, serif;
+			color: #888;
+			text-shadow: 1px 1px 1px #FFF;
+			border:1px solid #E4E4E4;
+		}
+		.basic-grey h1 {
+			font-size: 25px;
+			padding: 0px 0px 10px 40px;
+			display: block;
+			border-bottom:1px solid #E4E4E4;
+			margin: -10px -15px 30px -10px;;
+			color: #888;
+		}
+		
+		.basic-grey label {
+			display: block;
+			margin: 0px;
+		}
+		.basic-grey label>span {
+			float: left;
+			width: 20%;
+			text-align: right;
+			padding-right: 10px;
+			margin-top: 10px;
+			color: #888;
+		}
+		.basic-grey input[type="text"], .basic-grey input[type="password"], .basic-grey textarea, .basic-grey select {
+			border: 1px solid #DADADA;
+			color: #888;
+			height: 30px;
+			margin-bottom: 16px;
+			margin-right: 6px;
+			margin-top: 2px;
+			outline: 0 none;
+			padding: 3px 3px 3px 5px;
+			width: 70%;
+			font-size: 12px;
+			line-height:15px;
+			box-shadow: inset 0px 1px 4px #ECECEC;
+			-moz-box-shadow: inset 0px 1px 4px #ECECEC;
+			-webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+		}
+		.basic-grey textarea{
+			padding: 5px 3px 3px 5px;
+		}
+		.basic-grey select {
+			background: #FFF url('down-arrow.png') no-repeat right;
+			background: #FFF url('down-arrow.png') no-repeat right;
+			appearance:none;
+			-webkit-appearance:none;
+			-moz-appearance: none;
+			text-indent: 0.01px;
+			text-overflow: '';
+			width: 70%;
+			height: 35px;
+			line-height: 25px;
+		}
+		.basic-grey textarea{
+			height:100px;
+		}
+		.basic-grey .submitButton {
+			background: #E27575;
+			border: none;
+			padding: 10px 25px 10px 25px;
+			color: #FFF;
+			box-shadow: 1px 1px 5px #B6B6B6;
+			border-radius: 3px;
+			text-shadow: 1px 1px 1px #9E3F3F;
+			cursor: pointer;
+		}
+		.basic-grey .button:hover {
+			background: #CF7A7A
+		}
+		
+		/* disabled */
+		.submitButton:disabled{
+		  border: 1px solid #999999;
+		  background-color: #cccccc;
+		}
+		
+		.warning{
+			color:red;
+			text-align: center;
+			width: 100%;
+			margin-bottom: 10px;
+		}
+		</style>
+</head>
+<body>
+	<form action="" method="post" class="basic-grey" id='mainForm'>
+		<h1>表单
+		</h1>
+		<label class='name-label'>
+			<span>Your Name :</span>
+			<input id="name" type="text" name="name" placeholder="Your Full Name" class="name"/>
+		</label>
+		<label class="password-label">
+			<span>Your Password :</span>
+			<input id="password" type="password" name="password" placeholder="Valid Password" class="password"/>
+		</label>
+
+		<label>
+			<span>&nbsp;</span>
+            <button type="button" class="submitButton"  id='submitButton' disabled>Send</button>
+		</label>
+    </form>
+    
+
+<script>
+        /* name input element */
+        var nameEle = document.getElementsByClassName('name')[0];
+
+        /* passowrd input element */
+        var passwordEle = document.getElementsByClassName('password')[0];
+
+        /* button element */
+        var buttonEle = document.getElementsByClassName('submitButton')[0];
+
+        /* label */
+        var nameLabel = document.getElementsByClassName('name-label')[0];
+
+        var passwordLabel = document.getElementsByClassName('password-label')[0];
+
+        /* 检测结果 */
+        var nameTestResult = false;
+
+        var passowrdTestResult = false;
+
+        /* 检测用户名 */
+		function checkName(){
+
+            // value
+            var name = nameEle.value;
+            
+            // reg
+            var partten = /^[a-zA-Z0-9_-]{4,16}$/;
+
+            var flag = partten.test(name);
+
+            var warningEle = document.getElementsByClassName('warning name')[0];
+
+            if(flag){
+                // 清空warning
+                if(warningEle){
+
+                    warningEle.remove();
+                }
+            }else{
+                // 显示warning
+                var ele = createWarning('name','用户名输入错误，4到16位，字母，数字，下划线，减号');
+
+                if(!warningEle){
+                    nameLabel.append(ele);
+                }
+                
+            }
+
+            nameTestResult = flag;
+
+            enableButton();
+        }
+
+        /* 检测密码 */
+        function checkPassword(){
+
+            // value
+            var password = passwordEle.value;
+
+            // reg
+            var partten = /^\w{8,15}$/;
+
+            var flag = partten.test(password);
+
+            var warningEle = document.getElementsByClassName('warning password')[0];
+
+            if(flag){
+                // 清空warning
+
+                // ele 存在 remove
+                if(warningEle){
+
+                    warningEle.remove();
+                }
+
+            }else{
+                // 显示warning
+                var ele = createWarning('password','密码格式错误，password的长度不小于8位，不大于15位');
+                
+                // 如果ele不存在
+                if(!warningEle){
+                    passwordLabel.append(ele);
+                }
+            }
+
+            passowrdTestResult = flag;
+
+            enableButton();
+        }
+
+        /* 激活button */
+        function enableButton(){
+
+            buttonEle.disabled = !(nameTestResult && passowrdTestResult)
+        }
+
+
+        /* 创建提示元素 */
+		function createWarning(target,content){
+
+            var ele = document.createElement('div');
+
+            ele.className = 'warning ' + target;
+
+            ele.innerHTML = content;
+
+            return ele;
+        }
+
+        /* 绑定事件 */
+        nameEle.onblur = checkName;
+
+        passwordEle.onblur = checkPassword;
+
+        
+</script>
+</body>
+
+
+</html>
