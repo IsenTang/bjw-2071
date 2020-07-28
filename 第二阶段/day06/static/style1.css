@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+.demo {
+    display: block;
+    width: 400px;
+    height: 255px;
+    margin: 50px;
+    position: relative;
+    border: 1px solid #ccc;
+}
+
+.small-box {
+    position: relative;
+    z-index: 1;
+}
+
+.float-box {
+    display: none;
+    width: 160px;
+    height: 120px;
+    position: absolute;
+    background: #ffffcc;
+    border: 1px solid #ccc;
+    opacity: 0.5;
+
+    /* z-index: 0; */
+}
+
+.mark {
+    position: absolute;
+    display: block;
+    width: 400px;
+    height: 255px;
+    background-color: #fff;
+    /* 透明度 */
+    opacity: 0;
+    z-index: 10;
+}
+
+.big-box {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 460px;
+    width: 400px;
+    height: 300px;
+    /* overflow: hidden; */
+    border: 1px solid #ccc;
+    z-index: 1;;
+}
+
+.big-box img {
+    position: absolute;
+    z-index: 5
+}
