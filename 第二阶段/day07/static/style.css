@@ -1,0 +1,76 @@
+*{
+    padding: 0;
+    margin:0;
+}
+
+li{
+    list-style: none;
+}
+
+
+.container{
+    position: relative;
+}
+
+.banner{
+    position: absolute;
+}
+
+
+.banner_li{
+    float:left;
+}
+
+.banner_img{
+    width: 100vw;
+    height:100vh;
+    display: block; 
+}
+
+
+/* 小圆点 */
+.button_container{
+    position: absolute;
+}
+
+.button_container_circle{
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    cursor: pointer;
+    background-color:white;
+    margin-right: 5px;
+    float:left;
+}
+
+.on{
+    background-color: aqua;
+}
+
+
+/* 左右按钮 */
+/*左右按钮*/
+.arrow{
+    position: absolute;  /*设置定位*/
+    cursor: pointer;
+    line-height: 40px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    z-index: 200;
+    background: RGBA(0,0,0,.3);  /*背景透明度*/
+    color: #fff;
+    text-decoration: none;  /* 去掉下划线 */
+}
+
+/* 向左 */
+.prev{
+    left:20px;
+}
+
+/* 向右 */
+.next{
+    right:20px;
+}
