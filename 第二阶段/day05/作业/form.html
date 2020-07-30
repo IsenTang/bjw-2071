@@ -10,9 +10,6 @@
 <head>
     <meta charset="UTF-8">
 	<title>表单</title>
-
-	<!-- 引入jquery -->
-	<!-- <script src='jquery3.5.js'></script> -->
 	
 	<style>
 
@@ -129,9 +126,11 @@
             <button type="button" class="submitButton"  id='submitButton' disabled>Send</button>
 		</label>
     </form>
-    
+	
+
 <script src="../../day06/static/jquery3.5.js"></script>
 <script>
+
         /* name input element */
         var nameEle = document.getElementsByClassName('name')[0];
 
@@ -242,9 +241,14 @@
         }
 
         /* 绑定事件 */
-        nameEle.onblur = checkName;
+		// nameEle.onblur = checkName;
+		
+		$('.name').blur(checkName);
 
-        passwordEle.onblur = checkPassword;
+		// passwordEle.onblur = checkPassword;
+		
+		$('.password').blur(checkPassword);
+        
 
         
 </script>

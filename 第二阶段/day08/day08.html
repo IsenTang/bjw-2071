@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <pre class="content"></pre>
+
+    <script>
+        var contentEle = document.getElementsByClassName('content')[0];
+        var string = 'We are banyuan collage of IT education.'
+        var count = 0;
+        var timer;
+
+        /* 添加内容 */
+        function addContent(){
+            if(count > string.length){
+                // stop();
+                count = 0;
+            }
+
+            count++;
+            contentEle.innerHTML = string.substring(0,count);
+        }
+        /* 定时器开始 */
+        function start(){
+            timer = setInterval(addContent,80);
+        }
+        /* 停止 */
+        function stop(){
+            if(timer){
+                clearInterval(timer);
+            }
+        }
+
+        start();
+
+        /* 简历内容 */
+      const resumeContent = [`
+  ## MyResume
+  
+  ### name : *Ban Yuan*
+  ### slogen : *一次相遇终身相伴*
+  ### Email : *contact@banyuan.club*
+  ### website : www.banyuan.club`
+      ];
+  
+      /* 叙述内容 */
+      const styleContent = [
+  `/* Hello, My name is Ban Yuan,
+  * This is how I write my resume.
+  * I hope you like it~
+  * ===================================================
+  */`,`/* This interface is not like development interface.
+  /* So , let me beautify the interface ^_^
+  */`,`
+  *{
+    transition: all .3s;
+  }
+  html {
+    color: #06EB00; background: #030303;
+  }
+  .leftContent {
+    padding: 5px;
+    border: 1px solid;
+    overflow: auto;
+    width: 45vw; 
+    height: 90vh;
+    float:left;
+  }
+  /* It looks like a  command-line tool now , right ?
+  /* Let me finish my resume~
+  * ====================================================
+  * First of all , I need a paper.
+  */
+  .rightContent {
+    float:left;
+    padding: 5px;  
+    width: 45vw; 
+    height: 90vh; 
+    border: 1px solid;
+    background: white; 
+    color: #222;
+    overflow: auto;
+    margin-left:2vw;
+  }
+  /* Now, I got a white paper. 
+  * Let me start~~
+  */`,`/*As you see, it wirte by markdown grammar.
+  /*Let me translated into HTML by using marked package.*/
+  /*Let us start~*/
+  /*....1....*/
+  /*....2....*/
+  /*....3....*/
+  /*.action!.*/`,`
+  /*Emmmmmmmmmmmmmmmm......*/
+  /*It is not pretty right?*/
+  /*So I use css to beautify my resume. I use github-markdown-css.*/
+  /*Let us start~*/
+  /*....1....*/
+  /*....2....*/
+  /*....3....*/
+  /*...go!...*/`,
+  `/*And here we are.*/?`
+      ];
+    </script>
+</body>
+</html>
