@@ -1,8 +1,9 @@
 
 var fs = require('fs');
-var index = require('./index');
+var sayHello = require('./index');
 
 
-console.log(index);
-console.log(fs);
-index.sayHello();
+// console.log(index);
+// console.log(fs);
+sayHello('isen');
+
