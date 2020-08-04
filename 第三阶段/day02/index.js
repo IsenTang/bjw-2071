@@ -243,27 +243,55 @@ const { globalAgent } = require('http');
 
 // console.log(str);
 
-let s = new Set();
+// let s = new Set();
 // console.log(s);
 
 // [2, 3, 5, 4, 5, 2, 2].forEach(x => s.add(x));
 
-let array = [2, 3, 5, 4, 5, 2, 2, 2, 2, 2, 2, 2, 2];
+// let array = [2, 3, 5, 4, 5, 2, 2, 2, 2, 2, 2, 2, 2];
 
-array.forEach(function(item){
+// array.forEach(function(item){
 
-    s.add(item)
-})
+//     s.add(item)
+// })
 
-console.log(s);
+// console.log(s);
 
-console.log(s.has(2));
+// console.log(s.has(2));
 
-console.log(s.size);
+// console.log(s.size);
 
-s.delete(2)
-console.log(s);
+// s.delete(2)
+// console.log(s);
 
 // array.forEach((item)=>{
 //     console.log(item);
 // })
+
+let map = new Map();
+
+// let obj = {
+//     {}:'a'
+// }
+
+let obj = {
+    a:1
+}
+
+let a = 1;
+
+console.log(obj);
+map.set(obj,'1234');
+map.set(a,'1111')
+
+console.log(map);
+
+console.log(map.get(obj));
+
+console.log(map.size);
+
+console.log(map.values());
+
+map.delete(obj);
+
+console.log(map);
