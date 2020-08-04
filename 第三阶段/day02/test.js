@@ -1,4 +1,6 @@
-const fs = require('fs');
+"use strict";
+
+var fs = require('fs');
 // {
 //     var a = 1;
 //     let b = 1;
@@ -71,7 +73,7 @@ const fs = require('fs');
 // if (true) {
 
 //   tmp = 'abc'; // ReferenceError
-  
+
 //   console.log(tmp)
 //   let tmp;
 // }
@@ -97,17 +99,21 @@ const fs = require('fs');
 // let b = 2;
 // let c = 3;
 
-let [a, b, c] = [1, 2, 3];
+var a = 1,
+    b = 2,
+    c = 3;
 
 // console.log(a);
 
-let [foo, [[bar], baz]] = [1, [[2], 3]];
+var foo = 1,
+    bar = 2,
+    baz = 3;
+
 
 console.log(bar);
 
-let [ , , third] = ["foo", "bar", "baz"];
+var _ref = ["foo", "bar", "baz"],
+    third = _ref[2];
+
 
 console.log(third);
-
-
-
