@@ -407,23 +407,23 @@
     // o3.foo();   // 3
 
 
-// var foo = 'foo'
+var foo = 'foo'
 
-// var myObject = {
-//     foo: "bar",
-//     func: function() {
-//         var self = this;
-//         console.log("outer func:this = " + this.foo);
-//         console.log("outer func:self = " + self.foo);
-//         (function() {
-//             console.log("inner func:this = " + this.foo);
-//             console.log("inner func:self = " + self.foo);
-//         }());
-//     }
-// };
+var myObject = {
+    foo: "bar",
+    func: function() {
+        var self = this;
+        console.log("outer func:this = " + this.foo);
+        console.log("outer func:self = " + self.foo);
+        (function() {
+            console.log("inner func:this = " + this.foo);
+            console.log("inner func:self = " + self.foo);
+        }());
+    }
+};
 
 // var func1 = myObject.func;
-// myObject.func();
+myObject.func();
 
 // console.log(' ================ ');
 // func1();  
