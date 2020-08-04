@@ -1,6 +1,17 @@
 const fs = require('fs');
+const { sayHello:hello } = require('./sayHello');
 
+// index.sayHello('isen')
+// console.log(index);
 
+// sayHello('isen');
+
+function sayHello(){
+
+    hello({});
+}
+
+sayHello();
 
 // {
 //     var a = 1;
@@ -163,8 +174,8 @@ const fs = require('fs');
 // let {x = 3} = obj;
 // console.log(x)
 
-let obj = {x: 1};
-let {x, y = 5} = obj;
+// let obj = {x: 1};
+// let {x, y = 5} = obj;
 
-console.log(x);
-console.log(y);
+// console.log(x);
+// console.log(y);
