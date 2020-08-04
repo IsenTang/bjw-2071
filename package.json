@@ -1,0 +1,19 @@
+{
+  "name": "bjw-2071",
+  "version": "1.0.0",
+  "description": "bjw-2071上课内容",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsenTang/bjw-2071.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IsenTang/bjw-2071/issues"
+  },
+  "homepage": "https://github.com/IsenTang/bjw-2071#readme"
+}
