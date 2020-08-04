@@ -97,17 +97,36 @@ const fs = require('fs');
 // let b = 2;
 // let c = 3;
 
-let [a, b, c] = [1, 2, 3];
+// let [a, b, c] = [1, 2, 3];
 
 // console.log(a);
 
-let [foo, [[bar], baz]] = [1, [[2], 3]];
+// let [foo, [[bar], baz]] = [1, [[2], 3]];
 
-console.log(bar);
+// console.log(bar);
 
-let [ , , third] = ["foo", "bar", "baz"];
+// let [,, third] = ["foo", "bar", "baz"];
 
-console.log(third);
+// console.log(third);
 
 
+// let [x, y] = [1, 2, 3];
+
+// console.log('x ==>',x,'y===>',y);
+
+// let [a, [,b], d] = [1, [2, 3], 4];
+
+// console.log(b);
+
+// let [foo = 2] = [10];
+    
+// console.log('foo===>',foo)
+
+// let [x, y = 'b'] = ['a', undefined]; 
+// x='a', y='b'
+// console.log(y);
+
+// let [x = 1] = [null];
+
+// console.log(x);
 
