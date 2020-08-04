@@ -1,4 +1,7 @@
 const fs = require('fs');
+
+
+
 // {
 //     var a = 1;
 //     let b = 1;
@@ -130,3 +133,38 @@ const fs = require('fs');
 
 // console.log(x);
 
+// let { foo, bar } = { foo: 'aaa', bar: 'bbb' };
+
+
+// let obj = {};
+
+// console.log(obj.a);
+// console.log(foo2);
+// console.log(foo);
+
+// let obj = {bar: 'baz'}
+// let {bar} = obj;
+
+// console.log(obj.foo)
+
+// console.log(bar);
+
+// let obj = { foo: 'aaa', bar: 'bbb' };
+// let { foo: baz } = obj;
+
+// let baz = obj.foo;
+
+// console.log(baz);
+
+// let obj = {x:5};
+
+// console.log(obj.x);
+
+// let {x = 3} = obj;
+// console.log(x)
+
+let obj = {x: 1};
+let {x, y = 5} = obj;
+
+console.log(x);
+console.log(y);
