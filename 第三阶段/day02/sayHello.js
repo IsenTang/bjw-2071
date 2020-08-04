@@ -1,6 +1,4 @@
-function sayHello(obj){
-
-    let { name = 'isen' } = obj;
+function sayHello(name = 'isen'){
     console.log('hello ' + name);
 }
 

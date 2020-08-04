@@ -1,17 +1,18 @@
 const fs = require('fs');
-const { sayHello:hello } = require('./sayHello');
+const { globalAgent } = require('http');
+// const { sayHello:hello } = require('./sayHello');
 
 // index.sayHello('isen')
 // console.log(index);
 
 // sayHello('isen');
 
-function sayHello(){
+// function sayHello(){
 
-    hello({});
-}
+//     hello();
+// }
 
-sayHello();
+// sayHello();
 
 // {
 //     var a = 1;
@@ -179,3 +180,58 @@ sayHello();
 
 // console.log(x);
 // console.log(y);
+
+// let func  = function(x){
+
+//     return x*x;
+// }
+
+// let func = (x) => {
+//     return x*x;
+// }
+
+// let func = (x,y) => x*y;
+
+// console.log(func(2,3));
+
+// setInterval(()=>{
+
+//     console.log(1);
+// },1000)
+
+// global.birth = 1992;
+
+// var obj = {
+//     birth: 1992,
+//     getAge: function () {
+//         var b = this.birth; // 1992
+//         var fn = function () { // 如果改成箭头函数呢？
+
+//             console.log(new Date().getFullYear());
+//             console.log( this.birth);
+//             return new Date().getFullYear() - this.birth; 
+//         };
+//         return fn();
+//     }
+// };
+
+global.birth = 1992;
+
+var obj = {
+    birth: 1992,
+    getAge: function () {
+        var b = this.birth; // 1992
+        var fn = () => { 
+
+            let fn1 = ()=>{
+                return new Date().getFullYear() - this.birth; 
+            }
+
+            return fn1();
+            
+        };
+        return fn();
+    }
+};
+
+console.log(obj.getAge());
