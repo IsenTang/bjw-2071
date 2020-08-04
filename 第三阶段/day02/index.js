@@ -215,23 +215,55 @@ const { globalAgent } = require('http');
 //     }
 // };
 
-global.birth = 1992;
+// global.birth = 1992;
 
-var obj = {
-    birth: 1992,
-    getAge: function () {
-        var b = this.birth; // 1992
-        var fn = () => { 
+// var obj = {
+//     birth: 1992,
+//     getAge: function () {
+//         var b = this.birth; // 1992
+//         var fn = () => { 
 
-            let fn1 = ()=>{
-                return new Date().getFullYear() - this.birth; 
-            }
+//             let fn1 = () => {
+//                 return new Date().getFullYear() - this.birth; 
+//             }
 
-            return fn1();
+//             return fn1();
             
-        };
-        return fn();
-    }
-};
+//         };
+//         return fn();
+//     }
+// };
 
-console.log(obj.getAge());
+// console.log(obj.getAge());
+
+// let name = 'isen';
+// // let str = 'I am ' + name;
+
+// let str = `I am ${name}.....`;
+
+// console.log(str);
+
+let s = new Set();
+// console.log(s);
+
+// [2, 3, 5, 4, 5, 2, 2].forEach(x => s.add(x));
+
+let array = [2, 3, 5, 4, 5, 2, 2, 2, 2, 2, 2, 2, 2];
+
+array.forEach(function(item){
+
+    s.add(item)
+})
+
+console.log(s);
+
+console.log(s.has(2));
+
+console.log(s.size);
+
+s.delete(2)
+console.log(s);
+
+// array.forEach((item)=>{
+//     console.log(item);
+// })
