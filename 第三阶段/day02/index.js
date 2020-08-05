@@ -338,18 +338,29 @@ let array = [{a:1},{a:2}]
 
 // console.log(array);
 
-let numbers = [1,2,3,5];
-// map，返回一个新生成的数组
-array = array.map((item)=>{
+// let numbers = [1,2,3,5];
+// // map，返回一个新生成的数组
+// array = array.map((item)=>{
 
-    console.log(item);
-    item.b = 2;
+//     console.log(item);
+//     item.b = 2;
 
-    return item;
-})
+//     return item;
+// })
 
 // console.log(array)
 
 // numbers = numbers.map(item=>item*item)
 
 // console.log(numbers);
+
+console.log(process.cwd())
+
+fs.readFile(`${__dirname}/1.txt`,(error,content)=>{
+
+    if(error){
+        console.log(error);
+    }else{
+        console.log(content.toString());
+    }
+});
