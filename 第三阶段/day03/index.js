@@ -36,17 +36,35 @@ const fs = require('fs');
 //     }
 // })
 
-console.log(path.join(__dirname,'../day02/compiled.js'));
-fs.readFile(path.join(__dirname,'./1.txt'),function (error,data){
+// console.log(path.join(__dirname,'../day02/compiled.js'));
+// fs.readFile(path.join(__dirname,'./1.txt'),function (error,data){
 
-    if(error){ console.log('error ====>',error)}
+//     if(error){ console.log('error ====>',error)}
 
+//     else{
+//         console.log(data.toString());
+//     }
+// })
+
+// console.log(1123);
+// console.log('end');
+
+// 写2文件，文件1.txt ， 2.txt
+// 读出这里面的内容，并把他们连接起来，然后写入3.txt
+
+
+
+fs.writeFile(path.join(__dirname,'./2.txt'),'123',function(error){
+
+    if(error){ console.log(error);}
     else{
-        console.log(data);
+
+        fs.readFile(path.join(__dirname,'./2.txt'),(error,content)=>{
+
+            if(error){ console.log(error);}
+            else{
+                console.log(content.toString());
+            }
+        });
     }
-})
-
-
-console.log(__dirname);
-
-
+});
