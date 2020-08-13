@@ -11,29 +11,184 @@
 
       <div>
         用户名：
-        <input type="text"/>
+        <input type="text" class="name"/>
       </div>
 
       <div>
         密码：
-        <input type="text"/>
+        <input type="text" class="password"/>
       </div>
 
       <div>
         确认：
-        <input type="text"/>
+        <input type="text" class="confirm-password"/>
       </div>
 
       <div>
-        <button type="button">注册</button>
+        <button type="button" class="send">注册</button>
+      </div>
+
+
+
+      <div>
+
+        <div>
+          <input type="text" class="login-name"/>
+        </div>
+
+        <div>
+          <input type="text" class="login-password"/>
+        </div>
+
+        <div>
+
+          <button class="login">登录</button>
+        </div>
       </div>
     </div>
 
-    <!-- <script type="text/javascript" src="js/jquery3.5.js"></script> -->
+    <script type="text/javascript" src="js/jquery3.5.js"></script>
 
     <script>
 
-        
+
+        let loginNameEle = document.getElementsByClassName('login-name')[0];
+        let loginPasswordEle = document.getElementsByClassName('login-password')[0];
+        let loginBtn = document.getElementsByClassName('login')[0];
+
+        loginBtn.onclick = function (){
+
+
+          $.ajax({
+
+            type:'post',
+            url:'http://localhost:3000/checkLogin',
+            data:{
+              name:loginNameEle.value,
+              password:loginPasswordEle.value
+            },
+            success:(result)=>{
+
+              if(result.status === 'success'){
+                alert(' 登录成功 ');
+              }else{
+                alert(result.message);
+              }
+              
+            }
+          })
+        }
+
+        let nameEle = document.getElementsByClassName('name')[0];
+        let passwordEle = document.getElementsByClassName('password')[0];
+        let confirmPasswordEle = document.getElementsByClassName('confirm-password')[0];
+        let senBtn = document.getElementsByClassName('send')[0];
+
+        let nameEnable = false;
+        let passwordEnable = false;
+        let confirmPasswordEnable = false;
+
+        // nameEle.onblur = function(){
+
+        //   let value = nameEle.value;
+
+        //   let flag = false
+
+        //   if(value){
+
+        //     var partten = /^[a-zA-Z0-9_-]{4,16}$/;
+
+        //     flag = partten.test(value);
+
+        //     if(!flag){
+        //       alert('姓名错误')
+        //     }
+        //   }
+
+        //   nameEnable = flag
+
+        //   enableButton();
+        // }
+
+        // passwordEle.onblur = function(){
+
+        //     let value = passwordEle.value;
+
+        //     let flag = false
+
+        //     if(value){
+
+        //       var partten = /^\w{8,15}$/;
+
+        //       flag = partten.test(value);
+
+        //       if(!flag){
+        //         alert('密码错误')
+        //       }
+        //     }
+
+        //     passwordEnable = flag
+
+        //     enableButton();
+        // }
+
+
+        // confirmPasswordEle.onblur = function(){
+
+        //   let value = confirmPasswordEle.value;
+
+        //   let flag = false
+
+        //   if(value){
+
+        //     var partten = /^\w{8,15}$/;
+
+        //     flag = partten.test(value);
+
+        //     if(!flag){
+        //       alert('重输密码格式错误')
+        //     }
+            
+        //     if(value !== passwordEle.value){
+        //       flag = false
+
+        //       alert('两次密码输入不一致');
+        //     }else{
+        //       flag  = true
+        //     }
+        //   }
+
+        //   confirmPasswordEnable = flag
+
+        //   enableButton();
+        // }
+
+        function enableButton(){
+
+          senBtn.disabled = !(nameEnable && passwordEnable && confirmPasswordEnable)
+        }
+
+        senBtn.onclick = function(){
+
+          $.ajax({
+
+            type:'post',
+            url:'http://localhost:3000/regist',
+            data:{
+              name:nameEle.value,
+              password:passwordEle.value
+            },
+            success:(result)=>{
+
+              console.log(result);
+              alert('注册成功');
+            },
+            error:(error)=>{
+
+              console.log(error);
+            }
+          })
+        }
 
     </script>
 </body>

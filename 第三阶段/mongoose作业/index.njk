@@ -1,0 +1,53 @@
+<div>
+    姓名:
+    <input type="text"/>
+</div>
+
+<div>
+    性别:
+    <select>
+        <option value="0">女</option>
+        <option value="1">男</option>   
+    </select>
+</div>
+
+<div>
+    年龄:
+    <input type="text"/>
+</div>
+
+<div>
+    学科:
+    <select class='major'>
+        <option value="web">web</option>
+        <option value="java">java</option>   
+    </select>
+</div>
+
+<div>
+
+    <button >提交</button>
+</div>
+
+
+<div class='student-list'>
+
+    {% for item in students %}
+
+        
+    {% endfor %}
+</div>
+
+<script>
+
+    // 获取selector中option的方式
+    let selector = document.getElementsByClassName('major')[0];
+
+    const index = selector.selectedIndex;
+
+    const major = selector.options[index];
+
+    const value = major.value;
+
+    console.log(value);
+</script>
