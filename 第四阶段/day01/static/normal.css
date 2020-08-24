@@ -1,0 +1,25 @@
+header{
+    background-color: black;
+    color:white;
+    height: 60px;
+}
+
+
+.header-title{
+
+    line-height: 60px;
+    margin-left: 20px;
+}
+
+.header-button{
+    height: 40px;
+    display: none;
+}
+
+.button-icon{
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: #888;
+    margin-top:4px;
+}
