@@ -1,0 +1,25 @@
+.container{
+    height: 1000px;
+    background-color: beige;
+    display: flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.child{
+    width: 200px;
+    height: 200px;
+}
+
+.red{
+    background-color: red;
+    /* width: 400px; */
+}
+
+.blue{
+    background-color: blue;
+}
+
+.green{
+    background-color: green;
+}
