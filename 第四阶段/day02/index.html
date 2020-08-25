@@ -14,17 +14,77 @@
             -moz-transition: all 0.5s;
             transition: all 0.5s;
         } */
+
+        .item-count{
+            display: flex;
+        }
+
+        .left{
+            height:30px;
+            width:30px;
+            background-color: black;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+            border-bottom-left-radius: 15px;
+            color:white;
+            line-height: 30px;
+            border:0;
+            font-size: 18px;
+            outline: none;
+        }
+
+        .middle{
+            height:30px;
+            width:24px;
+            background-color: black;
+            color:white;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        .right{
+            height:30px;
+            width: 30px;
+            background-color: black;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+            border-bottom-left-radius: 0px;
+            color:white;
+            text-align: right;
+            line-height: 30px;
+            border:0;
+            font-size: 18px;
+            padding-right: 10px;
+            outline: none;
+        }
     </style>
 
 </head>
 <body>
 
-    <div class="container">
+    <!-- <div class="container">
         <div class="child red"></div>
         <div class="child blue"></div>
         <div class="child green"></div>
-    </div>
+    </div> -->
     
+    <!-- <div class="main">
 
+        <div class="main-child red">
+
+        </div>
+
+        <div class="main-child blue">
+            
+        </div>
+    </div> -->
+
+    <div class="item-count">
+        <button class="left">-</button>
+        <div class="middle">1</div>
+        <button class="right">+</button>
+    </div>
 </body>
 </html>

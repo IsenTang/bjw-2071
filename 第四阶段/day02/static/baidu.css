@@ -1,0 +1,145 @@
+/* 初始化 */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    min-width: 1260px;
+}
+
+.nav{
+    height: 60px;
+    width: 100%;
+}
+
+/* 左边 */
+/* .nav-header-left{
+    float: left;
+} */
+
+
+.nav-header-li{
+    float: left;
+    list-style: none;
+    margin-left: 32px;
+    color: #222;
+    font:13px Arial,'PingFang SC','Microsoft YaHei',sans-serif;
+    line-height: 60px;
+}
+
+.nav-header-li>a {
+    text-decoration: none;
+    color: #222;
+}
+
+.nav-header-li > a:hover {
+    color: #3388ff
+}
+
+/* 右边 */
+.nav-header-right{
+    float: right;
+    margin-right:32px;
+}
+
+.nav-setting-container{
+    display: none;
+    position:absolute;
+    left:0;
+    height: auto;
+    width:80px;
+    top:50px;
+    left:-50px;
+    text-align: center;
+    box-shadow: 1px 1px 5px #888888;
+    border-radius: 5px;
+    z-index: 20;
+}
+
+.nav-setting-li{
+    list-style: none;
+    height: 36px;
+    line-height: 36px;
+}
+
+.nav-setting-li > a{
+    text-decoration: none;
+    color: #222;
+}
+
+.nav-setting-li > a:hover {
+    color: #3388ff
+}
+
+
+/* 清除浮动 */
+.clear{
+    clear: both;
+}
+
+/* 主体 */
+/* vh -> view height */
+.search{
+    position: relative;
+    width: 100%;
+    height: calc( 100vh - 200px );
+    text-align: center;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 居中 */
+.search-container{
+    /* position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-container img{
+    width: 270px;
+    height: 129px;
+}
+
+.input-container{
+    display: flex;
+}
+
+.search-input{
+    height: 40px;
+    width: 450px;
+    border-radius: 5px 0px 0px 5px;
+    box-shadow: none;
+    border: 2px solid #4E71F2;
+    border-right:none;
+    display: block;
+    outline: none;
+}
+
+.search-button{
+    height: 44px;
+    width: 100px;
+    border-radius: 0px 5px 5px 0px;
+    border: 2px solid #4E71F2;
+    background-color: #4E71F2;
+    color:white;
+    font-size: 16px;
+}
+
+
+/* 尾部 */
+.footer{
+    position: fixed;
+    /* background-color: #FAFAFA; */
+    height:40px;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color: #4E71F2;
+}
