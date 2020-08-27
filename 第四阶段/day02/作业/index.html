@@ -93,5 +93,41 @@
             </div>
         </div>
     </div>
+
+    <div class="modal">
+
+        <img src="static/loading.gif" class="modal-image"/>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
+
+    <script>
+
+        let placeOrderBtn = document.getElementsByClassName('place-order-btn')[0];
+        let modal = document.getElementsByClassName('modal')[0];
+        let timer;
+
+
+        // placeOrderBtn.onclick = _.throttle(()=>{
+
+        //     console.log(1)
+        // },1000)
+
+        placeOrderBtn.onclick = _.debounce(()=>{
+
+            console.log(1)
+        },500)
+
+        function fakeDismiss(){
+
+            if(timer){
+                clearTimeout(timer)
+            }
+
+            timer = setTimeout(()=>{
+                modal.style.display = 'none'
+            },2000)
+        }
+    </script>
 </body>
 </html>

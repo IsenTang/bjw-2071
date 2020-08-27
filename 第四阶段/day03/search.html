@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        *{
+            padding:0;
+            margin:0;
+        }
+
+        .search-input{
+            width: 400px;
+        }
+        .search-result{
+            width: 400px;
+            height: 400px;
+            border: 1px black solid;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <input type="text" class="search-input">
+
+    <div class="search-result">
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
+    <script>
+
+        let inputEle = document.getElementsByClassName('search-input')[0];
+        let mockData = ['123','223','333','9999'];
+        let searchResultEle = document.getElementsByClassName('search-result')[0];
+
+        inputEle.onkeyup = _.debounce(()=>{
+
+            let value = inputEle.value;
+            console.log('value ==>',value);
+
+            let data = [];
+            mockData.forEach((item)=>{
+
+                if(_.includes(item,value)){
+                    data.push(item)
+                }
+            })
+
+            searchResultEle.style.display = 'flex'
+        },500)
+    </script>
+</body>
+</html>
