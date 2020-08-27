@@ -1,3 +1,4 @@
+const _ = require('lodash');
 // let person = {
 //     name:'isen',
 //     sayName: function(name){
@@ -80,30 +81,30 @@ global.name = 'global'
 // console.log(fakeMath.sum.call(null,1,3,6))
 
 
-var a = 1; 
-var b = 2; 
-var test = function (first, second) { 
-    return first === a && second === b;
-}; 
+// var a = 1; 
+// var b = 2; 
+// var test = function (first, second) { 
+//     return first === a && second === b;
+// }; 
 
 
 
-console.log(fakeCall(test, a, b))
+// console.log(fakeCall(test, a, b))
 
-function fakeCall(fn){
+// function fakeCall(fn){
 
-    // return fn(a,b);
+//     // return fn(a,b);
 
-    // return fn.apply(null,[a,b])
-    let array = [];
+//     // return fn.apply(null,[a,b])
+//     let array = [];
 
-    for(let i = 1;i<arguments.length;i++){
+//     for(let i = 1;i<arguments.length;i++){
 
-        array.push(arguments[i])
-    }
+//         array.push(arguments[i])
+//     }
 
-    return fn.apply(null,array);
-}
+//     return fn.apply(null,array);
+// }
 
 
 
@@ -130,3 +131,86 @@ function fakeCall(fn){
 // }
 
 // main(1,2,3,4)
+
+
+// let obj1 = {
+//     name:'isen',
+//     age:28
+// }
+
+// let obj2 = obj1;
+
+// obj2.age = 18;
+// console.log(obj1);
+// console.log(obj2);
+
+// 浅拷贝
+// let obj1 = {
+//     name:'isen',
+//     age:28
+// }
+
+// let obj2 = Object.assign({},obj1);
+
+// obj2.age = 18;
+// console.log(obj1);
+// console.log(obj2);
+
+// let obj1 = {
+//     name:'isen',
+//     age:28,
+//     obj:{
+//         a:1
+//     }
+// }
+
+// let obj2 = Object.assign({a:1},obj1);
+
+// obj2.age = 18;
+// console.log(obj1);
+// console.log(obj2);
+// obj2.obj.a = 3;
+// console.log(obj1);
+// console.log(obj2);
+
+
+let obj1 = {
+    name:'isen',
+    age:28,
+    obj:{
+        a:1
+    },
+    func: function(){
+
+        console.log(1);
+    }
+}
+
+// let obj2 = JSON.parse(JSON.stringify(obj1))
+
+
+// let test = function(){
+
+//     console.log(1);
+// }
+
+// obj2.age = 18;
+// obj2.obj.a = 3;
+// console.log(obj1);
+// console.log(obj2)
+
+let obj2 = _.cloneDeep(obj1);
+
+obj2.age = 18;
+obj2.obj.a = 3;
+console.log(obj1);
+console.log(obj2)
+
+obj2.func = function(){
+
+    console.log(2);
+}
+obj1.func()
+obj2.func()
+
+
