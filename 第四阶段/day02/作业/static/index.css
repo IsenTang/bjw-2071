@@ -1,0 +1,111 @@
+.container{
+
+    width: 320px;
+    height: 500px;
+    padding:20px;
+    /* background-color: aqua; */
+    border:1px solid black;
+    border-radius: 5px;
+    margin:0 auto;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    height:360px;
+    border-bottom: 1px solid black;
+}
+
+.menu-item{
+    display: flex;
+    justify-content: space-between;
+    margin-top:20px;
+}
+
+.menu-name{
+    height: 30px;
+    line-height: 30px;
+}
+
+.menu-price-count{
+    display: flex;
+}
+
+.menu-count-container{
+    display: flex;
+}
+
+.menu-add-btn{
+    height:30px;
+    width: 30px;
+    background-color: black;
+    color:white;
+    /* text-align: right; */
+    line-height: 30px;
+    border:0;
+    font-size: 18px;
+    padding-right: 10px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 0px;
+    outline: none;
+    cursor: pointer;
+}
+
+.menu-price{
+    height: 30px;
+    line-height: 30px;
+    margin-right: 5px;
+}
+
+.menu-remove-btn{
+    height:30px;
+    width: 30px;
+    background-color: black;
+    color:white;
+    /* text-align: right; */
+    line-height: 30px; 
+    border:0;
+    font-size: 18px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 15px;
+    /* border-radius: 50%; */
+    outline: none;
+    cursor: pointer;
+}
+
+.menu-count{
+    height:30px;
+    width: 24px;
+    background-color: black;
+    color:white;
+    line-height: 30px;
+    font-size: 18px;
+    text-align: center; 
+}
+
+.menu-total-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top:30px;
+    font-size: 24px;
+}
+
+.place-order-btn-container{
+    display: flex;
+    justify-content: center;
+}
+
+.place-order-btn{
+    width: 280px;
+    height: 40px;
+    background-color: #0d9e65;
+    color:white;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 30px;
+    margin-top:30px
+}
