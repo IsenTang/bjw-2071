@@ -20,7 +20,7 @@
 var person = {
     name:'isen',
     sayName: function(){
-        console.log('hello,I am '+ this.name );
+        console.log('hello,I am '+ this.name  );
     }
 }
 
@@ -29,18 +29,32 @@ let person2 = {
     name:'lily'
 }
 
+
+
+// person.sayName.call(person2)
+
+
 let person3 = {
     name: 'tom'
 }
 
-person.sayName.call(person2);
+function fakeSayName(v){
 
-function fakeSayName(){
+    console.log(this.name + v);
+}
 
-    console.log(this.name);
+global.name = 'global'
+
+fakeSayName.call(person3,1)
+
+fakeSayName.call(null,1)
+
+fakeSayName.apply(person3,[1]);
+
+fakeSayName.bind(person3)(1)
+
+function test(v){
+    console.log(person3.name + v);
 }
 
 
-// global.name = 'global';
-// fakeSayName()
-fakeSayName.call(person3);
