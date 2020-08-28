@@ -29,22 +29,65 @@
         // console.log(dog1);
         // dog1.bark()
 
-        function Dog(name){
+        // function Dog(name){
 
-            this.name = name;
-        }
+        //     this.name = name;
+        // }
 
-        Dog.prototype.bark = function(){
+        // Dog.prototype.bark = function(){
 
-            console.log(this.name)
-        }
+        //     console.log(this.name)
+        // }
 
-        const dog1 = new Dog('dog1')
+        // const dog1 = new Dog('dog1')
 
-        console.log('dog1===>',dog1);
-        // dog1.bark();
-        console.log('__proto__',dog1.__proto__);
-        console.log(dog1.toString());
+        // console.log('dog1===>',dog1);
+        // // dog1.bark();
+        // console.log('__proto__',dog1.__proto__);
+
+        // console.log(dog1.__proto__.__proto__);
+
+        // console.log(dog1.__proto__.__proto__.__proto__);
+
+        // console.log(dog1.toString());
+
+        // function Parent(){
+        //     this.name = 'mike';
+        // }
+
+        // function Child(){
+        //     this.age = 12;
+        // }
+
+        // Child.prototype = new Parent();//Child继承Parent，通过原型，形成链条
+
+        // let child = new Child();
+
+        // function Brother(){   //brother构造
+        //     this.weight = 60;
+        // }
+
+        // Brother.prototype = new Child();
+
+        // const brother = new Brother();
+        // console.log(brother);
+
+        function Animal(){
+    this.bark = function(){
+        console.log('叫');
+    }
+    this.obj = { a:1 };
+}
+function Dog(name){
+
+    this.name = name;
+}
+
+Dog.prototype = new Animal() 
+
+const dog1 = new Dog('dog1')
+
+console.log(dog1)
     </script>
 </body>
 </html>

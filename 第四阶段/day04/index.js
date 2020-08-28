@@ -182,25 +182,86 @@
 // console.log(dog1.__proto__.constructor === Dog);
 // dog1.bark();
 
+// function Dog(name){
 
+//     this.name = name;
+// }
+
+// Dog.prototype.bark = function(){
+
+//     console.log(this.name)
+// }
+
+
+// const dog1 = new Dog('dog1')
+
+console.log(Dog.prototype === dog1.__proto__);
+
+dog1.__proto__.bark1 = function(){
+
+    console.log(this.name + '汪汪!');
+}
+
+dog1.bark1()
+
+// const dog2 = new Dog('dog2')
+// dog2.bark1()
+// console.log(dog1);
+// dog1.bark();
+// console.log(dog1.__proto__.__proto__);
+// console.log(dog1.toString());
+
+// function Parent(){
+//     this.name = 'mike';
+// }
+
+// function Child(){
+//     this.age = 12;
+// }
+
+// Child.prototype = new Parent();//Child继承Parent，通过原型，形成链条
+
+// let child = new Child();
+
+// function Brother(){   //brother构造
+//     this.weight = 60;
+// }
+
+// Brother.prototype = new Child();
+
+// const brother = new Brother();
+// console.log(brother);
+
+function Animal(){
+    this.bark = function(){
+        console.log('叫');
+    }
+    this.obj = { a:1 };
+}
 function Dog(name){
 
     this.name = name;
 }
 
-Dog.prototype.bark = function(){
-
-    console.log(this.name)
-}
+Dog.prototype = new Animal()
 
 const dog1 = new Dog('dog1')
 
-console.log(dog1);
-dog1.bark();
-console.log(dog1.__proto__.__proto__);
-console.log(dog1.toString());
+console.log(dog1)
+dog1.bark()
+const dog2 = new Dog('dog2')
 
-Object.toString()
+let obj = dog1.obj
 
+delete obj.a
 
+console.log(dog1.obj);
 
+console.log(dog2.obj);
+
+// const a = {
+//     test:1
+// }
+// console.log(a);
+// delete a.test
+// console.log(a);
