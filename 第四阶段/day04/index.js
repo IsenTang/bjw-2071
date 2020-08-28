@@ -48,47 +48,159 @@
 // }
 // fn1();
 
-function Foo(){
-    var name = 'fooname';
-    var age = 12;
-    this.getName = function(){
-        return name;
-    };
-    this.getAge = function(){
-        return age;
-    };
-};
-var foo = new Foo();
-console.log(foo);
-console.log(foo.name);
-console.log(foo.getName());
-foo.name;
+// function Foo(){
+//     var name = 'fooname';
+//     var age = 12;
+//     this.getName = function(){
+//         return name;
+//     };
+//     this.getAge = function(){
+//         return age;
+//     };
+// };
+// var foo = new Foo();
+// console.log(foo);
+// console.log(foo.name);
+// console.log(foo.getName());
+// foo.name;
 
-let array = [];
+// let array = [];
 
-// for(var i=0; i<6; i++){
-//     (function(ii){
 
-//         array[i] = function(){
-//             console.log(ii) // 0、1、2、3、4、5
-//         }
-//     })(i)
+// for(var i=0;i<10;i++){
+
+//     array[i] = setFunction(i)
 // }
 
-for(var i=0;i<10;i++){
+// array[2]();
 
-    array[i] = setFunction(i)
+// function setFunction(ii){
+
+//     // let ii = arguments[0];
+
+//     return function(){
+
+//         console.log(ii);
+//     }
+// }
+
+// function a(){
+
+//     let a = 1;
+    
+//     let getA = function(){
+
+//         return a;
+//     }
+
+//     return getA;
+// }
+
+// function b(){
+
+//     let a = 1;
+    
+//     let getA = function(){
+
+//         return a;
+//     }
+
+//     return getA;
+// }
+
+// let array = [];
+// for(var i=0;i<10;i++){
+
+//     array[i] = setFunction(i)
+// }
+
+// array[2]();
+
+// function setFunction(){
+	
+//     let i = arguments[0];
+
+//     return function(){
+
+//         console.log(i);
+//     }
+// }
+
+// function Person() {
+//     let name = 'isen';
+
+//     this.getName = function() {
+//         console.log(name);
+//     }
+// }
+
+// const p1 = new Person();
+
+// p1.getName();
+
+// function Dog(name){
+
+//     this.name = name;
+//     this.bark = bark;
+// }
+
+// let bark = function(){
+
+//     console.log(this.name)
+// }
+
+// const dog1 = new Dog('dog1');
+// const dog2 = new Dog('dog2');
+
+// console.log(dog1);
+// console.log(dog2);
+// console.log(dog1.bark === dog2.bark)
+// dog2.bark()
+
+
+// function Dog(name){
+
+//     this.name = name;
+// }
+
+// console.log(Dog.prototype);
+// Dog.prototype.bark = function(){
+
+//     console.log(this.name);
+// }
+
+// console.log(Dog.prototype);
+
+// const dog1 = new Dog('dog1');
+// const dog2 = new Dog('dog2');
+
+// console.log(dog1);
+// console.log(dog1.__proto__);
+// console.log(dog1.__proto__ === Dog.prototype);
+
+// console.log(Dog.prototype.constructor === Dog);
+// console.log(dog1.__proto__.constructor === Dog);
+// dog1.bark();
+
+
+function Dog(name){
+
+    this.name = name;
 }
 
-array[2]();
+Dog.prototype.bark = function(){
 
-function setFunction(){
-
-    let ii = arguments[0];
-
-    return function(){
-
-        console.log(ii);
-    }
+    console.log(this.name)
 }
+
+const dog1 = new Dog('dog1')
+
+console.log(dog1);
+dog1.bark();
+console.log(dog1.__proto__.__proto__);
+console.log(dog1.toString());
+
+Object.toString()
+
+
 

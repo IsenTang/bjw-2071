@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        // function Dog(name){
+
+        //     this.name = name;
+        // }
+
+        // // console.log(Dog.prototype);
+        // Dog.prototype.bark = function(){
+
+        //     console.log(this.name);
+        // }
+
+        // // console.log(Dog.prototype);
+
+        // const dog1 = new Dog('dog1');
+        // const dog2 = new Dog('dog2');
+
+        // console.log(dog1);
+        // dog1.bark()
+
+        function Dog(name){
+
+            this.name = name;
+        }
+
+        Dog.prototype.bark = function(){
+
+            console.log(this.name)
+        }
+
+        const dog1 = new Dog('dog1')
+
+        console.log('dog1===>',dog1);
+        // dog1.bark();
+        console.log('__proto__',dog1.__proto__);
+        console.log(dog1.toString());
+    </script>
+</body>
+</html>
