@@ -195,14 +195,14 @@
 
 // const dog1 = new Dog('dog1')
 
-console.log(Dog.prototype === dog1.__proto__);
+// console.log(Dog.prototype === dog1.__proto__);
 
-dog1.__proto__.bark1 = function(){
+// dog1.__proto__.bark1 = function(){
 
-    console.log(this.name + '汪汪!');
-}
+//     console.log(this.name + '汪汪!');
+// }
 
-dog1.bark1()
+// dog1.bark1()
 
 // const dog2 = new Dog('dog2')
 // dog2.bark1()
@@ -232,32 +232,32 @@ dog1.bark1()
 // const brother = new Brother();
 // console.log(brother);
 
-function Animal(){
-    this.bark = function(){
-        console.log('叫');
-    }
-    this.obj = { a:1 };
-}
-function Dog(name){
+// function Animal(){
+//     this.bark = function(){
+//         console.log('叫');
+//     }
+//     this.obj = { a:1 };
+// }
+// function Dog(name){
 
-    this.name = name;
-}
+//     this.name = name;
+// }
 
-Dog.prototype = new Animal()
+// Dog.prototype = new Animal()
 
-const dog1 = new Dog('dog1')
+// const dog1 = new Dog('dog1')
 
-console.log(dog1)
-dog1.bark()
-const dog2 = new Dog('dog2')
+// console.log(dog1)
+// dog1.bark()
+// const dog2 = new Dog('dog2')
 
-let obj = dog1.obj
+// let obj = dog1.obj
 
-delete obj.a
+// obj.a = 3
 
-console.log(dog1.obj);
+// console.log(dog1.obj);
 
-console.log(dog2.obj);
+// console.log(dog2.obj);
 
 // const a = {
 //     test:1
@@ -265,3 +265,62 @@ console.log(dog2.obj);
 // console.log(a);
 // delete a.test
 // console.log(a);
+
+
+// function SuperClass (color) {
+//     this.color=color
+// }
+// 定义子类
+// function SubClass (color) {
+
+// }
+
+// // 将父类的实例作为子类的原型对象
+// SubClass.prototype = new SuperClass(['red'])
+// // 创建实例对象o1并传递参数
+// var o1 = new SubClass(['blue','red'])
+// // 创建实例对象o2并传递参数
+// var o2 = new SubClass()
+// // 打印o1和o2的color
+// console.log(o1.color)
+// console.log(o2.__proto__.color)
+
+function Parent(age){
+    this.name = ['mike','jack','smith'];
+    this.age = age;
+    
+}
+
+Parent.prototype.say = function(){
+    console.log('hello');
+}
+
+function Child(age){
+
+    Parent.call(this,age);
+    // console.log(this)
+}
+
+Child.prototype = new Parent();
+const child1 = new Child(28);
+const child2 = new Child(18);
+// child1.name.push('isen')
+console.log(child1.name);
+child1.say()
+// console.log(child2);
+
+// function Parent(age){
+//     this.name = ['mike','jack','smith'];
+//     this.age = age;
+// }
+
+// Parent.prototype.say = function(){
+
+//     console.log('hello');
+// }
+
+// function Child(age){
+//     Parent.call(this,age);
+// }
+
+// Child.prototype = new Parent();
