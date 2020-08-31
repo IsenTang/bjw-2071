@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" class="input"/>
+
+    <script>
+
+        // localStorage.setItem('user',JSON.stringify({ name:'isen' }));
+
+        // let user = localStorage.getItem('user');
+
+        // console.log(typeof user)
+
+        // console.log(JSON.parse(user));
+
+    
+        // set('user',{name:'isen',age:28});
+
+        // console.log(get('user'));
+
+        // // localStorage.removeItem('user');
+
+        // localStorage.clear();
+
+        // localStorage.setItem('test','test');
+        // sessionStorage.setItem('test','test');
+
+
+    </script>
+    <script>
+        function set(key,value){
+
+            localStorage.setItem(key,JSON.stringify(value));
+        };
+
+        function get(key){
+
+            return JSON.parse(localStorage.getItem(key));
+        };
+
+        let inputEle = document.getElementsByClassName('input')[0];
+
+        window.onload = function(){
+
+            let record = get('record');
+
+            if(record){
+
+                inputEle.value = record.input;
+            }
+
+            inputEle.onblur = function(){
+
+            let value = inputEle.value;
+
+            if(value){
+
+                set('record',{ input: value});
+            }
+            }
+        }
+
+        
+
+
+
+    </script>
+</body>
+</html>
