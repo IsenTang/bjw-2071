@@ -4,13 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+
+        /* .container{
+            width: 400px;
+            height: 400px;
+            background-color: aqua;
+        }
+
+        .child1{
+            width: 50px;
+            height: 50px;
+            background-color: black;
+        }
+
+        .child2{
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        } */
+
+        .main{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+
+    </style>
 </head>
 <body>
     
-    <div id="div1">
+    <!-- <div id="div1">
         <button id="btn">按钮</button>
-    </div>
+    </div> -->
 
-    <script src="static/index.js"></script>
+    <!-- <div class="container">
+
+        <div class="child1"></div>
+        <div class="child2"></div>
+    </div> -->
+
+    <div class="main">123</div>
+
+    <!-- <script src="static/index.js"></script> -->
+    <script>
+        let mainEle = document.getElementsByClassName('main')[0];
+
+        mainEle.onclick = function(){
+
+            mainEle.style.width = '400px';
+        }
+    </script>
 </body>
 </html>

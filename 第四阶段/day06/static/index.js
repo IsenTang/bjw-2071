@@ -23,23 +23,37 @@ var div1 = document.getElementById("div1");
 // }
 
 //事件捕获
-window.addEventListener("click",function(){
-    console.log("捕获4.Click window");
-    // event.stopPropagation();
-},true);
+// window.addEventListener("click",function(){
+//     console.log("捕获4.Click window");
+//     // event.stopPropagation();
+// },true);
 
-document.addEventListener("click",function(){
-    console.log("捕获3.Click document");
-},true);
+// document.addEventListener("click",function(){
+//     console.log("捕获3.Click document");
+// },true);
 
-document.body.addEventListener("click",function(){
-    console.log("捕获2.Click body");
-},true);
+// document.body.addEventListener("click",function(){
+//     console.log("捕获2.Click body");
+// },true);
 
-div1.addEventListener("click",function(){
-    console.log("捕获1.5 Click div1");
-},true);
+// div1.addEventListener("click",function(){
+//     console.log("捕获1.5 Click div1");
+// },true);
 
-btn.addEventListener("click",function(){
-    console.log("捕获1.Click btn");
-},true);
+
+
+// btn.addEventListener("click",function(){
+//     console.log("捕获1.Click btn");
+// },true);
+
+let container = document.getElementsByClassName('container')[0];
+
+
+container.onclick = function(event){
+
+    if(event.target.className === 'child1'){
+        console.log(1);
+    }
+}
+
+
