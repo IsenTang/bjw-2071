@@ -16,26 +16,41 @@
             padding:0;
             margin:0;
         }
-        .main{
-            /* width: 10vw;
-            height: 10vw; */
-            width: 2rem;
-            height: 2rem;
-            background-color: aqua;
-            /* font-size: 0.8rem; */
+
+        .container{
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            padding:0 20px;
+        }
+
+        .search-input{
+            height: 44px;
+            flex:1;
+        }
+
+        .search-btn{
+            height: 44px;
+            width: 81px;
         }
     </style>
 </head>
 <body>
     
 
-    <div class="main">123</div>
+    <!-- <div class="main">123</div> -->
+
+    <div class="container">
+
+        <input type="text" class="search-input"/>
+        <button class="search-btn">search</button>
+    </div>
 
     <script>
 
-        let width = document.documentElement.clientWidth;
+        // let width = document.documentElement.clientWidth;
 
-        console.log(width);
+        // console.log(width);
 
         // document.documentElement.style.fontSize = window.innerWidth / 10 + 'px';
 
