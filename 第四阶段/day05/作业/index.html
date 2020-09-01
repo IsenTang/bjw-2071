@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+
+        <div>
+        姓名
+        <input type="text" class="name"/>
+        </div>
+        
+        <div>
+            性别
+            <select class="gender">
+                <option value="1">男</option>
+                <option value="0">女</option>
+            </select>
+        </div>
+        <div>
+
+        年龄
+        <input type="text" class="age"/>
+        </div>
+
+        <div>
+        班级
+        <select class="class">
+            <option value="web">web</option>
+            <option value="java">java</option>
+        </select>
+        </div>
+
+    </div>
+
+    <script>
+        let nameEle = document.getElementsByClassName('name')[0];
+        let genderEle = document.getElementsByClassName('gender')[0];
+        let ageEle = document.getElementsByClassName('age')[0];
+        let classEle = document.getElementsByClassName('class')[0];
+
+        renderRecord();
+
+        nameEle.onblur = function(){
+
+            let value  = nameEle.value;
+            if(value){
+
+                setRecord('name',value)
+            }
+        }
+
+        ageEle.onblur = function(){
+
+            let value  = ageEle.value;
+            if(value){
+
+                setRecord('age',value)
+            }
+        }
+
+        genderEle.onchange = function(){
+
+            let index = genderEle.selectedIndex;
+
+            let value = genderEle.options[index].value
+
+            setRecord('gender',value);
+        }
+
+        classEle.onchange = function(){
+
+            let index = classEle.selectedIndex;
+
+            let value = classEle.options[index].value
+
+            setRecord('class',value);
+        }
+
+        function setRecord(key,value){
+
+            let record = JSON.parse(localStorage.getItem('record'));
+
+            if(!record){
+                record = {};
+            }
+            // record.name = '';
+            record[key] = value;
+
+            localStorage.setItem('record',JSON.stringify(record))
+        }
+
+        function getRecord(){
+
+            return JSON.parse(localStorage.getItem('record'));
+        }
+
+        function renderRecord(){
+
+            let record = getRecord();
+
+            if(record){
+
+                nameEle.value = record.name || '';
+                ageEle.value = record.age || '';
+                genderEle.value = record.gender || '';
+                classEle.value = record.class || '';
+            }
+        }
+    
+    </script>
+</body>
+</html>
