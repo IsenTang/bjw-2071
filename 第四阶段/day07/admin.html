@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/admin.css">
+    <link rel="stylesheet" href="static/max1024.css" media="only screen and (min-width:1024px)">
+    <link rel="stylesheet" href="static/min1024.css" media="only screen and (max-width:1023px)">
+</head>
+<body class="preload">
+
+    <div class="header">header</div>
+
+    <div class="main-container">
+
+        <div class="sider">
+            123
+        </div>
+
+        <div class="content-container">
+
+            <div class="content">
+
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Email</th> 
+                        <th>Operation</th>   
+                      </tr>
+                    </thead>
+                    <tbody class="table">
+                      <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>john@example.com</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">change</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Mary</td>
+                        <td>Moe</td>
+                        <td>mary@example.com</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">change</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>July</td>
+                        <td>Dooley</td>
+                        <td>july@example.com</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">change</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+
+            <div class="footer">footer</div>
+        </div>
+    </div>
+
+    <div class="admin-modal">
+
+        <div class="modal-container"></div>
+    </div>
+
+    <script>
+
+        let table = document.getElementsByClassName('table')[0];
+        let modal = document.getElementsByClassName('admin-modal')[0];
+
+        table.onclick = function(e){
+
+            let target = e.target;
+
+            if(target.className === 'btn btn-primary'){
+
+                modal.style.display = 'flex'
+            }
+        }
+
+        modal.onclick = function(e){
+
+            if(e.target.className === 'admin-modal'){
+                modal.style.display = 'none'
+            }
+        }
+    </script>
+</body>
+</html>
