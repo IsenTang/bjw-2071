@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="static/index.css">
+    <link rel="stylesheet" href="static/m1024.css" media="only screen and (max-width:1023px)">
+</head>
+<body class="preload">
+    
+    <header >
+        <div>title</div>
+
+        <div class="header-right">
+            <a href="content1" class="header-right-a">content1</a>
+            <a href="content2" class="header-right-a">content2</a>
+            <a href="content3" class="header-right-a">content3</a>
+        </div>
+
+        <div class="header-btn">test</div>
+    </header>
+
+    <div class="content1"></div>
+
+    <div class="content2"></div>
+
+    <div class="content3"></div>
+    
+    <script
+    src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+    <script>
+
+        controlHeader();
+
+        $(window).scroll(function(){
+
+            controlHeader();
+        })
+
+        $('.header-right-a').click(function(event){
+
+            event.preventDefault();
+
+            let href = $(this).attr('href');
+
+            console.log($(`.${href}`).length)
+            if($(`.${href}`).length > 0){
+                $('html, body').stop().animate({
+                    /* scrolltop动画，跳转到对应元素的最顶端 */
+                    scrollTop: $(`.${href}`).offset().top
+                }, 500,'linear');
+
+                // console.log(document.body.scrollTop);
+                // console.log($(`.${href}`).offset().top);
+                // document.documentElement.scrollTop = $(`.${href}`).offset().top;
+            }
+        })
+
+
+        function controlHeader(){
+
+            let scrollTop = document.documentElement.scrollTop;
+
+            if(scrollTop > 20){
+                $('header').addClass('scroll');
+            }else{
+                $('header').removeClass('scroll');
+            }
+        }
+    </script>
+</body>
+</html>
