@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <div id="app">
+        <p v-if="1==2">我喜欢吃榴莲</p>
+        <p v-else-if="2==2">我喜欢吃苹果</p>
+        <p v-else>我喜欢吃香蕉</p>
+
+
+        <div>
+
+            <!-- <p v-show="1==2">show</p> -->
+            <!-- <p v-else>我喜欢吃苹果</p> -->
+
+        </div>
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data (){
+                return {
+                    food1: '榴莲',
+                    food2: '苹果'
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

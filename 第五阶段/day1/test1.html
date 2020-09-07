@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+    <!-- <script src="jquery.js" type="text/javascript"></script> -->
+    <style>
+        .avatar{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="sex">
+        <div v-if="!sex || (sex!=='男' && sex!=='女')"> 
+            请输入您的性别
+        </div>
+        <div v-if="sex=='男'">
+            <img src="https://by-image.oss-cn-shanghai.aliyuncs.com/vue/avatar/man1.jpg" class="avatar" alt="">
+            <h2>{{ manEnter }}</h2>
+        </div>
+        <div v-else-if="sex=='女'">
+            <img src="https://by-image.oss-cn-shanghai.aliyuncs.com/vue/avatar/woman1.jpg" class="avatar" alt="">
+            <h2>{{ womanEnter }}</h2>
+        </div>
+    </div>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                sex: '',
+                manEnter: '男生入口',
+                womanEnter: '女生入口'
+            },
+        })
+
+    </script>
+</body>
+</html>
