@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+    <style>
+        .active{
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+        }
+        .div1{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+        .div2{
+            border: solid 5px #f97197;
+            border-radius: 50%;
+        }
+        .div3{
+            box-shadow: 0 3px 10px #000;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="abc">
+        <!-- <div class="div1"></div> -->
+        <div :class="['div1', isRadius ? 'div2' : '', isShadow ? 'div3' : '']"></div>
+        <!-- <div :class=" { active: isActive } "></div> -->
+        <!-- <div :style="{ backgroundColor: 'red', width: '200px', height: '200px' }"></div> -->
+        <div :style="{ backgroundColor: isActive ? 'red' : 'yellow', width: '200px', height: '200px' }"></div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#abc',
+            data () {
+                return {
+                    isActive: true,
+                    isRadius: false,
+                    isShadow: false
+                }
+            }
+        })
+    </script>
+</body>
+</html>

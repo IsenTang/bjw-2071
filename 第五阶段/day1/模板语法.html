@@ -9,13 +9,22 @@
 </head>
 <body>
     <div id="app">
-        {{ message + str1 }}
+        
     </div>
 
     <script>
 
-        var app = new Vue({
+        let vm = new Vue({
             el: '#app',
+            template: `
+                <div>
+                    <h1>{{ message + str1 }}</h1>
+                    <div class="div1">
+                        <h2>标题二</h2>
+                        <h3>标题三</h3>
+                    </div>
+                </div>
+            `,
             data: {
                 message: 'Hello Vue!',
                 str1: '字符串一'

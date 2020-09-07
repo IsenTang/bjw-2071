@@ -9,26 +9,23 @@
 <body>
 
     <div id="app">
-        <p v-if="1==2">我喜欢吃榴莲</p>
-        <p v-else-if="2==2">我喜欢吃苹果</p>
-        <p v-else>我喜欢吃香蕉</p>
-
-
-        <div>
-
-            <!-- <p v-show="1==2">show</p> -->
-            <!-- <p v-else>我喜欢吃苹果</p> -->
-
-        </div>
+        
     </div>
 
     <script>
         let vm = new Vue({
             el: "#app",
+            template: `
+                <div>
+                    <h2 v-if="isShow">hh2</h2>
+                    <h2 v-show="isShow">红红火火恍恍惚</h2>
+                </div>
+            `,
             data (){
                 return {
                     food1: '榴莲',
-                    food2: '苹果'
+                    food2: '苹果',
+                    isShow: false
                 }
             }
         })
