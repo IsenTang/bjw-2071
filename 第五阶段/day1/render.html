@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+    <style>
+        .list{
+            padding: 10px 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .list h2{
+            font-size: 14px;
+        }
+        .bgblue{
+            background-color: blue;
+        }
+        .bgRed{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        
+    </div>
+
+    <script>
+        var vueApp = {
+            template: `
+                <div>
+                    <div v-for="(item, index) in list">
+                        <div :class="['list', index===0? 'bgblue': '', index===1? 'bgRed': '']">
+                            <h2>{{ item.name }}
+                                <span v-if="item.price<80">折扣商品</span>
+                                <span v-else>原价销售</span>
+                            </h2>
+                            <h2>{{ item.sex }}</h2>
+                            <h2>{{ item.price }}</h2>
+                        </div>
+                    </div>
+                </div>
+            `,
+            data () {
+                return {
+                    name: '后裔',
+                    list: [
+                        { name:'后裔', sex: '男', oldPrice: 80, price: 20 },
+                        { name:'安琪拉', sex: '女', oldPrice: 80, price: 80 },
+                        { name:'程咬金', sex: '男', oldPrice: 80, price: 23 },
+                        { name:'瑶', sex: '女', oldPrice: 80, price: 80 },
+                    ]
+                }
+            }
+        }
+        var vm = new Vue({
+            render: h => h(vueApp)
+        }).$mount('#app')
+    </script>
+    
+</body>
+</html>

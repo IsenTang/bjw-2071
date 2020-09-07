@@ -27,17 +27,21 @@
 </head>
 <body>
     
-    <div id="abc">
-        <!-- <div class="div1"></div> -->
-        <div :class="['div1', isRadius ? 'div2' : '', isShadow ? 'div3' : '']"></div>
-        <!-- <div :class=" { active: isActive } "></div> -->
-        <!-- <div :style="{ backgroundColor: 'red', width: '200px', height: '200px' }"></div> -->
-        <div :style="{ backgroundColor: isActive ? 'red' : 'yellow', width: '200px', height: '200px' }"></div>
+    <div id="app">
+        
     </div>
 
     <script>
-        var vm = new Vue({
-            el: '#abc',
+        var vue = {
+            template: `
+                <div>
+                    <!-- <div class="div1"></div> -->
+                    <div :class="['div1', isRadius ? 'div2' : '', isShadow ? 'div3' : '']"></div>
+                    <!-- <div :class=" { active: isActive } "></div> -->
+                    <!-- <div :style="{ backgroundColor: 'red', width: '200px', height: '200px' }"></div> -->
+                    <div :style="{ backgroundColor: isActive ? 'red' : 'yellow', width: '200px', height: '200px' }"></div>    
+                </div>
+            `,
             data () {
                 return {
                     isActive: true,
@@ -45,7 +49,11 @@
                     isShadow: false
                 }
             }
-        })
+        }
+
+        var vm = new Vue({
+            render: h => h(vue)
+        }).$mount('#app')
     </script>
 </body>
 </html>
