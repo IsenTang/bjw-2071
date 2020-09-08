@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+    <!-- <script src="jquery.js" type="text/javascript"></script> -->
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+
+    <script>
+        let App = {
+            template: `
+                <div>
+                    <h1>{{ message + str1 }}</h1>
+                    <div class="div1">
+                        <h2>标题二</h2>
+                        <h3>标题三</h3>
+                    </div>
+                </div>
+            `,
+            data: {
+                message: 'Hello Vue!',
+                str1: '字符串一'
+            }
+        }
+        // let vm = new Vue({
+        //     render: h => h(App)
+        // }).$mount("#app")
+        let vm = new Vue({
+            el: "#app",
+            render: b => b(App) 
+        })
+
+
+
+    </script>
+</body>
+</html>

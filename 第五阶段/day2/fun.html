@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+    <style>
+        .student-score{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-left: 100px;
+            position: relative;
+        }
+        .student-score h2{
+            font-size: 16px;
+            color: #333;
+            line-height: 30px;
+            min-width: 110px;
+            text-align: center;
+        }
+        .student-score img{
+            width: 50px;
+            height: 40px;
+            position: absolute;
+            left: 30px;
+            top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app"></div>
+    
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            template: `
+                <div>
+                    <p v-text="text"></p>
+                    <div v-html="htmlData"></div>
+                    <div class="student-score" :style="{backgroundColor: '#f3f3f3'}">
+                        <h2 v-for="objTitle in titleList">{{ objTitle }}</h2>
+                    </div>
+                    <div @click="studentAlert(item)" v-for="(item, index) in list" class="student-score" :style="{ backgroundColor: index%2==1? '#f3f3f3' : '#ffffff'}">
+                        <img v-if="index===0" src="./第一名.jpg" />
+                        <img v-if="index===1" src="./第二名.jpeg" />
+                        <img v-if="index===2" src="./第三名.jpeg" />
+                        <h2>{{ item.name }}</h2>
+                        <template v-for="obj in item.score">
+                            <h2 >{{ obj.math }}</h2>
+                            <h2 >{{ obj.chinese }}</h2>
+                            <h2 >{{ obj.english }}</h2>
+                            <h2 >{{ obj.geography }}</h2>
+                            <h2 >{{ obj.history }}</h2>
+                        </template>
+                        <h2>{{ item.allCount }}</h2>
+                    </div>
+                    <p>{{ dealCount(1599531541044) }}</p>
+                </div>
+            `,
+            data () {
+                return {
+                    text: '<span>我是p标签</span>',
+                    htmlData: '<span>我是span标签</span>',
+                    titleList: ['姓名', '数学', '语文', '英语', '地理', '历史', '总分'],
+                    list: [{
+                        name: '肖锋',
+                        score: [{
+                            math: 99,
+                            chinese: 100,
+                            english: 100,
+                            geography: 99,
+                            history: 98
+                        }],
+                            allCount: 496
+                        }, {
+
+                            name: '安澜',
+                            score: [{
+                                math: 90,
+                                chinese: 98,
+                                english: 89,
+                                geography: 96,
+                                history: 100
+                            }],
+                            allCount: 473
+                        }, {
+                            name: '路小北',
+                            score: [{
+                                math: 88,
+                                chinese: 87,
+                                english: 77,
+                                geography: 86,
+                                history: 78
+                            }],
+                            allCount: 416
+                        }, {
+                            name: '许巍',
+                            score: [{
+                                math: 39,
+                                chinese: 40,
+                                english: 76,
+                                geography: 90,
+                                history: 59
+                            }],
+                            allCount: 304
+                        }
+                    ],
+                    data: 10000,
+                }
+            },
+            created () {
+                // console.log('created-this', this);
+                console.log('取数据', this.htmlData);
+                this.fun1();
+            },
+            methods: {
+                studentAlert (student) {
+                    alert(JSON.stringify(student))
+                },
+                fun1 () {
+                    // console.log('fun1-this', this)
+                    let fun2Res = this.fun2();
+                    let result = fun2Res * this.data
+                    console.log('result', result);
+                },
+                fun2 () {
+                    let ran = Math.random()
+                    console.log('随机数', ran)
+                    return ran
+                },
+                dealCount (t) {
+                    let time = new Date(t);
+                    let y = time.getFullYear();
+                    var m = time.getMonth()+1;
+                    var d = time.getDate();
+                    var h = time.getHours();
+                    var mm = time.getMinutes();
+                    var s = time.getSeconds();
+                    return y+'年'+m+'月'+d+'日'+h+'时'+mm +'分'+s+'秒'
+                }
+            },
+        })
+    </script>
+</body>
+</html>

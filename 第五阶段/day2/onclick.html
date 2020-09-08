@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+    <style>
+        .div1{
+            width: 400px;
+            height: 400px;
+            background-color: #f3f3f3;
+        }
+        .div2{
+            width: 100px;
+            height: 100px;
+            background-color: #f97197;
+        }
+        .div3{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <button v-on:click="doThis">btn1</button>
+        <br/>
+        <button v-on:click="doThis2('string')">btn2</button>
+        <br/>
+        <button @click="doThis">btn3</button>
+        <button @click.once="doOnce">btn4</button>
+
+        <input type="text" v-model="inputValue" @keyup.enter="onEnter">
+        <input type="text" @keyup.13="onEnter">
+
+        <div class="div1" @click="clickDiv1">
+            <div class="div2" @click.stop="clickDiv2">弹出alert</div>
+            <div class="div3" @click.stop="clickDiv3">打印console</div>
+            
+        </div>
+
+        <a href="https://www.baidu.com" @click.prevent>a</a>
+    </div>
+    
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data () {
+                return {
+                    inputValue: ''
+                }
+            },
+            methods: {
+                doOnce () {
+                    alert('我只会执行一次哦')
+                },
+                clickDiv1 () {
+                    console.log('clickDiv1')
+                },
+                clickDiv2 () {
+                    alert("11111")
+                },
+                clickDiv3 () {
+                    console.log('div3')
+                },
+                onEnter () {
+                    console.log("此时应该调用接口搜索数据", "       请求参数是" + this.inputValue)
+                },
+                doThis () {
+                    console.log("doThis");
+                },
+                doThis2 (name) {
+                    console.log('name', name)
+                }
+            },
+        })
+    </script>
+</body>
+</html>

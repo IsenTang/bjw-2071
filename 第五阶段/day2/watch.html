@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <div id="app">
+        <div>
+            <input type="text" v-model="inputValue">
+            <p>{{ JSON.stringify(obj) }}</p>
+            <p>{{ JSON.stringify(list) }}</p>
+            <h1>{{  fullName }}</h1>
+        </div>
+
+    </div>
+    
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data () {
+                return {
+                    inputValue: '',
+                    firstName: '1111',
+                    lastName: '2222',
+                    fullName: '',
+                    obj: {
+                        a: {
+                            aaa: {
+                                aaaaa: {
+                                    name: 'aaaaaa'
+                                }
+                            }
+                        },
+                        b: {
+                            c: {
+                                name: 'cccc'
+                            }
+                        }
+                    },
+                    list: [
+                        {name: 'name1', age: '20'},
+                        {name: 'name2', age: '30'},
+                        {name: 'name3', age: '40'},
+                    ]
+                }
+            },
+            watch: {
+                firstName (newV, oldV){
+                    this.fullName = newV + this.lastName
+                },
+                lastName (newV, oldV) {
+                    this.fullName = this.firstName  + newV
+                },
+                list: {
+                    handler (newV, oldV) {
+                        console.log('当前值', newV)
+                    },
+                    deep: true
+                },
+                inputValue : { 
+                    handler (newV, oldV) {
+                        console.log('当前值', newV)
+                        console.log('旧值', oldV)
+                    },
+                    immediate: true
+                },
+                obj: {
+                    handler (newV, oldV) {
+                        console.log('当前值', newV)
+                    },
+                    deep: true
+                },
+                "obj.a": {
+                    handler (newV, oldV) {
+                        console.log('obj.a变化了')
+                    },
+                    deep: true
+                }
+            },
+            methods: {
+                
+                fun1() {
+                    let data2 = this.obj
+                }
+            },
+        })
+    </script>
+</body>
+</html>

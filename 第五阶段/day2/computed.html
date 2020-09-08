@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <div id="app">
+        <div>
+            <div>
+                {{ reverseMsg }}
+            </div>
+            <div>
+                {{ fullName }}
+            </div>
+            <button @click="hideDiv" >显示隐藏</button>
+            <div :style="{ display: isDisplay?'block': 'none' }">
+                香蕉单价是：{{ bananaPrice }}
+                <br/>
+                购买数量是：<input type="text" v-model="count" />
+                <br/>
+                <!-- 总价是：{{ allPrice }} -->
+                计算属性的总价是：{{ allPrice() }}
+                <br/>
+                方法的总价是：{{ returnPrice() }}
+            </div>
+        </div>
+
+    </div>
+    
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data () {
+                return {
+                    msg: 'hello Vue',
+                    firstName: '姓',
+                    lastName: '名',
+                    bananaPrice: 30,
+                    count: 1,
+                    isDisplay: true
+                }
+            },
+            computed: {
+                allPrice () {
+                    console.log('计算属性的总价')
+                    return this.bananaPrice * this.count
+                },
+                // allPrice () {
+                //     return function (ll) {
+                //         console.log('计算属性')
+                //         return this.bananaPrice * this.count * ll
+                //     }
+                // },
+                reverseMsg () {
+                    return this.msg.split('').reverse().join('')
+                },
+                fullName () {
+                    return this.firstName + this.lastName
+                }
+            },
+            methods: {
+                returnPrice ( ) {
+                    console.log('方法计算的总价')
+                    let num = this.bananaPrice * this.count
+                    return num
+                },
+                hideDiv () {
+                    this.isDisplay = !this.isDisplay
+                }
+            },
+        })
+    </script>
+</body>
+</html>
