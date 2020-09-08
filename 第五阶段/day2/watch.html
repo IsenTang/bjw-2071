@@ -14,6 +14,7 @@
             <p>{{ JSON.stringify(obj) }}</p>
             <p>{{ JSON.stringify(list) }}</p>
             <h1>{{  fullName }}</h1>
+            <h1>{{ lastName }}</h1>
         </div>
 
     </div>
@@ -34,11 +35,6 @@
                                     name: 'aaaaaa'
                                 }
                             }
-                        },
-                        b: {
-                            c: {
-                                name: 'cccc'
-                            }
                         }
                     },
                     list: [
@@ -49,10 +45,13 @@
                 }
             },
             watch: {
+
                 firstName (newV, oldV){
-                    this.fullName = newV + this.lastName
+                    setTimeout(()=>{
+                        this.fullName = newV + this.lastName
+                    }, 3000)
                 },
-                lastName (newV, oldV) {
+                lastName: function(newV, oldV) {
                     this.fullName = this.firstName  + newV
                 },
                 list: {

@@ -23,7 +23,7 @@
                 购买数量是：<input type="text" v-model="count" />
                 <br/>
                 <!-- 总价是：{{ allPrice }} -->
-                计算属性的总价是：{{ allPrice() }}
+                计算属性的总价是：{{ allPrice }}
                 <br/>
                 方法的总价是：{{ returnPrice() }}
             </div>
@@ -45,9 +45,11 @@
                 }
             },
             computed: {
-                allPrice () {
+                xxxxx () {},
+                allPrice: function () {
                     console.log('计算属性的总价')
-                    return this.bananaPrice * this.count
+                    
+                        return this.bananaPrice * this.count
                 },
                 // allPrice () {
                 //     return function (ll) {
