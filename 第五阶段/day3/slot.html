@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <style>
+       .header-container{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f97197;
+            padding: 20px 10px;
+            box-sizing: border-box;
+       }
+    </style>
+</head>
+<body style="margin: 0;">
+
+    <div id="app"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+        let appHeader = {
+            template: `
+            <div class="header-container">
+                <div>返回</div>
+                <div>
+                    <slot name="slotCenter"></slot>
+                </div>
+                <div>
+                    <slot name="slotRight"></slot>
+                </div>
+            </div>
+            `,
+            props: {
+            }
+        }
+
+        let news = {
+            template: `
+            <div>
+                <app-header>
+                    <div slot="slotRight">
+                        分享
+                    </div>
+                </app-header>
+            </div>
+            `,
+            components: {
+                'app-header': appHeader
+            },
+            data () {
+                return {
+                    
+                }
+            }
+        }
+
+        let kefu ={
+            template: `
+            <div>
+                <app-header>
+                    <div slot="slotCenter">
+                        客服中心
+                    </div>
+                </app-header>
+            </div>
+            `,
+            components: {
+                'app-header': appHeader
+            },
+            data () {
+                return {
+                    
+                }
+            }
+        }
+
+        let father = {
+            template: `
+            <div>
+                <news></news> <br>
+                <kefu></kefu>
+            </div>
+            `,
+            components: {
+                news, kefu
+            }
+        }
+
+        new Vue({
+            render: h => h(father)
+        }).$mount("#app")
+    </script>
+</body>
+</html>

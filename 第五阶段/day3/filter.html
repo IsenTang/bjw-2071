@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+    <style>
+       
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <!-- <div class="container">
+            <h1>{{ msg | formatA | formatbeijing }}</h1>
+            <h1>{{ comA('北京烤鸭') }}</h1>
+        </div> -->
+    </div>
+    <script>
+
+        Vue.filter('filter1', (value) => {
+            if (!value) return ''
+            value = value+'-----filter1'
+            return value
+        })
+        Vue.filter('globalFormatTime', (time) => {
+            let value = new Date(time)
+            let y = value.getFullYear();
+            var m = value.getMonth()+1;
+            var d = value.getDate();
+            return y+'年'+m+'月'+d+'日'
+        })
+
+        let App = {
+            template: `
+                <div>
+                    <h1>局部{{ time | formatTime }}</h1>
+                    <h1>全局{{ time | globalFormatTime }}</h1>
+                    <div>{{ msg | filter1 }}</div>    
+                </div>
+            `,
+            data () {
+                return {
+                    time: new Date().getTime(),
+                    msg: '北京烤鸭'
+                }
+            },
+            filters: {
+                formatTime (time) {
+                    let value = new Date(time)
+                    let y = value.getFullYear(); var m = value.getMonth()+1; var d = value.getDate();
+                    var h = value.getHours(); var mm = value.getMinutes(); var s = value.getSeconds();
+                    return y+'年'+m+'月'+d+'日'+h+'时'+mm +'分'+s+'秒'
+                },
+                formatbeijing (value) {
+                    return '来自北京的:' + value
+                },
+                formatA (value) {
+                    return '美味的' + value
+                }
+            },
+            // computed: {
+            //     comA () {
+            //         return function (value) {
+            //             return '计算属性：：' + value
+            //         }
+            //         // return function (ll) {
+            //         //     console.log('计算属性')
+            //         //     return this.banana * this.count * ll
+            //         // }
+            //     }
+            // },
+            methods: {
+               
+            },
+        }
+
+        let vm = new Vue({
+            render: h => h(App)
+        }).$mount("#app")
+    </script>
+</body>
+</html>

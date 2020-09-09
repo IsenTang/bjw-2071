@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <style>
+       
+    </style>
+</head>
+<body style="margin: 0;">
+
+    <div id="app"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+        let proItem = {
+            template: `
+            <div>
+                <div :style="{display: 'flex', flexDirection: 'row'}">
+                    <h1>{{ aaa }}</h1>
+                    <p>{{ name }}</p>
+                    <p>{{ price }}元</p>
+                </div>
+            </div>
+            `,
+            // props: ['name', 'price', 'aaa']
+            props: {
+                name: {
+                    type: String,
+                    require: true},
+                price: {
+                    type: [Number, String],
+                    require: true},
+                aaa: {
+                    type: String,
+                    require: true,
+                    validator (value) {
+                        return ['success', 'warning', 'danger'].indexOf(value) !== -1
+                    }}}
+        }
+        let father = {
+            template: `
+            <div class="father">
+                <div v-for="obj in list">
+                    <pro-item :name="obj.name" :price="obj.price" :aaa="'index'">
+                    </pro-item>
+                </div>
+            </div>
+            `,
+            components: {
+                'pro-item': proItem
+            },
+            data () {
+                return {
+                    list: [
+                        { name: '水浒传', price: 100},
+                        { name: '红楼梦', price: 200},
+                        { name: '三国演义', price: 300},
+                        { name: '西游记', price: 400},
+                    ]
+                }
+            }
+        }
+
+        new Vue({
+            render: h => h(father)
+        }).$mount("#app")
+    </script>
+</body>
+</html>

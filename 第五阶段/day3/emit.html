@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <style>
+        .pro-container{
+            overflow: hidden;
+        }
+        .pro-item{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            padding: 30px 0;
+            margin: 10px 0;
+        }
+        .addCount{
+            width: 100px;
+            text-align: center;
+            cursor: pointer;
+        }
+       
+    </style>
+</head>
+<body style="margin: 0;">
+
+    <div id="app"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+        let proItem = {
+            template: `
+            <div class="pro-container">
+                <div class="pro-item">
+                    <p>{{ item.name }}</p>
+                    <p>{{ item.price }}</p>
+                    <p>{{ item.count }}</p>
+                    <p @click="addCount" class="addCount">+</p>
+                </div>
+            </div>
+            `,
+            props: {
+                item: {
+                    type: Object
+                },
+                index: {
+                    type: Number
+                }
+            },
+            created() {
+                console.log(this.obj);
+            },
+            methods: {
+                addCount () {
+                    console.log('增加一个'+this.item.name+'数量')
+                    this.$emit('add', {
+                        ind: this.index
+                    })
+                }
+            },
+        }
+
+        let father = {
+            template: `
+            <div class="father">
+                <div v-for="(obj, index) in list">
+                    <pro-item :item="obj" :index="index" @add="addFun">
+                    </pro-item>
+                </div>
+            </div>
+            `,
+            components: {
+                'pro-item': proItem
+            },
+            data () {
+                return {
+                    list: [
+                        { name: '水浒传', price: 100, count: 1},
+                        { name: '红楼梦', price: 200, count: 1},
+                        { name: '三国演义', price: 300, count: 1},
+                        { name: '西游记', price: 400, count: 1},
+                    ]
+                }
+            },
+            methods: {
+                addFun (data) {
+                    console.log('父页面打印：', data)
+                    let info = this.list[data.ind]
+                    info.count += 1
+                }
+            },
+        }
+
+        new Vue({
+            render: h => h(father)
+        }).$mount("#app")
+    </script>
+</body>
+</html>
