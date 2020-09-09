@@ -1,0 +1,179 @@
+<!-- 可参考：https://www.cnblogs.com/chen-yi-yi/p/11146979.html -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>onclick</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+        <style>
+            .container{
+                position: relative;
+                max-width: 500px;
+                height: 500px;
+                margin: 20px auto;
+                background-color: #fff;
+                border: solid 1px #f3f3f3;
+                padding: 50px;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px #999;
+            }
+            .li{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #f3f3f3;
+                padding: 10px 30px;
+                border-radius: 6px;
+                margin-bottom: 20px;
+            }
+            .all-price{
+                width: 200px;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                height: 100px;
+                text-align: left;
+                font-size: 22px;
+                color: #333;
+            }
+            .pro-title{
+                font-size: 18px;
+                color: #333;
+            }
+            .pro-price{
+                font-size: 16px;
+                color: #333;
+                padding-right: 20px;
+            }
+            .pro-right{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                position: relative;
+            }
+            .pro-right img{
+                width: 50px;
+                height: 30px;
+                position: absolute;
+                right: -46px;
+                top: -14px;
+                transform: rotate(25deg);
+            }
+
+            /** 右侧按钮 */
+            .btn-box{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .btn1{
+                width: 30px;
+                height: 30px;
+                background-color: #333;
+                border-top-left-radius: 15px;
+                border-bottom-left-radius: 15px;
+                font-size: 16px;
+                color: #fff;
+                border: none;
+                padding: 0 0 0 7px;
+                outline: none;
+                cursor: pointer;
+            }
+            .btn2{
+                width: 30px;
+                height: 30px;
+                background-color: #333;
+                border-top-right-radius: 15px;
+                border-bottom-right-radius: 15px;
+                font-size: 16px;
+                color: #fff;
+                border: none;
+                padding: 0 7px 0 0;
+                outline: none;
+                cursor: pointer;
+            }
+            .pro-num{
+                width: 20px;
+                line-height: 30px;
+                background-color: #333;
+                font-size: 16px;
+                color: #fff;
+                text-align: center;
+                height: 30px;
+                border: none;
+                outline: none;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div id="app"></div>
+        <script>
+
+            var App = {
+                template: 
+                `<div class="container">
+                    <div>
+                        <div v-for="(item,index) in list" :key="'fruit'+index" class="li">
+                            <p class="pro-title">{{ item.name }}</p>
+                            <div class="pro-right">
+                                <p class="pro-price">￥：{{ item.price }}</p>
+                                <div class="btn-box">
+                                    <button class="btn1" @click="remove(index)">-</button>
+                                    <input type="text" v-model="item.count" class="pro-num" />
+                                    <button class="btn2" @click="add(item)">+</button>
+                                </div>
+                                <img v-if="item.discount" src="./zk.png" slt="" />
+                            </div>
+                        </div>
+                    </div>
+                    <p class="all-price">总价格：{{ price }}</p>
+                </div>
+                `,
+                data () {
+                    return {
+                        list: [
+                            {name: '香蕉', price: 10, count: 1, discount: true},
+                            {name: '苹果', price: 20, count: 1, discount: false},
+                            {name: '榴莲', price: 30, count: 1, discount: true},
+                            {name: '葡萄', price: 50, count: 1, discount: false}
+                        ]
+                    }
+                },
+                computed: {
+                    price () {
+                        let finalPrice = 0;
+                        this.list.forEach(obj => {
+                            finalPrice += obj.price*obj.count
+                        });
+                        return finalPrice
+                    }
+                },
+                methods: {
+                    remove (index) {
+                        if(this.list[index].count<2){
+                            alert('不能再少啦');
+                            return
+                        }
+                        this.list[index].count -= 1;
+                    },
+                    add (item) {
+                        if(item.count>=4){
+                            alert('没有更多库存啦');
+                            return
+                        }
+                        item.count += 1;
+                    }
+                },
+            }
+        </script>
+
+        <script>
+            new Vue({
+                el: '#app',
+                render: h => h(App)
+            })
+        </script>
+        
+    </body>
+</html>
