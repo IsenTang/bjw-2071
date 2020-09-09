@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+    <style>
+        .container{
+            width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 14px;
+            box-shadow: 0 5px 10px #7d7d7d;
+            overflow: hidden;
+        }
+        .item-pro{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 10px 30px;
+            align-items: center;
+            margin: 30px 0;
+        }
+        .pro-right{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .pro-name{
+            font-size: 16px;
+        }
+        .pro-controller{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .controller-left{
+            width: 30px;
+            height: 30px;
+            background: #000;
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+        .controller-right{
+            width: 30px;
+            height: 30px;
+            background: #000;
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+        .pro-count{
+            width: 20px;
+            text-align: center;
+            background-color: #000;
+            font-size: 14px;
+            color: #fff;
+            height: 30px;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <div class="container">
+            <div v-for="(item, index) in list" class="item-pro">
+                <p class="pro-name">{{ item.name }}</p>
+                <div class="pro-right">
+                    <p class="now-price">{{ item.price }}</p>
+                    <div class="pro-controller">
+                        <div class="controller-left" @click="clickLeft(item)">-</div>
+                        <div class="pro-count">{{ item.count }}</div>
+                        <div class="controller-right" @click="clickRight(index)">+</div>
+                    </div>
+                </div>
+            </div>
+            <h2>商品总价是{{ allPrice }}</h2>
+        </div>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data () {
+                return {
+                    list: [
+                        {name: '香蕉', price: 10, count: 3},
+                        {name: '苹果', price: 20, count: 1},
+                        {name: '榴莲', price: 30, count: 4},
+                        {name: '葡萄', price: 50, count: 1}
+                    ]
+                }
+            },
+            computed: {
+                allPrice () {
+                    let num = 0;
+                    this.list.forEach(item => {
+                        num += item.price*item.count
+                    });
+                    return num
+                }
+            },
+            methods: {
+                clickLeft (item) {
+                    if(item.count>1){
+                        item.count -= 1;
+                    } else {
+                        alert("最少买一件哦")
+                    }
+                },
+                clickRight (index) {
+                    let info = this.list[index]
+                    if(info.count<4){
+                        info.count += 1;
+                    } else{
+                        alert("商品没有库存了")
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+</html>
