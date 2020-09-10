@@ -110,21 +110,58 @@
         <div id="app"></div>
         <script>
 
+            var proItem = {
+                template: `
+                    <div class="li">
+                        <p class="pro-title">{{ item.name }}</p>
+                        <div class="pro-right">
+                            <p class="pro-price">￥：{{ item.price }}</p>
+                            <div class="btn-box">
+                                <button class="btn1" @click="remove">-</button>
+                                <input type="text" v-model="item.count" class="pro-num" />
+                                <button class="btn2" @click="add">+</button>
+                            </div>
+                            <slot name="img"></slot>
+                        </div>
+                    </div>
+                `,
+                props: {
+                    item: {
+                        type: Object
+                    },
+                    index: {
+                        type: Number
+                    }
+                },
+                methods: {
+                    remove () {
+                        this.$emit('removeCount', {
+                            ind: this.index
+                        })
+                        // if(this.item.count > 1){
+                        //     this.item.count -= 1
+                        // } else {
+                        //     alert('不能再少了')
+                        // }
+                    },
+                    add () {
+                        this.$emit('addCount', {
+                            ind: this.index
+                        })
+                    }
+                },
+            }
+
             var App = {
                 template: 
                 `<div class="container">
                     <div>
-                        <div v-for="(item,index) in list" :key="'fruit'+index" class="li">
-                            <p class="pro-title">{{ item.name }}</p>
-                            <div class="pro-right">
-                                <p class="pro-price">￥：{{ item.price }}</p>
-                                <div class="btn-box">
-                                    <button class="btn1" @click="remove(index)">-</button>
-                                    <input type="text" v-model="item.count" class="pro-num" />
-                                    <button class="btn2" @click="add(item)">+</button>
+                        <div v-for="(item, index) in list" :key="'fruit'+index">
+                            <pro-item :item="item" :index="index" @removeCount="fatherRemove" @addCount="fatherAdd">
+                                <div v-if="item.discount" slot="img">
+                                    <img src="./zk.png" slt="" />
                                 </div>
-                                <img v-if="item.discount" src="./zk.png" slt="" />
-                            </div>
+                            </pro-item>
                         </div>
                     </div>
                     <p class="all-price">总价格：{{ price }}</p>
@@ -133,12 +170,15 @@
                 data () {
                     return {
                         list: [
-                            {name: '香蕉', price: 10, count: 1, discount: true},
-                            {name: '苹果', price: 20, count: 1, discount: false},
-                            {name: '榴莲', price: 30, count: 1, discount: true},
-                            {name: '葡萄', price: 50, count: 1, discount: false}
+                            {name: '香蕉', price: 10, count: 3, discount: true},
+                            {name: '苹果', price: 20, count: 2, discount: false},
+                            {name: '榴莲', price: 30, count: 4, discount: true},
+                            {name: '葡萄', price: 50, count: 3, discount: false}
                         ]
                     }
+                },
+                components: {
+                    proItem
                 },
                 computed: {
                     price () {
@@ -150,19 +190,24 @@
                     }
                 },
                 methods: {
-                    remove (index) {
-                        if(this.list[index].count<2){
+                    fatherRemove (data) {
+                        console.log("data", data)
+                        let info = this.list[data.ind];
+                        if(info.count>1){
+                            info.count -= 1;
+                        } else {
                             alert('不能再少啦');
-                            return
                         }
-                        this.list[index].count -= 1;
+                        
                     },
-                    add (item) {
-                        if(item.count>=4){
-                            alert('没有更多库存啦');
-                            return
+                    fatherAdd (data) {
+                        let info = this.list[data.ind];
+
+                        if(info.count<4){
+                            info.count += 1
+                        } else {
+                            alert("没有更多库存啦")
                         }
-                        item.count += 1;
                     }
                 },
             }
