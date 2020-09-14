@@ -9,27 +9,26 @@
 </head>
 <body>
     <div id="app">
-        
+        <div>
+            <h5>我是h5标签</h5>
+        </div>
     </div>
 
     <script>
 
         let vm = new Vue({
             el: '#app',
-            template: `
-                <div>
-                    <h1>{{ message + str1 }}</h1>
-                    <div class="div1">
-                        <h2>标题二</h2>
-                        <h3>标题三</h3>
-                    </div>
-                </div>
-            `,
-            data: {
-                message: 'Hello Vue!',
-                str1: '字符串一'
+            data () {
+                return {
+                    message: 'Hello Vue!',
+                    str1: '字符串一'
+                }
             }
         })
+
+        // new Vue({
+        //     render: h => h(App)
+        // }).$mount("#app")
 
     </script>
 </body>

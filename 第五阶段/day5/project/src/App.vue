@@ -1,13 +1,14 @@
 <template>
   <div>
-  <button @click="closeHomePage">关掉这个home页面</button>
-    <Home v-if="isShowHome"></Home>
+    <!--<button @click="closeHomePage">关掉这个home页面</button>
+    <Home v-if="isShowHome"></Home> -->
+    <Work></Work>
   </div>
 </template>
 
 <script>
 import Home from "./components/home.vue";
-
+import Work from "./components/work"
 export default {
   name: "App",
   data () {
@@ -16,7 +17,7 @@ export default {
     }
   },
   components: {
-    Home
+    Home, Work
   },
   methods: {
     closeHomePage () {
