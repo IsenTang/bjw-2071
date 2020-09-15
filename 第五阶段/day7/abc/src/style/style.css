@@ -1,0 +1,10 @@
+.img2 {
+  width: 80px;
+  height: 80px;
+}
+.div {
+  color: blue;
+}
+.div .aa {
+  color: red;
+}
