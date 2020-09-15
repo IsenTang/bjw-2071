@@ -1,27 +1,45 @@
 <template>
-  <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div>
+    <div class="btn-box">
+      <button @click="change('less')">less</button>
+      <button @click="change('sass')">sass</button>
+    </div>
+    <Less v-if="page==='less'" msg="Welcome to Your Vue.js App" />
+    <Sass v-else msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Less from "./components/less.vue";
+import Sass from "./components/sass.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld
+    Less, Sass
+  },
+  data () {
+    return {
+      page: 'sass'
+    }
+  },
+  methods:{
+    change (name) {
+      this.page = name;
+    }
   }
 };
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="less">
+.btn-box{
+  width: 100%;
+  button {
+    display: inline-block;
+    width: 48%;
+    height: 40px;
+    border: none;
+    margin: 0 1%;
+  }
 }
 </style>

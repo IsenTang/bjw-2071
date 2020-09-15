@@ -1,0 +1,125 @@
+$font-size: 20px;
+$color: #f97197;
+$side: left;
+
+
+.hh1{
+  font-size: $font-size;
+  color: $color;
+  border-#{$side}: solid 3px red;
+}
+
+.div{
+  width: (30/3)+px;
+  height: 30px * 2;
+  display: flex;
+  justify-content: space-between;
+  h1{
+    color: red;
+  }
+  h2{
+    color: blue;
+  }
+  h3{
+    color: purple;
+  }
+}
+
+
+// sass继承
+.commondiv{
+  width: 80px;
+  height: 80px;
+}
+
+.div2{
+  @extend .commondiv;
+  background-color: rosybrown;
+}
+
+// sass混入
+@mixin left {
+   margin-left: 10px;
+}
+.div1 {
+   @include left;
+}
+
+// 混入传值
+@mixin left2($val: 12px) {
+  margin-left: $val;
+}
+.div2{
+  @include left2;
+  color: #f97197;
+  color: lighten(#f97197, 10%);
+}
+
+
+
+// 条件语句
+
+.div4{
+  height: 40px;
+  background-color: saddlebrown;
+  @if 5>3 { border: solid 2px #333; }
+  @if 3==3 { box-shadow: 0 3px 10px red; }
+  @if 2==2 { border-top-left-radius: 10px; }
+}
+
+.div5{
+  width: 100px;
+  height: 20px;
+  @if 2==3 {
+    background-color: red;
+  } @else if 3==4 {
+    background-color: purple;
+  } @else {
+    background-color: #333;
+  }
+}
+
+
+
+// 循环   -->  for循环
+// @for $ii from 1 to 5{
+//   .border-#{$ii} {
+//     width: #{$ii}0px;
+//     height: #{$ii}2px;
+//     border: solid #{$ii}0px;
+//   }
+// }
+
+// 循环   -->   while循环
+
+
+
+// $y: 4;
+// @while $y > 0 {
+//   .border-#{$y} {
+//     border: solid #{$y}0px #333;
+//   }
+//   $y: $y - 1;
+// }
+
+
+// 循环   -->   each循环
+@each $z in 1, 2, 3, 4 {
+  .border-#{$z} {
+    border: solid #{$z}0px #f97197;
+    margin-bottom: #{$z}0px;
+  }
+}
+
+
+
+// sass定义方法
+@function returnWidth($wid) {
+  @return $wid * 3;
+}
+
+.div6{
+  width: returnWidth(20px);
+  height: returnWidth(10px);
+  background-color: red;
+}
