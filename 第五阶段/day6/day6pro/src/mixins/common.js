@@ -11,4 +11,4 @@ var myMixin = {
   }
 };
 
-export default { myMixin };
+export default myMixin;

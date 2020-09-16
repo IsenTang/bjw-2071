@@ -1,5 +1,6 @@
 <template>
   <div style="text-align: center; position: relative;">
+    <h1>{{ message }}</h1>
     <Work></Work>
     <!--<div>
       <button @click="change('HelloWorld')">btn1</button>
@@ -27,7 +28,7 @@
   </div>
 </template>
 <script>
-// import Common from "./mixins/common";
+import myMixin from "./mixins/common";
 // import Velocity from "velocity-animate"
 import Work from "./components/work"
 import HelloWorld from "./components/HelloWorld";
@@ -35,13 +36,12 @@ import HelloVue from "./components/HelloVue";
 import HelloJs from "./components/HelloJs";
 export default {
   name: "App",
-  // mixins: [Common.myMixin],
+  mixins: [myMixin],
   components: { HelloWorld, HelloVue, HelloJs, Work },
   data() {
     return {
       isShow: false,
       a: "aaa",
-      message: "我是父组件的数据",
       activeComp: 'HelloWorld'
     };
   },
