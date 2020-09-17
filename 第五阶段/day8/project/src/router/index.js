@@ -7,8 +7,8 @@ import About from "../pages/about.vue"
 import Contact from "../pages/contact.vue"
 import User from "../pages/user.vue"
 import Test from "../pages/test.vue"
-import Slide from "../pages/slide.vue"
-import Nav from "../pages/nav.vue"
+import Work from "../pages/work.vue"
+import Detail from "../pages/detail.vue"
 
 
 const routes = [
@@ -26,12 +26,7 @@ const routes = [
   {
     path: "/home",
     name: 'home',
-    // component: Home
-    components: {
-      default: Home,
-      slide: Slide,
-      nav: Nav
-    }
+    component: Home
   },
   {
     path: '/about',
@@ -47,6 +42,16 @@ const routes = [
     path: '/test',
     name: 'test',
     component: Test
+  },
+  {
+    path: '/work',
+    name: 'work',
+    component: Work
+  },
+  {
+    path: '/detail',
+    name: 'detail',
+    component: Detail
   }
 ];
 
