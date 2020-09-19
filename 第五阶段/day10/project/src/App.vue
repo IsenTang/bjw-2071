@@ -28,6 +28,8 @@ export default {
   watch: {
     "$route": {
       handler (newV, oldV) {
+        document.title = newV.meta.title || '半圆官网';
+
         let meta = newV && newV.meta
         const defaultConfig = {
           title: '半圆官网',
@@ -35,9 +37,8 @@ export default {
           isShowFooter: true,
         }
         this.configObj = Object.assign(defaultConfig, meta)
-        console.log('configObj', this.configObj)
+        // console.log('configObj', this.configObj)
         // console.log('meta', newV.meta);
-        // document.title = newV.meta.title || '半圆官网';
         // let isShow = newV.meta.isShowHeader
         // if( typeof isShow === 'boolean'){
         //   this.showHeader = isShow

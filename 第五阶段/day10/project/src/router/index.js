@@ -55,7 +55,17 @@ const routes = [
     path: "/join",
     name: "join",
     component: () => import("../views/join.vue")
-  }
+  },
+  {
+    path: "/work",
+    name: "work",
+    component: () => import("../views/work.vue"),
+    meta: {
+      isShowHeader: false,
+      isShowFooter: false,
+      title: '作业'
+    }
+  },
 ];
 
 const router = new VueRouter({
