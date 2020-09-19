@@ -16,6 +16,7 @@ const routes = [
   {
     path: "/user",
     name: 'user',
+    redirect: {name: 'myClass'},
     component: () => import('../views/user/index.vue'),
     children: [
       {
@@ -48,6 +49,24 @@ const routes = [
       console.log('路由独享守卫 beforeEnter')
       next();
     }
+  },
+  {
+    path: '/work',
+    name: 'work',
+    redirect: '/work/setting',
+    component: () => import('../views/work/index.vue'),
+    children: [
+      {
+        path: "myclass",
+        name: 'myclass',
+        component: () => import('../views/work/myclass.vue'),
+      },
+      {
+        path: "setting",
+        name: 'setting',
+        component: () => import('../views/work/setting.vue'),
+      },
+    ]
   }
 ];
 
