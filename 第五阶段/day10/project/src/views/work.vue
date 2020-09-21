@@ -9,12 +9,18 @@
     <div class="main">
       <div class="add-task">
         <h3 class="big-title">添加任务：</h3>
-        <input placeholder="输入任务，点回车即可添加任务" class="task-input" type="text" />
+        <input v-model="todo" placeholder="输入任务，点回车即可添加任务" class="task-input" type="text" @keyup.enter="addTodo" />
       </div>
 
       <div class="task-main">
         <ul class="task-nav">
-          <li class="chosStyle">
+          <li v-for="(obj, ind) in nav" :key="'nav'+ind" :class="[chooseNav===ind?'chosStyle':'notChosStyle']" @click="changeNav(ind)">
+            <span>{{ obj.title }}</span>
+            <span v-if="ind==0">（{{ notFinishCount }}）</span>
+            <span v-else-if="ind==1">（{{ finishCount }}）</span>
+            <span v-else>（{{ list.length }}）</span>
+          </li>
+          <!-- <li class="chosStyle">
             <span>未完成（10）</span>
           </li>
           <li class="notChosStyle">
@@ -22,17 +28,16 @@
           </li>
           <li class="notChosStyle">
             <span>全部（10）</span>
-          </li>
+          </li> -->
         </ul>
 
         <div class="task-list">
           <div class="tasks">
             <!-- <span class="no-task-tip">还没有添加任何任务哦！！</span> -->
-            <div class="todo-item">
-              <el-checkbox></el-checkbox>
-              <p>todo</p>
-              <div class="remove">×</div>
-            </div>
+            <template v-for="(item, index) in showList">
+              <todo-item :key="'todo'+index" :item="item" :index="index" @emitRemove="fatherRemove"></todo-item>
+            </template>
+            
           </div>
         </div>
       </div>
@@ -41,8 +46,10 @@
 </template>
 
 <script>
+import todoItem from "../components/todoItem.vue"
 export default {
   name: "Work",
+  components: { todoItem },
   data() {
     return {
       nav: [
@@ -50,11 +57,67 @@ export default {
         { title: "已完成任务", mark: "finish" },
         { title: "全部任务", mark: "all" }
       ],
-      list: [{ title: "完成作业", isFinish: false }], // 任务列表
+      chooseNav: 0, // 选择的nav下标，默认是第一个0
+      list: [
+        { title: '11111111', isFinish: false },
+        { title: '222222', isFinish: true },
+        { title: '333333', isFinish: false },
+        { title: '444444', isFinish: true },
+        { title: '5555555', isFinish: false },
+      ], // 任务列表
       todo: "" // 输入的任务名
     };
   },
-  methods: {}
+  computed: {
+    showList () {
+      let arr = [];
+      switch (this.chooseNav) {
+        case 0:
+          arr = this.list.filter(item => {
+            return !item.isFinish
+          })
+          break;
+        case 1:
+          arr = this.list.filter(item => {
+            return item.isFinish
+          })
+          break;
+        case 2:
+          arr = this.list;
+      }
+      return arr
+    },
+    notFinishCount () {
+      const notList = this.list.filter(item => {
+        return !item.isFinish
+      })
+      return notList.length
+    },
+    finishCount () {
+      const List = this.list.filter(item => {
+        return item.isFinish
+      })
+      return List.length
+    }
+  },
+  methods: {
+    addTodo() {
+      if(!this.todo) return
+      this.list.push({
+        title: this.todo,
+        isFinish: false
+      })
+      this.todo = "";
+    },
+    changeNav(ind) {
+      this.chooseNav = ind;
+    },
+    fatherRemove (data) {
+      let index = this.list.indexOf(data.item);
+      console.log('delete item ', index)
+      this.list.splice(index, 1);
+    }
+  }
 };
 </script>
 
@@ -184,36 +247,6 @@ body {
           background-color: #fff;
           overflow-y: scroll;
 
-          .todo-item {
-            background-color: #ffffff;
-            position: relative;
-            font-size: 16px;
-            border-bottom: 1px solid #ededed;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 10px;
-
-            &:hover {
-              background-color: #fafafa;
-            }
-
-            p {
-              font-size: 14px;
-              font-weight: 500;
-              max-width: 80%;
-            }
-
-            .remove{
-              width: 40px;
-              height: 40px;
-              text-align: center;
-              line-height: 40px;
-              font-size: 20px;
-              color: #999;
-            }
-          }
         }
       }
 
