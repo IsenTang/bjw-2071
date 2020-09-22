@@ -19,6 +19,19 @@ const routes = [
     path: "/login",
     name: "login",
     component: () =>import("../views/login.vue")
+  },
+  {
+    path: "/work",
+    name: "work",
+    redirect: "/work/userinfo",
+    component: () => import("../views/work.vue"),
+    children: [
+      {
+        path: "userinfo",
+        name: "userinfo",
+        component: () =>import("../views/userInfo.vue")
+      }
+    ]
   }
 ];
 

@@ -4,6 +4,7 @@ Vue.use(Vuex)
 
 import home from "./home"
 import login from "./login"
+import work from "./work"
 
 const store = new Vuex.Store({
   strict: true, // 严格模式
@@ -12,7 +13,8 @@ const store = new Vuex.Store({
   mutations: {},
   modules: {
     login,
-    home
+    home,
+    work
   }
 })
 export default store
