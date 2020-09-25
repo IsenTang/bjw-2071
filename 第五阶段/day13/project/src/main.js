@@ -3,9 +3,12 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-Vue.use(ElementUI);
+import { get, post, put, del } from "./utils/fetch"
+Vue.prototype.yGet = get
+Vue.prototype.yPost = post
+Vue.prototype.yPut = put
+Vue.prototype.yDel = del
+
 
 Vue.config.productionTip = false;
 

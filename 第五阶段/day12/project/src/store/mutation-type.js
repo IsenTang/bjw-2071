@@ -7,8 +7,8 @@ export const UPDATE_List = 'updateList';
 /** 更新用户信息*/
 export const UPDATE_USER_INFO = 'updateUserInfo';
 
-/** 更新了list */
-export const UPDATE_List3 = 'updateList3';
+/** 存储用户信息 */
+export const SET_USER_INFO = 'SET_USER_INFO';
 
 /** 更新了list */
 export const UPDATE_List4 = 'updateList4';

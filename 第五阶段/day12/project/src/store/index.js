@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 Vue.use(Vuex);
 import * as types from "./mutation-type";
+import work from "./work" 
 
 export default new Vuex.Store({
   state: {
@@ -39,5 +40,7 @@ export default new Vuex.Store({
       commit(types.UPDATE_USER_INFO, obj)
     }
   },
-  modules: {}
+  modules: {
+    work
+  }
 });
