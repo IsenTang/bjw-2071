@@ -1,0 +1,111 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    // font-family: PingFangSC-Medium;
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    &:focus {
+        outline: none !important;
+        text-decoration: none !important;
+    }
+    &:hover {
+        text-decoration: none !important;
+    }
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+input,
+button,
+textarea {
+    outline: none;
+    -webkit-appearance: none;
+}
+
+textarea {
+    resize: none;
+}
+
+button {
+    border: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+.trans-animation{
+    transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    -webkit-transition: all 1s;
+}
+
+/* 处理input的自动填充背景色 */
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 26px #efefef inset !important;
+    box-shadow: 0 0 0 26px #efefef inset !important;
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+.flex-center-center{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.flex-row-between{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    // align-items: center;
+}
+.flex-row-around{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.flex-column-center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.flex-align-center{
+    align-items: center;
+}
+
+// font-family: PingFangSC-Semibold;
+// font-family: PingFangSC-Medium;
+// 
+// 100 - Thin
+// 200 - Extralight (Ultra Light)
+// 300 - Light
+// 400 - Regular (Normal、Book、Roman)
+// 500 - Medium
+// 600 - Semibold (Demi Bold)
+// 700 - Bold
+// 800 - Extrabold (Ultra Bold)
+// 900 - Black (Heavy)
+
+
+// 
+// display: inline-block;
+// vertical-align: top;
+// 
