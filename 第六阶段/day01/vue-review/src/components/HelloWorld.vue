@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+
+    <button @click="send()">send</button>
   </div>
 </template>
 
@@ -9,6 +11,13 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  methods:{
+
+    send(){
+
+      this.$emit('send',{ name:'isen'});
+    }
   }
 }
 </script>
