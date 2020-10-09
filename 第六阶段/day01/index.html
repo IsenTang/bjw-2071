@@ -1,0 +1,37 @@
+<div>
+    <p>你好，<span id='nickName'>123</span></p>
+    <div id="introduce">223</div>
+
+    <button onclick="test()">test</button>
+</div>　　
+  
+ <script>
+//视图控制器
+var userInfo = {};
+Object.defineProperty(userInfo, "nickName", {
+    get: function(){
+        return document.getElementById('nickName').innerHTML;
+    },
+    set: function(nick){
+
+        console.log(' nikc ===>',nick);
+        document.getElementById('nickName').innerHTML = nick;
+    }
+});
+
+Object.defineProperty(userInfo, "introduce", {
+    get: function(){
+        return document.getElementById('introduce').innerHTML;
+    },
+    set: function(introduce){
+        document.getElementById('introduce').innerHTML = introduce;
+    }
+})
+
+function test(){
+
+    userInfo.nickName = 'test'
+    userInfo.value = '123'
+}
+
+</script>
