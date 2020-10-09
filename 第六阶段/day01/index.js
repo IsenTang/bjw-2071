@@ -45,3 +45,30 @@ const obj = {
 // const obj1 = { ...obj, b:{ test: 1} };
 
 // console.log(obj1.b === obj.b);
+
+function Test(x,y){
+  this.x = x;
+  this.y = y;
+}
+
+Test.prototype.toString = function(){
+  return `${this.x} , ${this.y}`
+}
+
+// console.log(Test(1,2))
+
+class Test{
+
+  constructor(x,y){
+    this.x = x;
+    this.y = y;
+  }
+
+  toString(){
+    return `${this.x} + ${this.y}`
+  }
+}
+
+// const t  = new Test(1,2);
+
+// console.log(t.toString())
