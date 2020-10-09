@@ -16,6 +16,8 @@
 
     <Num v-for="(item) in items" :num='item.value' :key='item.key'></Num>
     <!-- <Child></Child> -->
+
+    <router-view></router-view>
   </div>
 </template>
 
@@ -87,7 +89,7 @@ export default {
 
       // this.$data.value = '233333333'
 
-      this.$data.items.splice(2,1);
+      this.items.splice(2,1);
     },
     onSend(v){
 
