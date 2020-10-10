@@ -1,0 +1,5 @@
+.container{
+    height: 100px;
+    background-color: black;
+    transition: all 0.5s;
+}

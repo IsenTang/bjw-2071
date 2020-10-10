@@ -78,7 +78,7 @@ export default {
 
       console.log(this.$data.inputValue);
     },
-    onClick(){
+    onClick:function(){
 
       // this.$data.person.age = 28;
 
@@ -89,7 +89,8 @@ export default {
 
       // this.$data.value = '233333333'
 
-      this.items.splice(2,1);
+      console.log(this);
+      // this.items.splice(2,1);
     },
     onSend(v){
 
