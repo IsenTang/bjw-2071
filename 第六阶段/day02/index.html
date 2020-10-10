@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        // window.x = 'global'
+        var x = 'global';
+        let obj1 = {
+            x: 22,
+            say: function () { console.log(this.x) },
+            say2: () => { console.log(this.x) },
+            say3: function(){
+                const func = () => {
+
+                    console.log(this.x)
+                }
+
+                func();
+            }
+        }
+        obj1.say(); 
+        obj1.say2(); 
+        obj1.say3();
+        const func = obj1.say3;
+
+        func();
+    </script>
+</body>
+</html>
