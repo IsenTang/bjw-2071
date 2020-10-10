@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class='test-app'>
     <img alt="Vue logo" src="./assets/logo.png">
     <div> {{ value | test }} </div>
     <HelloWorld msg="Welcome to Your Vue.js " @send='onSend'/>
@@ -72,6 +72,8 @@ export default {
 
   created(){
     console.log('created ====>',this.$data);
+
+    console.log(this);
   },
   methods:{
     changed(){

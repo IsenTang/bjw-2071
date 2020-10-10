@@ -6,6 +6,13 @@
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+
+    <style>
+
+        .test{
+            background-color: aquamarine;
+        }
+    </style>
   </head>
   <body>
     <div id="example">
@@ -20,19 +27,66 @@
             super()
         }
 
-        render(){
+        click = ()=>{
+            
+            this.test();
+        }
 
-            const eles = [
-                <h1 >1</h1>,
-                <h1 >2</h1>,   
-            ]
+        test(){
+
+            console.log('test');
+        }
+
+        renderChildren(){
+
+            const array = [1,2,3,4,5];
+
+            const eles = array.map((item)=>{
+
+                return (
+                    <Child key={ Math.random() } num={item}></Child>
+                )
+            })
 
             return eles;
+        }
+
+        render(){
+
+            return (
+                <div className={'test'}>
+                        <div>{this.props.name}</div>
+                        <Child name='lucy'/>
+
+                        <div>
+                        { this.renderChildren() }
+                        </div>
+
+                        <button onClick={ this.click }>click</button>
+                </div>
+            );
+        }
+    }
+
+    class Child extends React.Component{
+
+        constructor(){
+            super()
+        }
+
+        render(){
+
+            return (
+
+               <div>
+                    { this.props.num }
+                </div>
+            )
         }
     }
 
     ReactDOM.render(
-        <ArrayElements/>,
+        <ArrayElements name={ 'isen' }/>,
         document.getElementById('example')
     );
 
