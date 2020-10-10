@@ -1,7 +1,7 @@
 <template>
   <div>
-    <!--<button @click="closeHomePage">关掉这个home页面</button>
-    <Home v-if="isShowHome"></Home> -->
+    <button @click="closeHomePage">关掉这个home页面</button>
+    <Home v-if="isShowHome"></Home>
     <Work></Work>
   </div>
 </template>

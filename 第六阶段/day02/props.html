@@ -14,28 +14,25 @@
     
     <script type="text/babel">
 
-    const ele = <div>
-            <h2>欢迎学习 React</h2>
-            <p>这是一个很不错的 JavaScript 库!</p>
-        </div>
+    class ArrayElements extends React.Component{
 
-    const flag = true;
+        constructor(){
+            super()
+        }
 
-    const ele = flag ?
-        <div style={{ backgroundColor:'red',width:'200px' }}>
-            <h1>hello world</h1>
-    </div> : 
-    <div style={{ backgroundColor:'red' }}>
-    <h1>Welcome to banyuan</h1>
-    </div>
+        render(){
 
-    const eles = [
-        <h1 >1</h1>,
-        <h1 >2</h1>,
-    ]
+            const eles = [
+                <h1 >1</h1>,
+                <h1 >2</h1>,   
+            ]
+
+            return eles;
+        }
+    }
 
     ReactDOM.render(
-        eles,
+        <ArrayElements/>,
         document.getElementById('example')
     );
 
