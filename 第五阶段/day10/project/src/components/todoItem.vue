@@ -30,6 +30,10 @@ export default {
       this.item.isFinish = !this.item.isFinish;
       console.log('item', this.item);
     },
+    // updateState: () =>{
+    //   this.item.isFinish = !this.item.isFinish;
+    //   console.log('item', this.item);
+    // },
     remove() {
       this.$emit('emitRemove', {
         item: this.item
