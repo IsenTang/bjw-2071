@@ -81,59 +81,38 @@
 
     <script type="text/babel">
 
-        const list = [
-                        {name: '香蕉', price: 10, count: 3},
-                        {name: '苹果', price: 20, count: 1},
-                        {name: '榴莲', price: 30, count: 4},
-                        {name: '葡萄', price: 50, count: 1}
-                    ]
-
         class App extends React.Component{
 
             constructor(){
-                super()
+                super();
+
+                this.state = {
+                    value: ''
+                }
             }
 
-            renderItems(){
+            bindValue = (e)=>{
+                
+                this.setState({
+                    value: e.target.value
+                },()=>{
 
-                return list.map((item)=>{
-
-                    return (
-
-                        <Item item={item} key={ uuidv4() }/>
-                    )
+                    console.log(this.state)
                 })
             }
-            
+
+            click = ()=>{
+
+                this.setState({
+                    value: 'after-click'
+                })
+            }
             render(){  
 
                 return (
                     <div>
-                        { this.renderItems() }
-                    </div>
-                )
-            }
-        }
-
-        class Item extends React.Component{
-
-            constructor(){
-                super()
-            }
-
-            render(){  
-
-                return (
-                    <div className="item-pro">
-                        <p className="pro-name">{this.props.item.name}</p>
-                        <div className="pro-right">
-                            <p className="now-price">{this.props.item.price }</p>
-                            <div className="pro-controller">
-                                <div className="controller-left" >-</div>
-                                <div className="pro-count">{this.props.item.count }</div>
-                                <div className="controller-right" >+</div>
-                            </div>
-                        </div>
+                        <input type="text" value={ this.state.value } onChange={ this.bindValue }/>
+                        <button onClick={ this.click }>click</button>
                     </div>
                 )
             }
