@@ -41,30 +41,28 @@
 
             const array = [1,2,3,4,5];
 
-            const eles = array.map((item)=>{
+            return array.map((item)=>{
 
                 return (
                     <Child key={ Math.random() } num={item}></Child>
                 )
             })
-
-            return eles;
         }
 
         render(){
 
-            return (
-                <div className={'test'}>
-                        <div>{this.props.name}</div>
-                        <Child name='lucy'/>
+    
+            return  (
+                        <div className={'test'}>
+                            <div>123</div>
+                            <div>{this.props.name}</div>
+                            <Child name='lucy'/>
+                            <div>{ this.renderChildren() }</div>
 
-                        <div>
-                        { this.renderChildren() }
+                            <button onClick={ this.click }>click</button>
                         </div>
-
-                        <button onClick={ this.click }>click</button>
-                </div>
-            );
+                    )
+            
         }
     }
 

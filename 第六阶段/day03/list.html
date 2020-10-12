@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js"></script>
+    <title>Document</title>
+
+    <style>
+
+        .container{
+            width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 14px;
+            box-shadow: 0 5px 10px #7d7d7d;
+            overflow: hidden;
+        }
+        .item-pro{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 10px 30px;
+            align-items: center;
+            margin: 30px 0;
+        }
+        .pro-right{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .pro-name{
+            font-size: 16px;
+        }
+        .pro-controller{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .controller-left{
+            width: 30px;
+            height: 30px;
+            background: #000;
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            cursor: pointer;
+        }
+        .controller-right{
+            width: 30px;
+            height: 30px;
+            background: #000;
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+            cursor: pointer;
+        }
+        .pro-count{
+            width: 20px;
+            text-align: center;
+            background-color: #000;
+            font-size: 14px;
+            color: #fff;
+            height: 30px;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="example"></div>
+
+    <script type="text/babel">
+
+        const list = [
+                        {name: '香蕉', price: 10, count: 3},
+                        {name: '苹果', price: 20, count: 1},
+                        {name: '榴莲', price: 30, count: 4},
+                        {name: '葡萄', price: 50, count: 1}
+                    ]
+
+        class App extends React.Component{
+
+            constructor(){
+                super()
+            }
+
+            renderItems(){
+
+                return list.map((item)=>{
+
+                    return (
+
+                        <Item item={item} key={ uuidv4() }/>
+                    )
+                })
+            }
+            render(){  
+
+                return (
+                    <div>
+                        { this.renderItems() }
+                    </div>
+                )
+            }
+        }
+
+        class Item extends React.Component{
+
+            constructor(){
+                super()
+            }
+
+            render(){  
+
+                return (
+                    <div className="item-pro">
+                        <p className="pro-name">{this.props.item.name}</p>
+                        <div className="pro-right">
+                            <p className="now-price">{this.props.item.price }</p>
+                            <div className="pro-controller">
+                                <div className="controller-left" >-</div>
+                                <div className="pro-count">{this.props.item.count }</div>
+                                <div className="controller-right" >+</div>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <App/>,
+            document.getElementById('example')
+        );
+    </script>
+</body>
+</html>
