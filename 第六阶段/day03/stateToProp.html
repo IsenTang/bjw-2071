@@ -87,31 +87,65 @@
                 super();
 
                 this.state = {
-                    value: ''
+                    name:'isen',
+                    age:28
                 }
-            }
-
-            bindValue = (e)=>{
-                
-                this.setState({
-                    value: e.target.value
-                },()=>{
-
-                    console.log(this.state)
-                })
             }
 
             click = ()=>{
 
-                console.log(this.state.value);
+                this.setState({
+                    name:'lucy'
+                });
             }
-            render(){  
+
+            changeAge = (v)=>{ 
+
+                console.log(' changeAge ');
+                this.setState({ age: v })
+            }
+
+            render(){
 
                 return (
+
                     <div>
-                        <input type="text" value={ this.state.value } onChange={ this.bindValue }/>
-                        <button onClick={ this.click }>click</button>
+                        <div>
+                            <button onClick={ this.click }>click</button>    
+                        </div>
+
+                        <Child name={ this.state.name } changeAge={ this.changeAge  }/>
+                        <div>{ this.state.age }</div>
                     </div>
+                )
+            }
+        }
+
+        class Child extends React.Component{
+
+            constructor(){
+                super();
+            }
+
+            click = () => { 
+                this.props.changeAge(22) 
+            }
+
+            render(){
+
+                return (
+
+                    <div>
+                        { this.props.name }
+                        
+                        <div>
+                            <button onClick={ () => { 
+                                this.props.changeAge(22) 
+                            } }>child-button</button>    
+                        </div>
+                    </div>
+
+                
                 )
             }
         }

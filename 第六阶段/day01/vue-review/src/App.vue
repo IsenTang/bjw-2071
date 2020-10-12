@@ -97,6 +97,7 @@ export default {
     onSend(v){
 
       console.log(v);
+      // this.$data.v = v;
     }
   },
   computed:{
