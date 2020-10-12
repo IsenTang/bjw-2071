@@ -80,7 +80,7 @@
     <div id="example"></div>
 
     <script type="text/babel">
-
+        //  lifting state up
         class App extends React.Component{
 
             constructor(){
@@ -92,62 +92,60 @@
                 }
             }
 
-            click = ()=>{
-
-                this.setState({
-                    name:'lucy'
-                });
-            }
-
-            changeAge = (v)=>{ 
-
-                this.setState({ age: v })
-            }
-
             render(){
 
                 return (
 
                     <div>
-                        <div>
-                            <button onClick={ this.click }>click</button>    
-                        </div>
-
-                        <Child name={ this.state.name } changeAge={ this.changeAge  }/>
-                        <div>{ this.state.age }</div>
+                        <A name={ this.state.name } age={ this.state.age }/>
+        
+                        <B name={ this.state.name } age={ this.state.age } changeName={ ()=>{ this.setState({ name: 'lucy'}) } }/>
                     </div>
                 )
             }
         }
 
-        class Child extends React.Component{
+        class A extends React.Component{
 
             constructor(){
                 super();
             }
 
-            click = () => { 
-                this.props.changeAge(22) 
+            render(){
+
+                return (
+
+                    <div>   
+                        A组件：
+                        <div> { this.props.name } </div>
+                        <div> { this.props.age } </div>
+                    </div>
+                )
+            }
+        }
+
+
+        class B extends React.Component{
+
+            constructor(){
+                super();
             }
 
             render(){
 
                 return (
 
-                    <div>
-                        { this.props.name }
-                        
-                        <div>
-                            <button onClick={ () => { 
-                                this.props.changeAge(22) 
-                            } }>child-button</button>    
-                        </div>
-                    </div>
+                    <div>   
+                        B组件：
+                        <div> { this.props.name } </div>
+                        <div> { this.props.age } </div>
 
-                
+                        <button onClick={ ()=>{ this.props.changeName() }}> click </button>
+                    </div>
                 )
             }
         }
+
 
         ReactDOM.render(
             <App/>,

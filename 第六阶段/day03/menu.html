@@ -80,28 +80,37 @@
     <div id="example"></div>
 
     <script type="text/babel">
-
+        //  lifting state up
         class App extends React.Component{
 
             constructor(){
                 super();
 
                 this.state = {
-                    name:'isen',
-                    age:28
+                    menu:[
+                        {id:'dcaf0261-059a-43ea-8d08-cf90600bca02',name: '香蕉', price: 10, count: 3},
+                        {id:'65a909e8-55c9-4695-a46b-bac2c7abe3be',name: '苹果', price: 20, count: 1},
+                        {id:'8b6b1c29-c1bc-49a3-824b-6d5950528b9b',name: '榴莲', price: 30, count: 4},
+                        {id:'4662f88b-9087-41a0-8e87-2fe23cca2e0a',name: '葡萄', price: 50, count: 1}
+                    ]
                 }
             }
 
-            click = ()=>{
+            addItem = (id)=>{
+
+                let menu = this.state.menu.map((item)=>{
+
+                    if(item.id === id){
+
+                        return { ...item , count: item.count+1}
+                    }else{
+                        return item;
+                    }
+                })
 
                 this.setState({
-                    name:'lucy'
+                    menu
                 });
-            }
-
-            changeAge = (v)=>{ 
-
-                this.setState({ age: v })
             }
 
             render(){
@@ -109,45 +118,80 @@
                 return (
 
                     <div>
-                        <div>
-                            <button onClick={ this.click }>click</button>    
-                        </div>
+                        <Menu menu={ this.state.menu } addItem={ this.addItem }/>
 
-                        <Child name={ this.state.name } changeAge={ this.changeAge  }/>
-                        <div>{ this.state.age }</div>
+                        <div>===================</div>
+                        <Cart menu={ this.state.menu }/> 
                     </div>
                 )
             }
         }
 
-        class Child extends React.Component{
+        class Menu extends React.Component{
 
             constructor(){
                 super();
             }
 
-            click = () => { 
-                this.props.changeAge(22) 
+            renderMenu = ()=>{
+
+                return this.props.menu.map((item)=>{
+
+                    return (
+
+                        <div key={item.id} onClick={ () => { this.props.addItem(item.id) }}>
+                            { item.name } + 
+                            { item.count }
+                        </div>
+                    )
+                })
             }
 
             render(){
 
                 return (
 
-                    <div>
-                        { this.props.name }
-                        
-                        <div>
-                            <button onClick={ () => { 
-                                this.props.changeAge(22) 
-                            } }>child-button</button>    
-                        </div>
-                    </div>
+                    <div>   
+                        { this.renderMenu() }
 
-                
+
+                    </div>
                 )
             }
         }
+
+
+        class Cart extends React.Component{
+
+            constructor(){
+                super();
+            }
+
+            renderCart = ()=>{
+
+                return this.props.menu.map((item)=>{
+
+                    return (
+
+                        <div key={item.id}>
+                            { item.name } + 
+                            { item.count }
+                        </div>
+                    )
+                })
+            }
+
+            render(){
+
+                return (
+
+                    <div>   
+                       { this.renderCart() }
+                    </div>
+                )
+            }
+        }
+
 
         ReactDOM.render(
             <App/>,
