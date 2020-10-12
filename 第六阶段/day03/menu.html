@@ -181,12 +181,26 @@
                 })
             }
 
+            renderTotalPrice = ()=>{
+
+                let price = 0;
+
+                this.props.menu.forEach((item)=>{
+
+                    price += (item.price * item.count)
+                });
+
+                return price;
+            }
+
             render(){
 
                 return (
 
                     <div>   
                        { this.renderCart() }
+
+                       { this.renderTotalPrice() }
                     </div>
                 )
             }
