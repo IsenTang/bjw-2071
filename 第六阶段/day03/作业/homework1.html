@@ -191,27 +191,9 @@
             constructor(){
                 super();
 
-                this.state = {
-
-                    total:0
-                }
             }
 
-            componentWillReceiveProps(nextProps){
-
-                console.log(' Child componentWillReceiveProps ');
-                // if(nextProps.flag === true){
-                let price = 0;
-                this.nextProps.menu.forEach((item)=>{
-
-                    price += item.price * item.count
-                })
-
-                this.setState({
-                    total:price
-                })
-                // }
-            }
+        
 
             renderCart = ()=>{
 
@@ -249,7 +231,7 @@
                     <div>   
                        { this.renderCart() }
                        
-                       { this.state.price }
+                       { this.renderTotal() }
                     </div>
                 )
             }
