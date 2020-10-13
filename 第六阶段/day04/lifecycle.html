@@ -20,7 +20,8 @@
         constructor(){
             super()
             this.state = {
-                flag: true
+                count: 0,
+                flag:false
             }
         }    
  
@@ -28,12 +29,14 @@
 
             return  (
                 <div>
-                    { this.state.flag ? <Child/> : null }
+                    <Child count={ this.state.count } flag={this.state.flag}/>
 
-                    <button onClick={ ()=>{ this.setState({
-
-                        flag : !this.state.flag
-                    })}}> click </button>
+                    <div>
+                        <input type="text" value={this.state.count} onChange={ (e)=>{ this.setState({
+                            count:e.target.value
+                        })}}/>    
+                    </div>
+                    <button onClick={ ()=>{ this.setState({ flag: !this.state.flag })}}> click </button>
                 </div>
             )
             
@@ -74,6 +77,20 @@
                         date: new Date()
                     })
                 },1000)
+            }
+
+            componentWillReceiveProps(nextProps){
+
+                console.log(' Child componentWillReceiveProps ');
+                
+
+                if(this.props.flag !== nextProps.flag){
+                    this.setState({
+                        count: Number(nextProps.count)
+                    })
+                }
+                
+               
             }
 
             componentWillUnmount(){
