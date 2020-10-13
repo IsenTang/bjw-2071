@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js"></script>
+    <title>Document</title>
+
+    <style>
+
+        .container{
+            width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 14px;
+            box-shadow: 0 5px 10px #7d7d7d;
+            overflow: hidden;
+        }
+        .item-pro{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 10px 30px;
+            align-items: center;
+            margin: 30px 0;
+        }
+        .pro-right{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .pro-name{
+            font-size: 16px;
+        }
+        .pro-controller{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .controller-left{
+            width: 30px;
+            height: 30px;
+            background: #000;
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            cursor: pointer;
+        }
+        .controller-right{
+            width: 30px;
+            height: 30px;
+            background: #000;
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+            cursor: pointer;
+        }
+        .pro-count{
+            width: 20px;
+            text-align: center;
+            background-color: #000;
+            font-size: 14px;
+            color: #fff;
+            height: 30px;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="example"></div>
+
+    <script type="text/babel">
+
+        class App extends React.Component{
+
+            constructor(){
+                super()
+                this.state = {
+                    name:'',
+                    age:'',
+                    major:'',
+                    nameStatus:false,
+                    ageStatus:false
+                }
+            }
+            
+            checkName = ()=>{
+
+                const pattern = /^[\u4e00-\u9fa5]+$/;
+
+                if(!pattern.test(this.state.name)){
+                    alert('请输入汉字');
+                }
+                this.setState({
+                        nameStatus: pattern.test(this.state.name)
+                });
+                
+            }
+
+            checkAge = () =>{
+
+                let age = Number(this.state.age);
+        
+                if(Number.isNaN(age) || age <= 0 || age > 120 ){
+                    alert('请输入正确年龄')
+
+                    this.setState({
+                        ageStatus:false
+                    });
+                }else{
+                    this.setState({
+                        ageStatus:true
+                    });
+                }
+            }
+
+            render(){  
+
+                return (
+                    <div>
+                       <div>
+                          姓名：<input type="text" value= { this.state.name } 
+                          onChange={ 
+                              (e)=>{ 
+                                  this.setState({ name: e.target.value })
+                                }
+                            }
+                          onBlur = { this.checkName }
+                         />
+                        </div>
+                        <div>
+                          年龄：<input type="text" value= { this.state.age }
+                          onChange={ 
+                              (e)=>{ 
+                                  this.setState({ age: e.target.value })
+                                }
+                            }
+                        onBlur = { this.checkAge }
+                          />
+                        </div>
+                        <div>
+                          主修：<input type="text" value= { this.state.major }
+                          onChange={ 
+                              (e)=>{ 
+                                  this.setState({ major: e.target.value })
+                                }
+                            }
+                          />
+                        </div>
+                        <div>
+                          <button disabled={ !this.state.nameStatus || !this.state.ageStatus }
+                            
+                          onClick={ ()=>{
+
+                            console.log( 'name',this.state.name);
+                            console.log( 'age',this.state.age);
+                            console.log( 'major',this.state.major);
+                          }}
+                          >提交</button>
+                        </div>
+                    </div>
+                )
+            }
+        }
+
+
+
+        ReactDOM.render(
+            <App/>,
+            document.getElementById('example')
+        );
+    </script>
+</body>
+</html>

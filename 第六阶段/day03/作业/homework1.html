@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js"></script>
+    <title>Document</title>
+
+    <style>
+
+        .container{
+            width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 14px;
+            box-shadow: 0 5px 10px #7d7d7d;
+            overflow: hidden;
+        }
+        .item-pro{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 10px 30px;
+            align-items: center;
+            margin: 30px 0;
+        }
+        .pro-right{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .pro-name{
+            font-size: 16px;
+        }
+        .pro-controller{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .controller-left{
+            width: 30px;
+            height: 30px;
+            background: #000;
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            cursor: pointer;
+        }
+        .controller-right{
+            width: 30px;
+            height: 30px;
+            background: #000;
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+            cursor: pointer;
+        }
+        .pro-count{
+            width: 20px;
+            text-align: center;
+            background-color: #000;
+            font-size: 14px;
+            color: #fff;
+            height: 30px;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="example"></div>
+
+    <script type="text/babel">
+        //  lifting state up
+        class App extends React.Component{
+
+            constructor(){
+                super();
+
+                this.state = {
+                    menu:[
+                        {id:'dcaf0261-059a-43ea-8d08-cf90600bca02',name: '香蕉', price: 10, count: 3},
+                        {id:'65a909e8-55c9-4695-a46b-bac2c7abe3be',name: '苹果', price: 20, count: 1},
+                        {id:'8b6b1c29-c1bc-49a3-824b-6d5950528b9b',name: '榴莲', price: 30, count: 4},
+                        {id:'4662f88b-9087-41a0-8e87-2fe23cca2e0a',name: '葡萄', price: 50, count: 1}
+                    ]
+                }
+            }
+
+            addItem = (id)=>{
+
+                let menu = this.state.menu.map((item)=>{
+
+                    if(item.id === id){
+
+                        return { ...item , count: item.count+1}
+                    }else{
+                        return item;
+                    }
+                })
+
+                this.setState({
+                    menu
+                });
+            }
+
+            removeItem = (id)=>{
+
+                let menu = this.state.menu.map((item)=>{
+
+                    if(item.id === id){
+
+                        if(item.count <= 1){
+                            alert('不能少于1')
+                            return item;
+                        }else{
+                            return { ...item , count: item.count - 1}
+                        }  
+                    }else{
+                        return item;
+                    }
+                })
+
+                this.setState({
+                    menu
+                });
+            }
+
+            render(){
+
+                return (
+
+                    <div>
+                        <Menu menu={ this.state.menu } addItem={ this.addItem } removeItem={ this.removeItem }/>
+
+                        <div>===================</div>
+                        <Cart menu={ this.state.menu } addItem={ this.addItem } removeItem={ this.removeItem }/> 
+                    </div>
+                )
+            }
+        }
+
+        class Menu extends React.Component{
+
+            constructor(){
+                super();
+            }
+
+            renderMenu = ()=>{
+
+                return this.props.menu.map((item)=>{
+
+                    return (
+
+                        <div key={item.id} >
+                            { item.price } + 
+                            { item.name }
+                            
+                            <button onClick = { ()=>{ this.props.removeItem(item.id) }}>-</button>
+                            { item.count }
+                            <button onClick = { ()=>{ this.props.addItem(item.id) }}>+</button>
+                        </div>
+                    )
+                })
+            }
+
+            render(){
+
+                return (
+
+                    <div>   
+                        { this.renderMenu() }
+
+                    </div>
+                )
+            }
+        }
+
+
+        class Cart extends React.Component{
+
+            constructor(){
+                super();
+            }
+
+            renderCart = ()=>{
+
+                return this.props.menu.map((item)=>{
+
+                    return (
+
+                        <div key={item.id} >
+                            { item.price } + 
+                            { item.name }
+                            
+                            <button onClick = { ()=>{ this.props.removeItem(item.id) }}>-</button>
+                            { item.count }
+                            <button onClick = { ()=>{ this.props.addItem(item.id) }}>+</button>
+                        </div>
+                    )
+                })
+            }
+
+            renderTotal = ()=>{
+
+                let price = 0;
+                this.props.menu.forEach((item)=>{
+
+                    price += item.price * item.count
+                })
+
+                return price;
+            }
+
+            render(){
+
+                return (
+
+                    <div>   
+                       { this.renderCart() }
+                       
+                       { this.renderTotal() }
+                    </div>
+                )
+            }
+        }
+
+
+        ReactDOM.render(
+            <App/>,
+            document.getElementById('example')
+        );
+    </script>
+</body>
+</html>
