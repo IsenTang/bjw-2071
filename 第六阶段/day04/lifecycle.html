@@ -6,6 +6,7 @@
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
   </head>
   <body>
     <div id="example">
@@ -22,16 +23,6 @@
                 flag: true
             }
         }    
-
-        // componentWillMount(){
-
-        //     console.log(' componentWillMount ');
-        // }
-
-        // componentDidMount(){
-
-        //     console.log( ' componentDidMount ');
-        // }
  
         render(){
 
@@ -53,6 +44,11 @@
 
             constructor(){
                 super()
+
+                this.state = {
+                    count: 0,
+                    date:new Date()
+                }
             }    
 
             componentWillMount(){
@@ -63,20 +59,44 @@
             componentDidMount(){
 
                 console.log( ' Child componentDidMount ');
+
+                this.timer = setInterval(()=>{
+
+                    this.setState({
+                        count: this.state.count + 1
+                    })
+                },1000)
+
+                console.log(this.state.date);
+                this.dateTimer = setInterval(()=>{
+
+                    this.setState({
+                        date: new Date()
+                    })
+                },1000)
             }
 
             componentWillUnmount(){
 
                 console.log( ' Child componentWillUnmount ');
+
+                clearInterval(this.timer);
+
+                clearInterval(this.dateTimer);
             }
 
             render(){
 
-                console.log('render');
-                return  (
+                
+                return  (   
+                    <div>
                             <div>
-                                Child
+                                计数器： { this.state.count }
                             </div>
+                            <div>
+                                时间： { moment(this.state.date).format('hh:mm:ss') }
+                            </div>
+                    </div>
                 )
                 
             }
