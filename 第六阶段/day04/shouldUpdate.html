@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React 实例</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+
+    <style>
+
+        .test{
+            background-color: aquamarine;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="example">
+
+    </div>
+    
+    <script type="text/babel">
+
+    let obj = {
+                msg : 'hello world'
+    }
+    class App extends React.Component{
+
+        constructor(){
+            super()
+
+            this.state = obj
+        }
+
+        componentDidUpdate(){
+
+            console.log(' parent  componentDidUpdate ');
+
+        }
+
+        render(){
+            return  (
+                        <div>
+                            <div>
+                                { this.state.msg }
+                            </div>
+                            
+                            Parent component
+
+                            <div>
+
+                                <button onClick={()=>{
+                                    this.setState({
+                                        msg: 'after-change'
+                                    },()=>{
+
+                                        // console.log(this.state === obj);
+                                    })
+                                }}> click </button>
+                            </div>
+                            <Child name={'isen'}/>
+                           
+                        </div>
+            )
+        }
+    }
+
+    class Child extends React.Component{
+
+        constructor(){
+            super()
+        }
+
+        componentDidUpdate(){
+
+            console.log(' child  componentDidUpdate ');
+
+        }
+
+        // shouldComponentUpdate(nextProps, nextState){
+
+            // console.log('shouldComponentUpdate');
+
+            // console.log('nextProps ===>', nextProps);
+
+            // console.log(this.props);
+
+            // if(this.props.name === nextProps.name){
+            //     return false;
+            // }else{
+
+            //     return true;
+            // }
+            
+        // }
+
+        render(){
+
+            return (
+
+                <div>
+                   
+                   Child component
+                   <div>
+                    { this.props.name }
+                   </div>
+                   
+                </div>
+            )
+        }
+    }
+
+    ReactDOM.render(
+        <App name={ 'isen' }/>,
+        document.getElementById('example')
+    );
+
+    </script>
+  </body>
+</html>

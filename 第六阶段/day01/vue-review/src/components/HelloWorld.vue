@@ -18,6 +18,10 @@ export default {
 
       this.$emit('send',{ name:'isen'});
     }
+  },
+  updated(){
+
+    console.log(' HelloWorld updated ');
   }
 }
 </script>

@@ -63,34 +63,44 @@
 
                 console.log( ' Child componentDidMount ');
 
-                this.timer = setInterval(()=>{
+                // this.timer = setInterval(()=>{
 
-                    this.setState({
-                        count: this.state.count + 1
-                    })
-                },1000)
+                //     this.setState({
+                //         count: this.state.count + 1
+                //     })
+                // },1000)
 
-                console.log(this.state.date);
-                this.dateTimer = setInterval(()=>{
+                // console.log(this.state.date);
+                // this.dateTimer = setInterval(()=>{
 
-                    this.setState({
-                        date: new Date()
-                    })
-                },1000)
+                //     this.setState({
+                //         date: new Date()
+                //     })
+                // },1000)
             }
 
             componentWillReceiveProps(nextProps){
 
                 console.log(' Child componentWillReceiveProps ');
-                
-
                 if(this.props.flag !== nextProps.flag){
                     this.setState({
                         count: Number(nextProps.count)
                     })
                 }
-                
-               
+            }
+
+             // 组件即将被更新时触发
+             componentWillUpdate(){
+
+                console.log(' Child componentWillUpdate ');
+
+            }
+
+            // 组件被更新完成后触发。页面中产生了新的DOM的元素，可以进行DOM操作
+            componentDidUpdate(){
+
+                console.log(' Child  componentDidUpdate ');
+
             }
 
             componentWillUnmount(){
