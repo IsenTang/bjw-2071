@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React 实例</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+
+    <style>
+        * {
+            margin:0;
+            padding: 0;
+        }
+
+        .header{
+            height: 60px;
+            background-color: aquamarine;
+        }
+
+        .main-container{
+            display: flex;
+        }
+
+        .sider{
+            width: 200px;
+            height: calc(100vh - 60px);
+            background-color: chartreuse;
+        }
+
+        .content{
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .footer{
+            width: calc(100vw - 200px);
+            /* flex:1; */
+            height: 60px;
+            background-color: coral;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="example">
+
+    </div>
+    
+    <script type="text/babel">
+
+    // class App extends React.Component{
+
+    //     render(){
+
+    //         return (
+
+    //             <div>
+    //                 <Layout>
+    //             </div>
+    //         )
+    //     }
+    // }
+
+    class App extends React.Component{
+
+        constructor(){
+
+            super();
+
+            this.state = {
+                content: null
+            }
+        }
+
+        renderContent = (v)=>{
+
+            this.setState({
+
+                content:v
+            })
+        }
+
+        render(){
+
+            return (
+
+                <div>
+                    <Header/>
+                    <div className={'main-container'}>
+                        <Sider renderContent={ this.renderContent }/>
+                        <Content content={this.state.content}>
+                            { this.state.content }   
+                        </Content>
+                    </div>
+                </div>
+            )
+        }
+    }
+
+
+    class Header extends React.Component{
+
+        constructor(){
+
+            super();
+        }
+
+        render(){
+
+            return (
+
+                <header className={ 'header' }>
+                    
+                </header>
+            )
+        }
+    }
+
+
+    class Sider extends React.Component{
+
+        constructor(){
+
+            super();
+        }
+
+        render(){
+
+            return (
+
+                <div className={'sider'}>
+                    
+                    <div onClick={ ()=>{
+
+                        this.props.renderContent(<div>1</div>);
+                    }}>1</div>
+
+                    <div onClick={ ()=>{
+
+                        this.props.renderContent(<div>2</div>);
+                    }}>2</div>
+
+                    <div onClick={ ()=>{
+
+                        this.props.renderContent(<div>3</div>);
+                    }}>3</div>
+                </div>
+            )
+        }
+    }
+
+    class Content extends React.Component{
+
+        constructor(){
+
+            super();
+        }
+
+        render(){
+
+            return (
+
+                <div className={'content'}>
+                
+                    <div className={'content-container'}>
+                    </div>
+                   { this.props.children }
+
+                   { this.props.content }
+
+                   <Footer/>
+                </div>
+            )
+        }
+    }
+
+    class Footer extends React.Component{
+
+        render(){
+
+
+            return (
+
+                <footer className={'footer'}></footer>
+            )
+        }
+    }
+
+
+    
+    ReactDOM.render(
+        <App />,
+        document.getElementById('example')
+    );
+
+    </script>
+  </body>
+</html>
