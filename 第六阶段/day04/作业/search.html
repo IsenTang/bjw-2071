@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React 实例</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
+    <style>
+
+        .search-container{
+            height: 200px;
+            width: 200px;
+            background-color: aquamarine;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="example">
+
+    </div>
+    
+    <script type="text/babel">
+
+    const data = [
+        'isen','web','banyuan','work','react','vue'
+    ]
+    // 函数式组件
+    class App extends React.Component{
+
+        constructor(){
+
+            super();
+
+            this.state = {
+
+                value : '',
+                flag:false
+            }
+        }
+
+        search = _.debounce(()=>{
+
+            let array = [];
+            data.forEach((item)=>{
+
+                if(_.includes(item,this.state.value)){
+                    array.push(item)
+                }
+            })
+
+            this.setState({
+                flag:array.length > 0
+            })
+            
+        },500)
+        
+        // search = ()=>{
+
+        //     let array = [];
+        //     data.forEach((item)=>{
+
+        //         if(_.includes(item,this.state.value)){
+        //             array.push(item)
+        //         }
+        //     })
+
+        //     console.log(array);
+        // }
+
+        render(){
+            
+            return (
+
+                <div>
+                    <input type="text"  
+                    value={this.state.value}
+                    onChange={ (e)=>{
+                         
+                        this.setState({
+                            value:e.target.value
+                        },()=>{
+
+                            this.search()
+                        });
+                    }}/>  
+                    
+                    { this.state.flag ? <div className= { 'search-container' }></div> : null}
+                </div>
+            )
+        }
+    }
+
+    
+    ReactDOM.render(
+        <App />,
+        document.getElementById('example')
+    );
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React 实例</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
+    <style>
+
+        .search-container{
+            height: 200px;
+            width: 200px;
+            background-color: aquamarine;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="example">
+
+    </div>
+    
+    <script type="text/babel">
+
+    const data = [
+        'isen','web','banyuan','work','react','vue'
+    ]
+    // 函数式组件
+    class App extends React.Component{
+
+        constructor(){
+
+            super();
+
+            this.state = {
+                clock:{
+                    num:'1',
+                    step:'1',
+                    time:'1000',
+                    flag:false,
+                }
+            }
+        }
+
+        render(){
+            
+            return (
+
+                <div>  
+                    控制器：
+                    <div>
+
+                        <select value={this.state.clock.num} onChange={
+
+                            (e)=>{
+
+                            this.setState({
+                                clock:{
+                                    ...this.state.clock,
+                                    num:e.target.value
+                                }
+                            })
+                            }
+                        }>
+                            <option value="1">定时器1</option>  
+                            <option value="2">定时器2</option>  
+                        </select>
+
+                        <div>
+                            step:
+                            <input type="text" value={ this.state.clock.step || '' } onChange={ (e)=>{
+
+                            this.setState({
+
+                                clock:{
+                                ...this.state.clock,
+                                step:e.target.value
+                                }
+                            })
+                            } }/>
+                        </div>
+                        
+                        <div>
+                            time:
+                            <input type="text" value={ this.state.clock.time || '' } onChange={ (e)=>{
+
+                            this.setState({
+
+                                clock:{
+                                ...this.state.clock,
+                                time:e.target.value
+                                }
+                            })
+                            } }/>
+                        </div>
+                        
+                        <div>
+                            <button onClick={ ()=>{
+
+                            this.setState({
+
+                                clock:{
+
+                                    ...this.state.clock,
+                                    flag:!this.state.clock.flag
+                                }
+                            },()=>{
+
+                                console.log(this.state);
+                            })
+                            }}>修改</button>  
+                        </div>
+                    </div>
+                    <Clock1 clock={this.state.clock}/>
+                </div>
+            )
+        }
+    }
+
+    class Clock1 extends React.Component{
+
+        constructor(){
+
+            super();
+
+            this.state = {
+                count:0,
+                isStart:false,
+                step:1,
+                time:1000
+            }
+        }
+
+        componentWillReceiveProps(nextProps){
+
+            if(nextProps.clock.num === '1' && this.props.clock.flag !== nextProps.clock.flag ){
+                this.setState({
+                    step: Number(nextProps.clock.step),
+                    time: Number(nextProps.clock.time),
+                },()=>{
+
+                    this.start();
+                })
+            }
+        }
+
+        start = ()=>{
+
+            this.clear();
+
+            this.timer = setInterval(()=>{
+
+                this.setState({
+                    count: this.state.count + this.state.step
+                })
+            },this.state.time)
+        }
+
+        stop = ()=>{
+            this.clear();
+        }
+
+        clear = ()=>{
+
+            if(this.timer){
+
+                clearInterval(this.timer);
+            }
+        }
+
+        componentWillUnmount(){
+            this.stop();
+        }
+
+        render(){
+            
+            return (
+
+                <div>
+                    <div>
+                        计时器1: { this.state.count }
+                    </div>
+                    <button onClick={ ()=>{
+                        this.setState({
+                            isStart: !this.state.isStart
+                        },()=>{
+                            if(this.state.isStart){
+                                this.start();
+                            }else{
+
+                                this.stop();
+                            }
+                        })
+                    }}> { this.state.isStart ? 'stop' : 'start'} </button>
+                </div>
+            )
+        }
+    }
+
+    
+
+    
+    ReactDOM.render(
+        <App />,
+        document.getElementById('example')
+    );
+
+    </script>
+  </body>
+</html>
