@@ -87,14 +87,20 @@ function App() {
 
   let [isStart,setIsStart] = useState(false);
 
+  /* eslint-disable */ 
   useEffect(()=>{
 
     console.log(' effect ');
-    let timer = setInterval(()=>{
+    let timer
+    if(isStart){
+      
+       timer= setInterval(()=>{
 
-      console.log('time');
-    },1000)
-
+        console.log(' in ===>',count);
+        setCount(count+1)
+      },1000)
+    }
+  
     return ()=>{
 
       console.log(' in return ');
