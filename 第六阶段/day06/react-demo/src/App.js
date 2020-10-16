@@ -11,6 +11,9 @@ function App() {
     id:1,
     time:1000
   })
+
+
+  let [count,setCount] = useState(0);
   // let result = useState('init-value');
 
   return (
@@ -25,6 +28,11 @@ function App() {
 
           time:{ clock.time }
         </div>
+
+        <div>
+
+          count:{ count }
+        </div>
         <div>
 
           <button onClick={()=>{
@@ -33,8 +41,12 @@ function App() {
 
               // setName('lucy');
 
-              setClock({ ...clock,time:2000 } )
-              
+              // setClock({ ...clock,time:2000 } )
+
+              setCount((v)=>{
+                return v+1;
+              })
+
           }}>click</button>
         </div>
     </div>
