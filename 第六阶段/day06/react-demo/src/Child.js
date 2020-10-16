@@ -1,21 +1,27 @@
-import React from 'react'
+import React,{ useMemo, useCallback } from 'react'
 
-function Child({name}) {
+export default function Child({name}) {
 
-    console.log('Child');
+    const nameValue = useMemo(()=>{
+
+        console.log(' use Memo ');
+        return name + 1
+     },[ name ]);
+
+    const callBack = useCallback(()=>{
+
+        return name + 1
+        
+    },[name])
+
     return (
         <div>
             Child
-            <div>{name}</div>
+            <div>{ nameValue }</div>
+
+            <div> { callBack()}</div> 
         </div>
     )
 }
 
-export default React.memo(Child,(pre,next)=>{
-
-    console.log('pre',pre.name);
-    console.log('next',next.name);
-
-    return pre.name === next.name;
- });
 

@@ -172,7 +172,7 @@ function App() {
         <input ref={ textInput } ></input>
       </div>
 
-      <Child name={name}></Child>
+      <Child name={ name }></Child>
     </div>
   )
 }
