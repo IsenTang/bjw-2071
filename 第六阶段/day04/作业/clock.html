@@ -60,6 +60,9 @@
                                     ...this.state.clock,
                                     num:e.target.value
                                 }
+                            },()=>{
+
+                                console.log(this.state);
                             })
                             }
                         }>
@@ -153,6 +156,9 @@
 
                 this.setState({
                     count: this.state.count + this.state.step
+                },()=>{
+
+                    console.log(this.state);
                 })
             },this.state.time)
         }

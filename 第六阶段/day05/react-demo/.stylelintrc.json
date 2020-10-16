@@ -1,0 +1,10 @@
+{
+    "plugins": [
+        "stylelint-scss"
+    ],
+    "extends": ["stylelint-config-recess-order"],
+    "rules": {
+        "scss/selector-no-redundant-nesting-selector": true,
+        "declaration-colon-space-before":"always"
+    }
+}
