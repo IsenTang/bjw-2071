@@ -33,14 +33,13 @@
             }
         }
 
-        componentDidMount(){
 
-            document.title = `You click ${this.state.count} times`
-        }
+        componentWillUnmount(){
 
-        componentDidUpdate(){
+            if(timer){
 
-            document.title = `You click ${this.state.count} times`
+                clearInterval(timer);
+            }
         }
 
         render(){
@@ -54,9 +53,12 @@
 
                     <button onClick={ ()=>{
 
-                        this.setState({
-                            count: this.state.count + 1
-                        })
+                        this.timer = setInterval(()=>{
+
+                            this.setState({
+                                count: this.state.count + 1
+                            })
+                        },1000)
                     }}>click</button>
                 </div>
             )
