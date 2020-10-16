@@ -86,93 +86,128 @@ function App() {
 
   let [count,setCount] = useState(0);
 
-  let [step,setStep] = useState(1);
+  // let [step,setStep] = useState(1);
 
-  let [isStart,setIsStart] = useState(false);
+  // let [isStart,setIsStart] = useState(false);
+
+  // let [name,setName] = useState('isen');
+
+  // const countRef = useRef(count);
+
+  // const stepRef = useRef(step);
+
+  // const textInput = useRef();
+
+  // useEffect(()=>{
+
+  //   console.log('in');
+  //   textInput.current.focus()
+  // })
+
+  // useEffect(()=>{
+
+  //   countRef.current = count;
+  // },[count]);
+
+  // useEffect(()=>{
+
+  //   stepRef.current = step;
+  // },[step]);
+
+  // /* eslint-disable */ 
+  // useEffect(()=>{
+
+  //   console.log(' effect ');
+  //   let timer
+  //   if(isStart){
+      
+  //      timer= setInterval(()=>{
+
+  //       // console.log(' in ===>',countRef.current);
+  //       setCount( countRef.current + stepRef.current);
+  //     },1000)
+  //   }
+  
+  //   return ()=>{
+
+  //     console.log(' in return ');
+  //     if(timer){
+
+  //       clearInterval(timer)
+  //     }
+  //   }
+  // },[isStart])
+
+  // return (
+
+  //   <div>
+
+  //     <div>count:{ count }</div>
+      
+  //     <div>step:{ step }</div>
+      
+
+  //     <button onClick={ ()=>{
+  //       setIsStart(!isStart)
+
+        
+  //     }}> start </button>
+
+  //     <button onClick={ ()=>{
+        
+  //       // textInput.current.focus() 
+
+  //       setStep(2)
+  //     }}> step </button>
+
+  //     <button onClick={ ()=>{
+        
+  //       // textInput.current.focus() 
+
+  //       setName('lucy')
+  //     }}> name </button>
+
+  //     <div>
+
+  //       <input ref={ textInput } ></input>
+  //     </div>
+
+  //     <Child name={ name }></Child>
+  //   </div>
+
+  // )
 
   let [name,setName] = useState('isen');
 
-  const countRef = useRef(count);
-
-  const stepRef = useRef(step);
-
-  const textInput = useRef();
+  let [isShow,setIsShow] = useState(true);
 
   useEffect(()=>{
 
-    console.log('in');
-    textInput.current.focus()
-  })
-
-  useEffect(()=>{
-
-    countRef.current = count;
-  },[count]);
-
-  useEffect(()=>{
-
-    stepRef.current = step;
-  },[step]);
-
-  /* eslint-disable */ 
-  useEffect(()=>{
-
-    console.log(' effect ');
-    let timer
-    if(isStart){
-      
-       timer= setInterval(()=>{
-
-        // console.log(' in ===>',countRef.current);
-        setCount( countRef.current + stepRef.current);
-      },1000)
-    }
-  
-    return ()=>{
-
-      console.log(' in return ');
-      if(timer){
-
-        clearInterval(timer)
-      }
-    }
-  },[isStart])
+    console.log('effect')
+  },[name])
 
   return (
 
     <div>
+      <div>{name}</div>
+      <div>
 
-      <div>count:{ count }</div>
-      
-      <div>step:{ step }</div>
-      
+        <button onClick={()=>{
 
-      <button onClick={ ()=>{
-        setIsStart(!isStart)
-
-        
-      }}> start </button>
-
-      <button onClick={ ()=>{
-        
-        // textInput.current.focus() 
-
-        setStep(2)
-      }}> step </button>
-
-      <button onClick={ ()=>{
-        
-        // textInput.current.focus() 
-
-        setName('lucy')
-      }}> name </button>
+          setName(Math.random())
+        }}> click </button>
+      </div>
 
       <div>
 
-        <input ref={ textInput } ></input>
+        <button onClick={()=>{
+
+          setIsShow(!isShow)
+        }}> isShow </button>
       </div>
 
-      <Child name={ name }></Child>
+      { isShow ? <Child></Child> : null}
+      
     </div>
   )
 }

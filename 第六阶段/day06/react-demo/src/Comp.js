@@ -1,22 +1,28 @@
-import React from 'react'
+import React,{ useState,useEffect } from 'react'
 
-import { useTest,useTime } from './test';
 
 export default function Comp() {
 
-    let [ test, setTest ] = useTest();
+    const [ count,setCount ] = useState(0);
 
-    useTime();
+    const [ name,setName ] = useState('isen');
+
+    // if(name === 'isen'){
+        useEffect(()=>{
+
+            console.log('useEffect');
+        });
+    // }
+
+    const [ num,setNum ] = useState(1);
+
     return (
         <div>
-            { test }
+        
 
             <div>
 
-                <button onClick={()=>{
-
-                    setTest('componet');
-                }}> comp </button>
+                
             </div>
         </div>
     )

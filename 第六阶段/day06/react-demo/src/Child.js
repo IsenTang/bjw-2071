@@ -1,27 +1,36 @@
-import React,{ useMemo, useCallback } from 'react'
+import React,{ useState,useEffect } from 'react'
 
 export default function Child({name}) {
 
-    const nameComponent = useMemo(()=>{
+    let [ value,setValue ] = useState(0);
 
-        console.log(' use Memo ');
-        return (
-            <div>{name}</div>
-        )
-     },[ name ]);
+    useEffect(()=>{
 
-    const callBack = useCallback(()=>{
+        console.log(' child effect ');
+        let timer = setInterval(()=>{
 
-        return name + 1
-        
-    },[name])
+            console.log('time');
+         },1000);
+
+        return ()=>{
+
+            console.log(' in return ');
+            clearInterval(timer);
+        }
+    },[])
 
     return (
         <div>
-            Child
-            <div>{ nameComponent }</div>
+            Child { value }
 
-            <div> { callBack()}</div> 
+            <div>
+
+                <button onClick={
+                    ()=>{
+                        setValue(Math.random())
+                    }
+                }>child</button>
+            </div>
         </div>
     )
 }
