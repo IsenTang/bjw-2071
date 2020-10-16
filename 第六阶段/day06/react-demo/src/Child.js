@@ -2,10 +2,12 @@ import React,{ useMemo, useCallback } from 'react'
 
 export default function Child({name}) {
 
-    const nameValue = useMemo(()=>{
+    const nameComponent = useMemo(()=>{
 
         console.log(' use Memo ');
-        return name + 1
+        return (
+            <div>{name}</div>
+        )
      },[ name ]);
 
     const callBack = useCallback(()=>{
@@ -17,7 +19,7 @@ export default function Child({name}) {
     return (
         <div>
             Child
-            <div>{ nameValue }</div>
+            <div>{ nameComponent }</div>
 
             <div> { callBack()}</div> 
         </div>
