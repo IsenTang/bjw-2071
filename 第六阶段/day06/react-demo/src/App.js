@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React,{ useState,useEffect } from 'react';
 import './App.css';
 
 function App() {
@@ -12,13 +12,43 @@ function App() {
     time:1000
   })
 
-
   let [count,setCount] = useState(0);
   // let result = useState('init-value');
+  
+  useEffect(()=>{
+
+    console.log('count useEffect');
+    document.title = `You click ${count} times`
+  },[count])
+
+  useEffect(()=>{
+
+    console.log(' name useEffect');
+    console.log(name);
+   
+  },[count,name])
+
+  useEffect(()=>{
+
+    let timer = setInterval(()=>{
+
+      console.log('time');
+    },1000)
+
+    return ()=>{
+
+      console.log(' in return ');
+      if(timer){
+
+        clearInterval(timer);
+      }
+    }
+  },[])
+
 
   return (
     <div className="App">
-
+{/* 
         <div>
 
           id:{ clock.id }
@@ -27,6 +57,11 @@ function App() {
         <div>
 
           time:{ clock.time }
+        </div> */}
+
+        <div>
+
+          { name }
         </div>
 
         <div>
@@ -37,17 +72,20 @@ function App() {
 
           <button onClick={()=>{
 
-              // setValue('after-click')
-
-              // setName('lucy');
-
-              // setClock({ ...clock,time:2000 } )
-
               setCount((v)=>{
                 return v+1;
               })
 
-          }}>click</button>
+          }}>count</button>
+        </div>
+
+        <div>
+
+          <button onClick={()=>{
+
+              setName(name+1)
+
+          }}>name</button>
         </div>
     </div>
   );

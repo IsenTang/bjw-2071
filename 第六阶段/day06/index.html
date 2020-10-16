@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React 实例</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+
+    <style>
+
+        .test{
+            background-color: aquamarine;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="example">
+
+    </div>
+    
+    <script type="text/babel">
+
+    // 函数式组件
+    class App extends React.Component{
+
+        constructor(){
+
+            super();
+
+            this.state = {
+                count : 0
+            }
+        }
+
+        componentDidMount(){
+
+            document.title = `You click ${this.state.count} times`
+        }
+
+        componentDidUpdate(){
+
+            document.title = `You click ${this.state.count} times`
+        }
+
+        render(){
+
+            return (
+
+                <div>
+                    App 
+                    
+                    <div> { this.state.count }</div>
+
+                    <button onClick={ ()=>{
+
+                        this.setState({
+                            count: this.state.count + 1
+                        })
+                    }}>click</button>
+                </div>
+            )
+        }
+    }
+
+    
+    ReactDOM.render(
+        <App name={ 'isen' }/>,
+        document.getElementById('example')
+    );
+
+    </script>
+  </body>
+</html>
