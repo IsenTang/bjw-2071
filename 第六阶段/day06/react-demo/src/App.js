@@ -1,4 +1,4 @@
-import React,{ useState,useEffect } from 'react';
+import React,{ useState,useEffect,useRef } from 'react';
 import './App.css';
 
 import { useTest,useTime } from './test';
@@ -83,9 +83,19 @@ function App() {
 //     </div>
 //   );
 
-  let [count,setCount] = useState(0);
+  let [count,setCount] = useState(1);
+
+  let [step,setStep] = useState(1);
 
   let [isStart,setIsStart] = useState(false);
+
+  const countRef = useRef(count);
+
+  useEffect(()=>{
+
+    console.log(' in ');
+    countRef.current = count;
+  },[count]);
 
   /* eslint-disable */ 
   useEffect(()=>{
@@ -96,8 +106,9 @@ function App() {
       
        timer= setInterval(()=>{
 
-        console.log(' in ===>',count);
-        setCount(count+1)
+        // console.log(' in ===>',countRef.current);
+
+        setCount( countRef.current + 1);
       },1000)
     }
   
@@ -115,12 +126,23 @@ function App() {
 
     <div>
 
-      { count }
+      <div>count:{ count }</div>
+      
+      <div>step:{ step }</div>
+      
 
       <button onClick={ ()=>{
-
         setIsStart(!isStart)
-      }}> click </button>
+
+        
+      }}> start </button>
+
+      <button onClick={ ()=>{
+        
+        setStep(2); 
+
+
+      }}> step </button>
     </div>
   )
 }
