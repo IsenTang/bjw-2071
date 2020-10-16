@@ -4,6 +4,7 @@ import './App.css';
 import { useTest,useTime } from './test';
 
 import Comp from './Comp';
+import Child from './Child';
 
 function App() {
 
@@ -83,19 +84,35 @@ function App() {
 //     </div>
 //   );
 
-  let [count,setCount] = useState(1);
+  let [count,setCount] = useState(0);
 
   let [step,setStep] = useState(1);
 
   let [isStart,setIsStart] = useState(false);
 
+  let [name,setName] = useState('isen');
+
   const countRef = useRef(count);
+
+  const stepRef = useRef(step);
+
+  const textInput = useRef();
 
   useEffect(()=>{
 
-    console.log(' in ');
+    console.log('in');
+    textInput.current.focus()
+  })
+
+  useEffect(()=>{
+
     countRef.current = count;
   },[count]);
+
+  useEffect(()=>{
+
+    stepRef.current = step;
+  },[step]);
 
   /* eslint-disable */ 
   useEffect(()=>{
@@ -107,8 +124,7 @@ function App() {
        timer= setInterval(()=>{
 
         // console.log(' in ===>',countRef.current);
-
-        setCount( countRef.current + 1);
+        setCount( countRef.current + stepRef.current);
       },1000)
     }
   
@@ -139,10 +155,24 @@ function App() {
 
       <button onClick={ ()=>{
         
-        setStep(2); 
+        // textInput.current.focus() 
 
-
+        setStep(2)
       }}> step </button>
+
+      <button onClick={ ()=>{
+        
+        // textInput.current.focus() 
+
+        setName('lucy')
+      }}> name </button>
+
+      <div>
+
+        <input ref={ textInput } ></input>
+      </div>
+
+      <Child name={name}></Child>
     </div>
   )
 }

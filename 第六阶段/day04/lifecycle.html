@@ -63,20 +63,20 @@
 
                 console.log( ' Child componentDidMount ');
 
-                // this.timer = setInterval(()=>{
+                this.timer = setInterval(()=>{
 
-                //     this.setState({
-                //         count: this.state.count + 1
-                //     })
-                // },1000)
+                    this.setState({
+                        count: this.state.count + 1
+                    })
+                },1000)
 
-                // console.log(this.state.date);
-                // this.dateTimer = setInterval(()=>{
+                console.log(this.state.date);
+                this.dateTimer = setInterval(()=>{
 
-                //     this.setState({
-                //         date: new Date()
-                //     })
-                // },1000)
+                    this.setState({
+                        date: new Date()
+                    })
+                },1000)
             }
 
             componentWillReceiveProps(nextProps){

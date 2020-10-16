@@ -13,14 +13,16 @@
 function createIncrement(i) {
 
     let value = 0;
-
+    
     return function increment() {
 
       value += i;
       console.log(value);
+      
       const message = `Current value is ${value}`;
       return function logValue() {
     
+        console.log(value);
         console.log(message);
       };
     }
