@@ -6,7 +6,7 @@ export default function PrivateRouter({ component: Component , ...rest }) {
 
     let user = localStorage.getItem('user');
 
-    let auth = false;
+    let auth = true;
 
     if(user){
         auth = true;

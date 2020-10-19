@@ -37,12 +37,14 @@ function App() {
   // localStorage.setItem('user','isen');
   let user = localStorage.getItem('user');
 
-  let flag = false;
+  
 
-  if(user){
+  // let flag = false;
 
-    flag = true
-  }
+  // if(user){
+
+  //   flag = true
+  // }
 
   return (
     // <div className="App">
@@ -66,10 +68,10 @@ function App() {
     <Router>
 
         <div className={'main'}>
-{/* 
-          <button onClick={()=>{
 
-            setFlag(!flag)
+          {/* <button onClick={()=>{
+
+              history.push('/a');
           }}>click</button> */}
 
           <Header></Header>
@@ -81,7 +83,7 @@ function App() {
               
               <Switch>
 
-                  <PrivateRouter path='/a' component={ A } exact={false}/>
+                  <PrivateRouter path='/a' component={ A } />
                    
                   <PrivateRouter path='/b'  component={ B }/>
                  

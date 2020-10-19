@@ -1,10 +1,15 @@
 import React from 'react';
 import {
     Redirect,
-    Link
+    Link,
+    useHistory
 } from "react-router-dom";
 
 export default function Sider() {
+
+    let history = useHistory();
+
+
     return (
         <div className={'sider'}>
             <ul>
@@ -19,7 +24,18 @@ export default function Sider() {
                     <Link to='/b'>B</Link>
                 </li>
 
+                <li>
+
+                    <Link to='/c'>C</Link>
+                </li>
+
             </ul>
+
+            <button onClick={()=>{
+
+                history.push('/a');
+
+            }}> history </button>
         </div>
     )
 }
