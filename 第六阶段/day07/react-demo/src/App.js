@@ -16,6 +16,11 @@ import { useMousePosition } from './Hook/useMousePosition'
 import Child from './Component/Child';
 import Name from './Component/Name';
 
+import Header from './Component/Header';
+import Sider from './Component/Sider';
+import A from './Component/A';
+import B from './Component/B';
+
 
 function App() {
 
@@ -44,24 +49,31 @@ function App() {
     // </div>
     <Router>
 
-      <ul>
-        <li>
-          <Link to={'/home'}>home</Link>
-        </li>
-        <li>
-          <Link to={'/name'}>name</Link>
-        </li>
-      </ul>
+        <div className={'main'}>
 
-      <Switch>
-          <Route path="/home">
-            <Child />
-          </Route>
+          <Header></Header>
 
-          <Route path="/name">
-            <Name name={name}/>
-          </Route>
-      </Switch>
+
+          <div className={'main-container'}>
+
+              <Sider></Sider>
+              
+              <Switch>
+
+                  <Route path='/a'>
+                    <A></A>
+                  </Route>
+                  <Route path='/b'>
+                    <B></B>
+                  </Route>
+
+              </Switch>
+          </div>
+        </div>
+        
+  
+        
+      
 
     </Router>
 
