@@ -1,0 +1,5 @@
+.sider{
+    width:200px;
+    background-color: bisque;
+    height: calc(100vh - 60px);
+}
