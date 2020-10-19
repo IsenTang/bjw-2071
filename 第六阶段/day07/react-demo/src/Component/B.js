@@ -10,6 +10,7 @@ export default function B() {
 
     let { url } = useRouteMatch();
 
+    console.log('b');
     return (
         <div>
             <div>B</div>

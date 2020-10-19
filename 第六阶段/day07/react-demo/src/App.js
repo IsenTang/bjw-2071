@@ -17,6 +17,9 @@ import { useMousePosition } from './Hook/useMousePosition'
 import Child from './Component/Child';
 import Name from './Component/Name';
 
+/* router */
+import PrivateRouter from './Router/PrivateRouter'
+
 import Header from './Component/Header';
 import Sider from './Component/Sider';
 import A from './Component/A';
@@ -29,18 +32,28 @@ function App() {
 
   let [ name , setName ] = useState('isen');
 
-  let [ flag, setFlag ] = useState(false);
+  // let [ flag, setFlag ] = useState(false);
+
+  // localStorage.setItem('user','isen');
+  let user = localStorage.getItem('user');
+
+  let flag = false;
+
+  if(user){
+
+    flag = true
+  }
 
   return (
     // <div className="App">
 
     //   <div >
 
-    //   <button onClick={()=>{
+      // <button onClick={()=>{
 
-    //       setName('lucy')
-    //       }}>click</button>
-    //   </div>
+      //     setName('lucy')
+      //     }}>click</button>
+      // </div>
        
       
     //    {/* <Child></Child> */}
@@ -53,11 +66,11 @@ function App() {
     <Router>
 
         <div className={'main'}>
-          
+{/* 
           <button onClick={()=>{
 
             setFlag(!flag)
-          }}>click</button>
+          }}>click</button> */}
 
           <Header></Header>
 
@@ -68,12 +81,15 @@ function App() {
               
               <Switch>
 
-                  <Route path='/a'>
-                    { flag ? <A></A> : <Redirect to='/b'></Redirect>}
+                  <PrivateRouter path='/a' component={ A } exact={false}/>
+                   
+                  <PrivateRouter path='/b'  component={ B }/>
+                 
+                  <Route path='/login'>
+
+                    <div>login</div>
                   </Route>
-                  <Route path='/b'>
-                    <B></B>
-                  </Route>
+                  {/* <PrivateRouter path='*' component={ <div>404</div> }/> */}
                   
               </Switch>
           </div>
