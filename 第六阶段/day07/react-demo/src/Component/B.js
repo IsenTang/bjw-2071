@@ -2,10 +2,14 @@ import React from 'react';
 import {
     Switch,
     Route,
-    Link
+    Link,
+    useRouteMatch
 } from "react-router-dom";
 
 export default function B() {
+
+    let { url } = useRouteMatch();
+
     return (
         <div>
             <div>B</div>
@@ -16,7 +20,7 @@ export default function B() {
 
                     <ul>
                         <li>
-                            <Link to={'/b/index'}>home</Link>
+                            <Link to={`/b/index`}> {url}</Link>
                         </li>
                         <li>
                             <Link to={'/b/helloworld'}>helloworld</Link>
@@ -39,6 +43,8 @@ export default function B() {
                                 helloworld
                             </div>
                         </Route>
+
+                        
                     </Switch>
                 </div>
             </div>

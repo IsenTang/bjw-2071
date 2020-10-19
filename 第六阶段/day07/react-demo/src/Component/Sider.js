@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+    Redirect,
     Link
 } from "react-router-dom";
 
@@ -17,6 +18,7 @@ export default function Sider() {
 
                     <Link to='/b'>B</Link>
                 </li>
+
             </ul>
         </div>
     )

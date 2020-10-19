@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 
 import logo from './logo.svg';
@@ -28,6 +29,8 @@ function App() {
 
   let [ name , setName ] = useState('isen');
 
+  let [ flag, setFlag ] = useState(false);
+
   return (
     // <div className="App">
 
@@ -50,6 +53,11 @@ function App() {
     <Router>
 
         <div className={'main'}>
+          
+          <button onClick={()=>{
+
+            setFlag(!flag)
+          }}>click</button>
 
           <Header></Header>
 
@@ -61,12 +69,12 @@ function App() {
               <Switch>
 
                   <Route path='/a'>
-                    <A></A>
+                    { flag ? <A></A> : <Redirect to='/b'></Redirect>}
                   </Route>
                   <Route path='/b'>
                     <B></B>
                   </Route>
-
+                  
               </Switch>
           </div>
         </div>
