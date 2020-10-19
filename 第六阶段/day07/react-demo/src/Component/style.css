@@ -1,10 +1,15 @@
 .child{
 
-    height: 200px;
+    height: 100vh;
     background-color: brown;
 }
 
 .name{
-    height: 100vh;
+    height: 200px;
+    overflow: scroll;
     background-color: aquamarine;
+}
+
+.container{
+    height: 100vh;
 }

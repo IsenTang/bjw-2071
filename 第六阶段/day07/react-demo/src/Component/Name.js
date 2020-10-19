@@ -32,7 +32,7 @@ export default class Name extends Component {
         console.log(' getSnapshotBeforeUpdate ');
         console.log(this.nameRef.current.scrollHeight);
 
-        return this.nameRef.current.scrollHeight;
+        return 1000;
     }
 
     componentDidUpdate(prevProps, prevState, snapshot){
@@ -48,10 +48,14 @@ export default class Name extends Component {
     
     render() {
         return (
+
             <div className={'name'} ref={this.nameRef}>
-                {this.state.name}
-                <div>{this.state.age}</div>
+                <div   className={'container'}>
+                    {this.state.name}
+                    <div>{this.state.age}</div>
+                </div>
             </div>
+            
         )
     }
 }

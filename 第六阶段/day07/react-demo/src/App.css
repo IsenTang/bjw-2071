@@ -1,10 +1,9 @@
 .App {
   text-align: center;
-  
 }
 
 .test{
-  height: 100px;
+  height: 100vh;
   background-color: #61dafb;
 }
 
