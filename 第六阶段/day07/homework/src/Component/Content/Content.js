@@ -1,34 +1,23 @@
 import React from 'react'
 import { Switch } from 'react-router-dom';
+import _ from 'lodash';
 import PrivateRoute from '../../Router/PrivateRoute';
 
+import { routerConfig } from '../../Router/index';
+
 export default function Content() {
+
+    const renderRouter = ()=>{
+
+        return _.map(routerConfig,(item)=>{
+
+            return (<PrivateRoute {...item}/>)
+        })
+    }
+
     return (
         <Switch>
-
-            <PrivateRoute path='/a' component={()=>{
-                return (
-                    <div>A</div>
-                )
-            }}/>
-
-            <PrivateRoute path='/b' component={()=>{
-                return (
-                    <div>B</div>
-                )
-            }}/>
-
-            <PrivateRoute path='/c' component={()=>{
-                return (
-                    <div>C</div>
-                )
-            }}/>
-
-            <PrivateRoute path='/d' component={()=>{
-                return (
-                    <div>D</div>
-                )
-            }}/>
+                { renderRouter() }
         </Switch>
     )
 }
