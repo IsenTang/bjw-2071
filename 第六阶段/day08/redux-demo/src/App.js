@@ -2,6 +2,8 @@ import React from 'react';
 import { useSelector,useDispatch } from 'react-redux'
 import './App.css';
 
+import { userLogin,userLogout } from './action';
+
 function App() {
 
   let isLogin = useSelector(state => state.isLogin)
@@ -19,13 +21,13 @@ function App() {
         <div>
           <button onClick={()=>{
 
-              dispatch({ type:'USER_LOGIN' })
+              dispatch(userLogin())
 
           }}>login</button>
 
           <button onClick={()=>{
 
-              dispatch({ type:'USER_LOGOUT' })
+              dispatch(userLogout())
 
           }}>logout</button>
         </div>
