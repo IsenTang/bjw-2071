@@ -17,7 +17,7 @@
     <!-- <Num v-for="(item) in items" :num='item.value' :key='item.key'></Num> -->
     <!-- <Child></Child> -->
 
-    <!-- <router-view></router-view> -->
+    <router-view></router-view>
   </div>
 </template>
 
@@ -69,13 +69,13 @@ export default {
     // Num
   },
   beforeCreate(){
-    console.log(' beforeCreate ====>',obj);
+    // console.log(' beforeCreate ====>',obj);
   },
 
   created(){
-    console.log('created ====>',obj);
+    // console.log('created ====>',obj);
 
-    console.log(this);
+    // console.log(this);
   },
   methods:{
     changed(){

@@ -33,7 +33,7 @@ export default function PrivateRoute({ component: Component , ...rest }) {
         <Route {...rest} render={()=>{
 
             return (
-                isAuth ? <Component></Component> : <Redirect to={ redirectAddress }></Redirect>
+                 <Component></Component> 
             )
         }}/>
 

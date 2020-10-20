@@ -9,8 +9,10 @@
 </template>
 
 <script>
-export default {
 
+console.log('father');
+export default {
+   
 }
 </script>
 

@@ -11,6 +11,8 @@
 <script>
 import Father from './Father';
 
+
+console.log('child');
 export default {
     components:{
         Father

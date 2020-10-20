@@ -1,18 +1,15 @@
 import React from 'react'
+import A from '../Component/A';
 
 export const routerConfig = [
     {
-        path:'/a',
-        component:()=>{
-            return (
-                <div>A</div>
-            )
-        },
-        exact:true
+        path:'/a/:id',
+        component:A
     },
     {
         path:'/b',
         component:()=>{
+
             return (
                 <div>B</div>
             )
@@ -31,6 +28,14 @@ export const routerConfig = [
         component:()=>{
             return (
                 <div>D</div>
+            )
+        }
+    },
+    {
+        path:'*',
+        component:()=>{
+            return (
+                <div>404</div>
             )
         }
     },

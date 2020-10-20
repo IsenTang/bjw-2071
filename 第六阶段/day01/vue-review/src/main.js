@@ -10,8 +10,10 @@ Vue.use(VueRouter);
 
 
 const routes = [
-  { path: '/foo', component: Father },
-  { path: '/bar', component: Child }
+  // { path: '/father', component: ()=> import('./components/Father.vue')},
+  // { path: '/child', component: ()=> import('./components/Child.vue') }
+  { path: '/father', component: Father},
+  { path: '/child', component: Child }
 ]
 
 // 3. 创建 router 实例，然后传 `routes` 配置

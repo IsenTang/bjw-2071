@@ -15,14 +15,16 @@ export default function Sider({ setIsShow }) {
         /* 禁止a标签默认操作 */
         e.preventDefault();
 
-        let user = getStorage('user');
+        // let user = getStorage('user');
 
-        if(!user){
-            /* 显示modal */
-            setIsShow(true)
-        }else{
-            history.push('/c');
-        }
+        // if(!user){
+        //     /* 显示modal */
+        //     setIsShow(true)
+        // }else{
+            history.push('/a',{
+                test:123
+            });
+        // }
     }
 
     return (

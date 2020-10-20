@@ -11,7 +11,7 @@ export default function Content() {
 
         return _.map(routerConfig,(item)=>{
 
-            return (<PrivateRoute {...item}/>)
+            return (<PrivateRoute {...item} key={item.path}/>)
         })
     }
 
