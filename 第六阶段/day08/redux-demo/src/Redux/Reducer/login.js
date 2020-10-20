@@ -1,6 +1,6 @@
 import { USER_LOGIN, USER_LOGOUT } from '../ActionType';
 
-const initialState = { isLogin: false,test:123 };
+const initialState = { isLogin: false,data:{ test: 123 } };
 
 export default (state = initialState, payload) => {
 
@@ -13,9 +13,11 @@ export default (state = initialState, payload) => {
             }
         case USER_LOGOUT:
             
+            console.log(payload);
             return {
                 ...state,
-                isLogin: false
+                isLogin: false,
+                data:payload.data
             }
         default:
             return state

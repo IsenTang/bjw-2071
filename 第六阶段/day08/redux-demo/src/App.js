@@ -2,11 +2,16 @@ import React from 'react';
 import { useSelector,useDispatch } from 'react-redux'
 import './App.css';
 
-import { userLogin,userLogout } from './action';
+import { userLogin,userLogout,sendRequest } from './action';
+
+
+/* component */
+import Loading from './Component/Loading/Loading';
 
 function App() {
 
   let isLogin = useSelector(state => state.login.isLogin)
+  let value = useSelector(state => state.login.data.test)
 
   // let isLogin = useSelector((state)=>{
 
@@ -19,10 +24,12 @@ function App() {
   return (
     <div className="App">
         { isLogin ? 'app' : ''}
+
+        value:{ value }
         <div>
           <button onClick={()=>{
 
-              dispatch(userLogin())
+             dispatch(userLogin());
 
           }}>login</button>
 
@@ -31,7 +38,16 @@ function App() {
               dispatch(userLogout())
 
           }}>logout</button>
+
+
+          <button onClick={()=>{
+
+            dispatch(sendRequest());
+
+          }}>loading</button>
         </div>
+
+        <Loading/>
     </div>
   );
 }
