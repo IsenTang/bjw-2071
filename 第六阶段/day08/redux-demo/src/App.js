@@ -6,13 +6,14 @@ import { userLogin,userLogout } from './action';
 
 function App() {
 
-  let isLogin = useSelector(state => state.isLogin)
+  let isLogin = useSelector(state => state.login.isLogin)
 
   // let isLogin = useSelector((state)=>{
 
+  //   console.log(state);
   //   return state.isLogin;
   // })
-
+  
   let dispatch = useDispatch();
 
   return (

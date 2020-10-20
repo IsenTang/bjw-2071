@@ -5,7 +5,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import { store } from './Redux/Store/store';
+import { configStore } from './Redux/Store/store';
+
+const store = configStore();
 
 ReactDOM.render(
   // <React.StrictMode>

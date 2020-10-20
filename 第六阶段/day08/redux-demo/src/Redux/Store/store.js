@@ -1,6 +1,18 @@
 import { createStore } from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-import reducer from '../Reducer/index';
 
-export const store = createStore(reducer);
+import rootReducer from '../Reducer/index';
+
+export function configStore(){
+
+    const enhancers = [ ];
+
+    const composedEnhancers = composeWithDevTools(...enhancers);
+
+    const store = createStore(rootReducer,composedEnhancers);
+
+    return store;
+}
+
 

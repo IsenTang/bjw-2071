@@ -1,23 +1,9 @@
-import { USER_LOGIN, USER_LOGOUT } from '../ActionType';
+import { combineReducers } from 'redux';
 
-const initialState = { isLogin: false,test:123 };
+import login from './login';
 
-export default (state = initialState, payload) => {
-
-    switch (payload.type) {
-        case USER_LOGIN:
-            
-            return {
-                ...state,
-                isLogin: true
-            }
-        case USER_LOGOUT:
-            
-            return {
-                ...state,
-                isLogin: false
-            }
-        default:
-            return state
-    }
-};
+const rootReducer = combineReducers({
+    login
+ });
+ 
+ export default rootReducer;
