@@ -7,12 +7,16 @@ import * as serviceWorker from './serviceWorker';
 
 import {  configStore } from './Redux/Store/Store';
 
+/* components */
+import Modal from './Component/Modal/Modal';
+
 const store = configStore();
 
 ReactDOM.render(
    <React.StrictMode>
       <Provider store={ store }>
          <App />
+         <Modal/>
       </Provider>
    </React.StrictMode>,
    document.getElementById('root')

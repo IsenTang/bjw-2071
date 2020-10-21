@@ -4,6 +4,7 @@ import { BrowserRouter as Router ,Switch } from 'react-router-dom';
 
 import './App.css';
 
+/* router */
 import { routerConfig } from './Router/index';
 import PrivateRouter from './Common/PrivateRoute';
 

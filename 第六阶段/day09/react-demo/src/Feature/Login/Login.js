@@ -1,21 +1,28 @@
-import React, { useEffect } from 'react';
-import request from '../../Common/request';
-
+import React from 'react';
+import { useDispatch } from 'react-redux';
+// import { loadShopList } from '../../Request/menu';
 import './login.css';
+
+/* actions */
+import { showModal } from '../../Redux/Action/modal';
+
 export default function Login () {
 
-   useEffect(async ()=>{
+   const dispatch = useDispatch();
 
-      const result = await request({
-         url:     'http://49.235.98.65:3000/shop/shopList',
-         method:  'get'
-      });
+   function handleClick (message){
 
-      console.log(result);
-   },[]);
+      dispatch(showModal({ message }));
+   }
    return (
       <div>
             Login
+
+         <div>
+            <button onClick={ ()=> {handleClick('A');} }>A</button>
+            <button onClick={ ()=> {handleClick('B');} }>B</button>
+            <button onClick={ ()=> {handleClick('C');} }>C</button>
+         </div>
       </div>
    );
 }

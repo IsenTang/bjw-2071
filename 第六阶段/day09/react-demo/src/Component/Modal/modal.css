@@ -1,0 +1,21 @@
+.modal{
+    position : fixed;
+    top :0;
+    z-index : 99;
+    display : flex;
+    align-items : center;
+    justify-content : center;
+    width : 100vw;
+    height : 100vh;
+    background-color : rgba(0, 0, 0, 0.5);
+}
+
+.modal-container{
+    display : flex;
+    flex-direction : column;
+    justify-content : center;
+    justify-items : center;
+    width : 200px;
+    height : 200px;
+    background-color : white;
+}
