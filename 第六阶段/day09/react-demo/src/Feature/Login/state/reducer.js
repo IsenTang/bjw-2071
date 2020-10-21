@@ -1,4 +1,4 @@
-import { USER_LOGIN, USER_LOGOUT } from '../ActionType';
+import { USER_LOGIN, USER_LOGOUT } from '../../../Redux/ActionType';
 
 const initialState = { isLogin: false,data:{ test: 123 } };
 

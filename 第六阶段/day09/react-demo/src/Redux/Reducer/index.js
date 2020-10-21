@@ -1,7 +1,10 @@
 import { combineReducers } from 'redux';
 
-import login from './login';
+/* global */
 import loading from './loading';
+
+/* page */
+import login from '../../Feature/Login/state/reducer';
 
 const rootReducer = combineReducers({
    login,

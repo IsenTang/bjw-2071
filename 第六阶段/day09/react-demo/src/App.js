@@ -15,7 +15,7 @@ function App () {
 
          return (
 
-            <PrivateRouter { ...item }/>
+            <PrivateRouter { ...item } key={ Math.random() }/>
          );
       });
    }

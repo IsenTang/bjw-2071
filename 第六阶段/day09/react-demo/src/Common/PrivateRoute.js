@@ -1,10 +1,10 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import { Route,Redirect } from 'react-router-dom';
 
 export default function PrivateRouter ({ component: Component , ...rest }) {
 
-   let user = localStorage.getItem('user');
+   //    let user = localStorage.getItem('user');
 
    let auth = true;
 
@@ -21,3 +21,7 @@ export default function PrivateRouter ({ component: Component , ...rest }) {
 
    );
 }
+
+PrivateRouter.propTypes = {
+   component: PropTypes.func
+};
