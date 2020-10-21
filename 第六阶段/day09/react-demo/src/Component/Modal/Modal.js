@@ -10,6 +10,7 @@ export default function Modal () {
    const modal = useSelector(state => state.modal);
 
    const dispatch = useDispatch();
+
    return (
 
       modal.isShow  ?

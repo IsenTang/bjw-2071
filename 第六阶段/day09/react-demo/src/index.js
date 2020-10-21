@@ -9,6 +9,7 @@ import {  configStore } from './Redux/Store/Store';
 
 /* components */
 import Modal from './Component/Modal/Modal';
+import Loading from './Component/Loading/Loading';
 
 const store = configStore();
 
@@ -17,6 +18,7 @@ ReactDOM.render(
       <Provider store={ store }>
          <App />
          <Modal/>
+         <Loading/>
       </Provider>
    </React.StrictMode>,
    document.getElementById('root')

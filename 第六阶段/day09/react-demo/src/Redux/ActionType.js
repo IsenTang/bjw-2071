@@ -11,3 +11,6 @@ export const HIDE_LOADING = 'HIDE_LOADING';
 export const SHOW_MODAL = 'SHOW_MODAL';
 
 export const HIDE_MODAL = 'HIDE_MODAL';
+
+/* menu */
+export const LOAD_SHOP = 'LOAD_SHOP';
