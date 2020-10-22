@@ -1,16 +1,25 @@
 import * as ActionType from '../../../Redux/ActionType';
 import { loadShopList } from '../../../Request/menu';
 
-export function loadShop (){
+export function loadShop (history){
 
    return async (dispatch)=>{
 
-      dispatch({ type: ActionType.SHOW_LOADING });
+      try {
+         dispatch({ type: ActionType.SHOW_LOADING });
 
-      const { list } = await loadShopList();
+         const { list } = await loadShopList();
 
-      dispatch({ type: ActionType.LOAD_SHOP, data: { list } });
+         dispatch({ type: ActionType.LOAD_SHOP, data: { list } });
 
-      dispatch({ type: ActionType.HIDE_LOADING });
+      } catch (error) {
+
+         dispatch({ type: ActionType.SHOW_MODAL,data:{ message: '出错了',func:()=>{
+            history.push('/login');
+         } } });
+      }finally{
+         dispatch({ type: ActionType.HIDE_LOADING });
+      }
+
    };
 }

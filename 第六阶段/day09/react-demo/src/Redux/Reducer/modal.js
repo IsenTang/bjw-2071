@@ -1,6 +1,7 @@
+import _ from 'lodash';
 import * as ActionType from '../ActionType';
 
-const initialState = { isShow: false,message:'' };
+const initialState = { isShow: false,message:'',func: ()=>{} };
 
 export default (state = initialState, payload) => {
 
@@ -10,7 +11,8 @@ export default (state = initialState, payload) => {
       return {
          ...state,
          isShow: true,
-         message: payload.data.message
+         message: payload.data.message,
+         func: payload.data.func
       };
    case ActionType.HIDE_MODAL:
 

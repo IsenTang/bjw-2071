@@ -90,8 +90,9 @@ export default async function request (options) {
       return data;
    } catch (error) {
 
-      throw new Error(error.message);
+      // console.log('error ==>'error);
+      // throw new Error(error.message);
       //   throw new CustomError(error);
-      //   throw error;
+
    }
 }

@@ -10,6 +10,7 @@ api.interceptors.request.use(
   request => {
     // 请求
     const user = JSON.parse(localStorage.getItem("user")) || {};
+    
     if (user&&user._id) {
       request.headers["user"] = user._id
     }
