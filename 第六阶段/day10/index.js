@@ -33,8 +33,8 @@ function test(){
     try{
         innerTest();
     }catch(e){
-
-        console.log( ' test error ');
+        
+        throw {test:1};
     }
 }
 
@@ -42,6 +42,8 @@ function main(){
     try {
         test();
     } catch (error) {
+
+        console.log(error);
         console.log(' in error ')
     }
     

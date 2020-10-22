@@ -14,9 +14,10 @@ export function loadShop (history){
 
       } catch (error) {
 
-         dispatch({ type: ActionType.SHOW_MODAL,data:{ message: '出错了',func:()=>{
+         dispatch({ type: ActionType.SHOW_MODAL,data:{ message: error.message,func:()=>{
             history.push('/login');
          } } });
+
       }finally{
          dispatch({ type: ActionType.HIDE_LOADING });
       }

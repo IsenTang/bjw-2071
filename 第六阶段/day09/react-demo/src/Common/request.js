@@ -1,8 +1,8 @@
 import axios from 'axios';
 import _ from 'lodash';
 import { parse,compile } from 'path-to-regexp';
-// import CustomError from './error';
-// import { get } from './utils';
+import CustomError from '../Common/CustomError';
+import { get, getStorage } from '../Common/utils';
 
 /* 30 sec timeout */
 axios.defaults.timeout = 30000;
@@ -15,11 +15,12 @@ const fetch = (options) => {
    let { url } = options;
    const { data = {}, headers = {}, method } = options;
 
-   //   const token = _.get(get('user'), 'token');
+   // const id = _.get(getStorage('user'), '_id');
+   const id = '5f85685c7cac8518b1099c1d';
 
-   //   if (token) {
-   //      headers.Authorization = `${token}`;
-   //   }
+   if (id) {
+      headers.user = `${id}`;
+   }
 
    headers['Content-Type'] = 'application/json';
 
@@ -92,7 +93,7 @@ export default async function request (options) {
 
       // console.log('error ==>'error);
       // throw new Error(error.message);
-      //   throw new CustomError(error);
+      throw new CustomError(error);
 
    }
 }
