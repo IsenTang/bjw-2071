@@ -1,0 +1,78 @@
+{
+    "login.error.name":"请输入正确的用户名，4到16位，字母，数字，下划线，减号。",
+    "login.error.password":"输入的密码不符合要求，至少6位，至少1个大写字母，1个小写字母，1个数字，1个特殊符号。",
+    "login.error.comfirmPassword":"两次输入的密码不一致，请重新输入。",
+    "login.username":"用户名",
+    "login.password":"密码",
+    "login.login":"登录",
+    "login.signUp":"注册",
+    "login.confirmPassword":"确认",
+    "login.signUpSuccess":"注册成功。",
+
+    "restaurant.allRestaurant":"所有餐馆",
+    
+    "menu":{
+      "no-matching-food":"没有匹配的食物",
+      "cartTitle":"选择加入购物车",
+      "place-order": "确认下单",
+      "total": "总价:",
+      "choose-payment": "选择支付方式",
+      "no-menu":"暂时没有菜单。"
+    },
+    "order":{
+      "title":"历史订单",
+      "more":"更多"
+    },
+
+    "logout":"登 出",
+    "close":"关闭",
+
+    "tags": {
+        "bbq": "烤串",
+        "hotpot": "火锅",
+        "hotpot_a": "火锅",
+        "mala_pot": "香锅",
+        "mala_soup": "麻辣烫",
+        "sichuan": "川菜",
+        "sichuan_a": "川菜",
+        "sichuan_b": "川菜",
+        "hunan": "湘菜",
+        "bento": "便当",
+        "noodle": "面类",
+        "shanghai": "上海菜",
+        "korean": "韩餐",
+        "sushi": "寿司",
+        "beijing": "北京菜",
+        "home": "家常菜",
+        "home_a": "家常菜",
+        "home_b": "家常菜",
+        "cafe": "奶茶",
+        "dongbei": "东北菜",
+        "thai": "泰国菜",
+        "vietnamese": "越南菜",
+        "crepe": "煎饼",
+        "dim_sum": "点心",
+        "seafood": "海鲜",
+        "seafood_a": "海鲜",
+        "cantonese": "粤菜",
+        "taiwanese": "台湾菜",
+        "dessert": "甜点",
+        "teppanyaki": "铁板烧",
+        "casserole_rice": "煲仔饭",
+        "take_food": "冒菜",
+        "siu_mei": "烧腊",
+        "braised_dishes": "卤味",
+        "snack": "小吃",
+        "hongkong_cafe": "茶餐厅",
+        "asian_fusion": "创新菜",
+        "fujian": "福建菜",
+        "wonton": "馄饨",
+        "congee": "粥",
+        "ramen":"拉面"
+      },
+      "error":{
+        "need-login":"您需要先登录。",
+        "user-duplicate":"用户名重复。",
+        "auth-failed":"请重新登录。"
+      }
+}
