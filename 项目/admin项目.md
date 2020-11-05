@@ -2,7 +2,7 @@
 
 react使用antd-design，vue使用element-ui
 
-# 餐馆：
+### 餐馆：
 
 1. 前端分页，从数据库获取所有餐馆，在前端进行分页
 
@@ -313,5 +313,60 @@ react使用antd-design，vue使用element-ui
 
 
 
+### order：
 
+使用echart完成，业内专用的图表展示。
 
+文档为：
+
+react：https://github.com/hustcc/echarts-for-react
+
+vue：https://github.com/ecomfe/vue-echarts
+
+echart官网与配置：https://echarts.apache.org/zh/index.html
+
+​								https://echarts.apache.org/zh/option.html#title
+
+echart例子：https://echarts.apache.org/examples/zh/index.html
+
+建议配合baidu，google搜索使用。
+
+1. 发送时间间隔请求，获取相对应的数据，展示在页面上
+
+   ```json
+   {
+     'url':`/order?start=${start}&end=${end}`,
+     'method':'get',
+   	'response':[
+       {...order}
+     ] 
+   }
+   ```
+
+2. 第一个是订单量，如项目所示，根据选择的时间间隔来进行渲染
+
+3. 第二个是订单人群，饼图，根据人名进行分类。
+
+### auth：
+
+如项目所示，登录时候输入相对应的username，然后跳转到admin页面
+
+1. admin权限，拥有所有权限
+2. employee，拥有查看的权限，但是所有操作不能使用
+3. visitor，只能查看menu和restaurant，没有进入order的权限（看不到order的menu，以及url输入order路由，会跳转到restaurant页面）
+
+登录后，url输入login路由，直接跳转到restaurant页面
+
+```json
+{
+  'url':`/admin/login`,
+  'method':'post',
+  'data':{
+    username:'',
+    password:''
+  }
+	'response':{ role :'xxxx'}
+}
+```
+
+请求发送后，会返回一个`{ role : 'xxx'}`根据此role来进行页面的渲染与跳转。
