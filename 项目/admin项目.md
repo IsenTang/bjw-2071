@@ -335,13 +335,15 @@ echart例子：https://echarts.apache.org/examples/zh/index.html
 
    ```json
    {
-     'url':`/order?start=${start}&end=${end}`,
+     'url':`/order?start=${start}&end=${end}`,  
      'method':'get',
    	'response':[
        {...order}
      ] 
    }
    ```
+
+   start 与 end 是iso string的形式，start=2020-10-29T08:28:34.125Z&end=2020-11-05T08:28:34.125Z
 
 2. 第一个是订单量，如项目所示，根据选择的时间间隔来进行渲染
 
