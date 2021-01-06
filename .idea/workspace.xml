@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f6c7b38d-ece9-4e71-8bba-254efcfec178" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/复习/知识点（基础）：.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/复习/知识点（框架）.md" beforeDir="false" afterPath="$PROJECT_DIR$/复习/知识点（框架）.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/第二阶段/day02/作业/题目答案.md" beforeDir="false" afterPath="$PROJECT_DIR$/第二阶段/day02/作业/题目答案.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/第二阶段/day03/作业/题目.md" beforeDir="false" afterPath="$PROJECT_DIR$/第二阶段/day03/作业/题目.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1mgbPDf03u49F0Ppx75FCeaEbtT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f6c7b38d-ece9-4e71-8bba-254efcfec178" name="Default Changelist" comment="" />
+      <created>1609918156476</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1609918156476</updated>
+      <workItem from="1609918158092" duration="3000" />
+    </task>
+    <servers />
+  </component>
+</project>
