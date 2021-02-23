@@ -1,9 +1,13 @@
 <template>
   <div class="about">
-    <p v-for="(item, index) in list" :key="item.id">
+    <p v-for="item in list">
+      <span>{{ item.name }}</span>
+      <!-- <input type="text" v-model="item.value"> -->
+    </p>
+    <!-- <p v-for="(item, index) in list" :key="item.id">
       <span @click="remove(index)">{{ item.name }}</span>
       <input type="text" v-model="item.value">
-    </p>
+    </p> -->
   </div>
 </template>
 
@@ -22,9 +26,9 @@ export default {
     }
   },
   mounted() {
-    // setTimeout(()=>{
-    //   this.list.splice(2, 0, {name: 'F', id: 6});
-    // }, 2000)
+    setTimeout(()=>{
+      this.list.splice(2, 0, {name: 'F', id: 6});
+    }, 2000)
   },
   methods: {
     remove(index) {

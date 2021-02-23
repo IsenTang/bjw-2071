@@ -29,36 +29,43 @@
             left: 30px;
             top: 10px;
         }
+        .aa {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
 
-    <div id="app"></div>
+    <div id="app">
+        <div>
+            <div class="student-score" :style="{backgroundColor: '#f3f3f3'}">
+                <h2 v-for="objTitle in titleList">{{ objTitle }}</h2>
+            </div>
+            <div v-for="(item, index) in list" class="student-score" :style="{ backgroundColor: index%2==1? '#f3f3f3' : '#ffffff'}">
+                <img v-if="index===0" src="./第一名.jpg" />
+                <img v-if="index===1" src="./第二名.jpeg" />
+                <img v-if="index===2" src="./第三名.jpeg" />
+                <h2>{{ item.name }}</h2>
+                <div class="aa" v-for="obj in item.score">
+                    <h2 >{{ obj.math }}</h2>
+                    <h2 >{{ obj.chinese }}</h2>
+                    <h2 >{{ obj.english }}</h2>
+                    <h2 >{{ obj.geography }}</h2>
+                    <h2 >{{ obj.history }}</h2>
+                </div>
+                <h2>{{ item.allCount }}</h2>
+            </div>
+        </div>
+    </div>
     
     <script>
         var vm = new Vue({
             el: "#app",
-            template: `
-                <div>
-                    <div class="student-score" :style="{backgroundColor: '#f3f3f3'}">
-                        <h2 v-for="objTitle in titleList">{{ objTitle }}</h2>
-                    </div>
-                    <div v-for="(item, index) in list" class="student-score" :style="{ backgroundColor: index%2==1? '#f3f3f3' : '#ffffff'}">
-                        <img v-if="index===0" src="./第一名.jpg" />
-                        <img v-if="index===1" src="./第二名.jpeg" />
-                        <img v-if="index===2" src="./第三名.jpeg" />
-                        <h2>{{ item.name }}</h2>
-                        <template v-for="obj in item.score">
-                            <h2 >{{ obj.math }}</h2>
-                            <h2 >{{ obj.chinese }}</h2>
-                            <h2 >{{ obj.english }}</h2>
-                            <h2 >{{ obj.geography }}</h2>
-                            <h2 >{{ obj.history }}</h2>
-                        </template>
-                        <h2>{{ item.allCount }}</h2>
-                    </div>
-                </div>
-            `,
+            // template: `
+                
+            // `,
             data () {
                 return {
                     titleList: ['姓名', '数学', '语文', '英语', '地理', '历史', '总分'],

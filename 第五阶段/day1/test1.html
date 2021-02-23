@@ -16,7 +16,7 @@
 </head>
 <body>
     <div id="app">
-        <input type="text" v-model="sex" @change='change'>
+        <input type="text" v-model="sex">
         <div v-if="!sex || (sex!=='男' && sex!=='女')"> 
             请输入您的性别
         </div>
@@ -38,9 +38,10 @@
                 womanEnter: '女生入口'
             },
             methods:{
-                change(){
-                    this.sex = '...'
-                }
+                // change(e){
+                //     console.log('e', e.target.value)
+                //     this.sex = ''
+                // }
             }
         })
 
